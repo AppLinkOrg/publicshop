@@ -1,6 +1,13 @@
 {
     "pages": [
         "pages/home/home",
+        "pages/activedetail/activedetail",
+        "pages/find/find",
+        "pages/finddetail/finddetail",
+        "pages/mycenter/mycenter",
+        "pages/myinfo/myinfo",
+        "pages/address/address",
+        "pages/addressadd/addressadd",
         "pages/auth/auth"
     ],
     "permission": {
@@ -13,6 +20,31 @@
         "enablePullDownRefresh": true,
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#B2B2B2",
+        "selectedColor": "#000000",
+        "backgroundColor": "#FFFFFF",
+        "backgroundstyle": "#000000",
+        "list": [
+            {
+                "text": "商城",
+                "pagePath": "pages/home/home",
+                "iconPath": "images/icons/sc2.png",
+                "selectedIconPath": "images/icons/sc.png"
+            },{
+                "text": "发现",
+                "pagePath": "pages/find/find",
+                "iconPath": "images/icons/fx.png",
+                "selectedIconPath": "images/icons/fx2.png"
+            },{
+                "text": "我的",
+                "pagePath": "pages/mycenter/mycenter",
+                "iconPath": "images/icons/my.png",
+                "selectedIconPath": "images/icons/my2.png"
+            }
+        ]
+
     },
     "sitemapLocation": "sitemap.json"
 }

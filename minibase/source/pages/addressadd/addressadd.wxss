@@ -1,0 +1,4 @@
+
+.wx-switch-input::before{
+    background: #ccc !important;
+}  

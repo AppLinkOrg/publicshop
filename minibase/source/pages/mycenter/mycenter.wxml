@@ -1,0 +1,131 @@
+<view class="bg-4 min-h100">
+
+<image mode="widthFix"  class=" w-100 h-440  position-absolute " style="top: 0;left:0;z-index: -1;" src='{{uploadpath}}resource/{{res.mybg}}'></image> 
+
+<view class='cu-custom '>
+	<view class="cu-bar  " style="height:{{CustomBar}}rpx;padding-top:{{StatusBar}}px;">
+	
+		<view class='content text-center flex-row flex-center ' style='top:{{StatusBar}}px;height: 100%;'>
+<view class="flex-1"></view>
+<view class="txt-2 txt-bold f-32">我的</view>
+<view class="flex-1"></view>
+     
+        
+        </view>
+	</view>
+</view>
+
+
+<view class="margin-top-60 flex-row flex-center padding-left-30 padding-right-30">
+    <image mode="widthFix"  class=" icon-50  "  src='{{uploadpath}}resource/{{res.touxian}}'></image> 
+    <view class="margin-left-20">
+    <view class="f-32 txt-bold txt-2">用户昵称</view>
+    <view class="h6 txt-1">登陆享受更精彩服务</view>
+    
+    </view>
+    <view class="flex-1"></view>
+    <view class="h-52 padding-left-15 padding-right-15 bd-3 txt-3 h7  radius-26 flex-row flex-center">登陆/注册</view>
+</view>
+
+<view class="margin-top-60 padding-left-30 padding-right-30 "  >
+    <swiper indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF"  class="h-160"	indicator-active-color="#DF001F" autoplay="{{autoplay}}">
+<block  wx:for="{{myposterlist}}" wx:key="{{index}}">
+<swiper-item>
+    <image mode="widthFix"  class=" w-100  h-160"  src='{{uploadpath}}myposter/{{item.img}}'></image> 
+
+</swiper-item>
+</block>
+</swiper>
+</view>
+
+<!--我的订单  -->
+<view class="padding-left-30 padding-right-30  margin-top-20">
+<view class="margin-top-20 radius-20 bg-white h-230">
+<view class="flex-row flex-center padding-top-30">
+<view class="txt-2 h5 txt-bold padding-left-30 ">我的订单</view>
+<view class="flex-1"></view>
+<view class="h7 txt-1 ">全部订单</view>
+<image mode="widthFix "  class=" icon-8  margin-left-5"  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
+<view class="padding-left-15"></view>
+</view>
+
+<view class="flex-row flex-center margin-top-36">
+<view class="flex-1  ">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.daifu}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">待付款</view>
+</view>
+<view class="flex-1">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.c1}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">待发货</view>
+</view>
+<view class="flex-1">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.c2}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">待收货</view>
+</view>
+<view class="flex-1">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.c3}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">退款/售后</view>
+</view>
+</view>
+
+</view>
+</view>
+
+<!--更多服务  -->
+<view class="padding-left-30 padding-right-30  margin-top-20">
+<view class="margin-top-20 radius-20 bg-white h-230">
+<view class="flex-row flex-center padding-top-30">
+<view class="txt-2 h5 txt-bold padding-left-30 ">更多服务</view>
+
+</view>
+
+<view class="flex-row flex-center margin-top-36">
+<view class="flex-1  "  bindtap="navtoPage" data-page="address">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a1}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">收货地址</view>
+</view>
+<view class="flex-1">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a3}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">帮助中心</view>
+</view>
+<view class="flex-1">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a2}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">关于我们</view>
+</view>
+<view class="flex-1">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a4}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">我的活动</view>
+</view>
+</view>
+
+</view>
+</view>
+
+
+<!--  -->
+<image mode="widthFix "  class="w-100  h-23 margin-top margin-bottom-30"  src='{{uploadpath}}resource/{{res.	tubiao}}'></image>
+
+<!--  -->
+<view class="flex-row padding-left-30 padding-right-30 " style="flex-wrap:wrap;justify-content:space-between">
+<view class="bg-white my-radius bd-show1  w-330 margin-bottom-30">
+    <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}resource/{{res.a4}}'></image>
+    <view class="padding-left-20 padding-right-20">
+    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow ">小米有品amiro化妆镜L ED日ED日光镜网红美妆镜ED日光镜网红美妆镜光镜网红美妆镜</view>
+    <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
+    <view class="txt-3 f-36 txt-bold">¥2999</view>
+    <view class="margin-left-20 txt-1 txt-1 h6 ">¥3999</view>
+    </view>
+    </view>
+</view>
+
+
+</view>
+
+
+<view class="h-23"></view>
+
+
+
+
+</view>
+

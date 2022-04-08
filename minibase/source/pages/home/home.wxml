@@ -1,1 +1,38 @@
-home
+<view class='cu-custom fixed'>
+	<view class="cu-bar  " style="height:{{CustomBar}}rpx;padding-top:{{StatusBar}}px;">
+	
+		<view class='content flex-row flex-center' style='top:{{StatusBar}}px;height: 100%;'>
+        <view class="flex-1"></view>
+
+            <view class="h-55 w-240 radius-30 bg-1 flex-row flex-center">
+        <image class="icon-12 margin-left"   src='{{uploadpath}}resource/{{res.search}}'></image>
+        <input  placeholder="搜索您需要的商品" class="h7 txt-white padding-left-10"  placeholder-class="txt-white"/>
+    </view>
+    <view class="flex-1"></view>
+        
+        </view>
+	</view>
+</view>
+
+
+
+
+<swiper class="h-920"  indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF" 	indicator-active-color="#DF001F" autoplay="{{autoplay}}">
+<block  wx:for="{{indexbanner}}" wx:key="{{item.id}}" >
+<swiper-item    >
+    <image mode="widthFix"  class=" w-100 h-920" src='{{uploadpath}}indexbanner/{{item.img}}'></image> 
+</swiper-item>
+
+</block>
+
+</swiper>
+
+
+
+<!-- 活动专区 -->
+
+
+
+
+
+

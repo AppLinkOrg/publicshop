@@ -1,0 +1,60 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/activedetail/activedetail",
+                    "pathName": "pages/activedetail/activedetail",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/find/find",
+                    "pathName": "pages/find/find",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/finddetail/finddetail",
+                    "pathName": "pages/finddetail/finddetail",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mycenter/mycenter",
+                    "pathName": "pages/mycenter/mycenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/myinfo/myinfo",
+                    "pathName": "pages/myinfo/myinfo",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/address/address",
+                    "pathName": "pages/address/address",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/addressadd/addressadd",
+                    "pathName": "pages/addressadd/addressadd",
+                    "query": "undefined=undefined",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

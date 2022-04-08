@@ -1,0 +1,106 @@
+<view class="flex-row  flex-center h-80">
+    <view class="flex-1"></view>
+    <view wx:for="{{titlelist}}" wx:key="{{index}}" class="{{index+1==titlelist.length?'':'margin-right-80'}} position-relative h-80" bindtap="xz" id="{{index}}">
+        <view class=" h5 line-height-80 {{select==index?'txt-3':'txt-1'}}">
+            {{item.name}}
+        </view>
+        <view class="position-absolute w-100" style="bottom: 0; left:0" wx:if="{{select==index}}">
+            <view class="bg-2 w-40 h-4 margin-auto "></view>
+        </view>
+    </view>
+    <view class="flex-1"></view>
+</view>
+
+<!-- 干货 -->
+<view class="padding-30 " wx:if="{{select==0}}">
+    <swiper indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF" indicator-active-color="#DF001F" autoplay="{{autoplay}}">
+        <block wx:for="{{lunbolist}}" wx:key="{{index}}">
+            <swiper-item>
+                <image mode="widthFix" class=" w-100 h-420" src='{{uploadpath}}lunbo/{{item.img}}'></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class="f-32 txt-bold padding-top-30 padding-bottom-30 txt-2">精选推荐</view>
+
+    <view class="flex-row  padding-bottom-30 bd-1  margin-bottom-30" wx:for="{{consultlist}}" wx:key="{{index}}"  bindtap="ghxq" id="{{item.id}}"  >
+        <image mode="widthFix" class="w-300 h-200"  style="flex:none" src='{{uploadpath}}consult/{{item.cover}}'></image>
+        <view class="margin-left-20 flex-1">
+        <view class="flex-row flex-column  h-100"  >
+            <view class="txt-bold f-32 txt-2  text-overflow txt-line-clamp-2 w-100"  >{{item.name}}</view>
+        <view class=" flex-row w-100"  style="flex-wrap: wrap;">
+        <view class="margin-top-20 h7 txt-4 padding-left-12 padding-right-12 h-36 line-height-36  bg-3 radius-8 margin-right-10 " wx:for="{{item.bqlist}}"  wx:for-item="items" wx:for-index="indexs" wx:key="{{indexs}}" >{{items}}</view>
+        </view>
+        <view class="flex-1"></view>
+        <view class="flex-row flex-center w-100">
+            <image mode="widthFix" class="icon-14"  src='{{uploadpath}}resource/{{res.	sj}}'></image>
+            <view class="txt-1 h6  padding-left-10 ">{{item.shuju}}</view>
+            <view class="flex-1"></view>
+            <image mode="widthFix" class="icon-14"  src='{{uploadpath}}resource/{{res.	eye}}'></image>
+            <view class="txt-1 h6  padding-left-10">{{item.audience}}</view>
+        </view>
+        
+        </view>
+       
+       
+
+        
+        
+        </view>
+    
+    </view>
+
+
+
+</view>
+
+
+<!-- 活动 -->
+<view class="padding-30" wx:if="{{select==1}}">
+    <view wx:for="{{activelist}}" wx:key="{{index}}" class="margin-bottom-20" bindtap="xq" id="{{item.id}}">
+        <image mode="widthFix" class=" w-100 h-240" src='{{uploadpath}}active/{{item.cover}}'></image>
+    </view>
+</view>
+
+<!-- 案例列表 -->
+<view class="padding-30 " wx:if="{{select==2}}">
+    <swiper indicator-dots="{{autoplay2}}" indicator-color=" #FFFFFF" indicator-active-color="#DF001F" autoplay="{{autoplay2}}">
+        <block wx:for="{{caselunbolist}}" wx:key="{{index}}">
+            <swiper-item>
+                <image mode="widthFix" class=" w-100 h-420" src='{{uploadpath}}lunbo/{{item.img}}'></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class="f-32 txt-bold padding-top-30 padding-bottom-30 txt-2">精选推荐</view>
+
+    <view class="flex-row  padding-bottom-30 bd-1  margin-bottom-30" wx:for="{{caselist}}" wx:key="{{index}}"  bindtap="ghxq2" id="{{item.id}}"  >
+        <image mode="widthFix" class="w-300 h-200"  style="flex:none" src='{{uploadpath}}consult/{{item.cover}}'></image>
+        <view class="margin-left-20 flex-1">
+        <view class="flex-row flex-column  h-100"  >
+            <view class="txt-bold f-32 txt-2  text-overflow txt-line-clamp-2 w-100"  >{{item.name}}</view>
+        <view class=" flex-row w-100"  style="flex-wrap: wrap;">
+        <view class="margin-top-20 h7 txt-4 padding-left-12 padding-right-12 h-36 line-height-36  bg-3 radius-8 margin-right-10 " wx:for="{{item.bqlist}}"  wx:for-item="items" wx:for-index="indexs" wx:key="{{indexs}}" >{{items}}</view>
+        </view>
+        <view class="flex-1"></view>
+        <view class="flex-row flex-center w-100">
+            <image mode="widthFix" class="icon-14"  src='{{uploadpath}}resource/{{res.sj}}'></image>
+            <view class="txt-1 h6  padding-left-10 ">{{item.shuju}}</view>
+            <view class="flex-1"></view>
+            <image mode="widthFix" class="icon-14"  src='{{uploadpath}}resource/{{res.	eye}}'></image>
+            <view class="txt-1 h6  padding-left-10">{{item.audience}}</view>
+        </view>
+        
+        </view>
+       
+       
+
+        
+        
+        </view>
+    
+    </view>
+
+
+
+</view>

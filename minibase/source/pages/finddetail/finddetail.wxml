@@ -1,0 +1,17 @@
+<view class="padding-30">
+<view class="txt-bold f-36 txt-2 ">{{consultdetail.name}}</view>
+<view class="flex-row margin-top-20">
+<view class="txt-1 f-22 ">{{consultdetail.writer}}</view>
+<view class="margin-left-20 txt-1 f-22">{{consultdetail.publish_time_formatting}}</view>
+
+
+
+</view>
+
+<view class="margin-top-60">
+    <import src="../../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>
+
+
+</view>

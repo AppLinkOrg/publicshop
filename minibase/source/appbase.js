@@ -197,7 +197,12 @@ export class AppBase {
     });
 
     ApiConfig.SetUnicode(this.Base.unicode);
-
+    
+    this.Base.setMyData({
+      StatusBar: getApp().globalData.StatusBar,
+      CustomBar: getApp().globalData.CustomBar,
+      Custom: getApp().globalData.Custom,
+    });
 
 
 
@@ -271,10 +276,10 @@ export class AppBase {
           // getUserInfo
           // getUserProfile
           wx.getUserInfo({
-            desc: '用于完善会员资料',
+          
             success: userres => {
               AppBase.UserInfo = userres.userInfo;
-              console.log(userres);
+              console.log(userres,'userres');
 
               var memberapi = new MemberApi();
               memberapi.getuserinfo({
@@ -321,15 +326,19 @@ export class AppBase {
                 console.log("goto update info");
 
                 that.onMyShow();
-                // memberapi.update(AppBase.UserInfo, () => {
-                //   if (this.Base.needauth == true) {
-                //     // wx.redirectTo({
-                //     //   url: '/pages/auth/auth',
-                //     // })
-                //   } else {
-                //     that.onMyShow();
-                //   }
-                // });
+                memberapi.update(AppBase.UserInfo, () => {
+                  that.Base.setMyData({
+                    UserInfo: AppBase.UserInfo
+                  });
+                  that.checkPermission();
+                  // if (this.Base.needauth == true) {
+                  //   // wx.redirectTo({
+                  //   //   url: '/pages/auth/auth',
+                  //   // })
+                  // } else {
+                  //   that.onMyShow();
+                  // }
+                });
 
 
               });

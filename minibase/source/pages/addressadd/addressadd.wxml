@@ -1,0 +1,68 @@
+
+
+<view class="bg-4 min-h100">
+   
+<view class="bg-white">
+    <view class="padding-30 flex-row flex-center bd-1">
+<view class="txt-2 h5  w-170">收货人</view>
+<input placeholder="请填写收货人姓名" class="txt-2 h5  "  type="text"  model:value="{{name}}"  />
+<view class="flex-1"></view>
+</view>
+
+<view class="padding-30 flex-row flex-center bd-1">
+<view class="txt-2 h5  w-170">手机号</view>
+<input placeholder="请填写收货人手机号" class="txt-2 h5  "  type="number"  model:value="{{mobile}}"  />
+<view class="flex-1"></view>
+</view>
+
+
+<picker mode="region"  bindchange="changeares">
+   <view class="padding-30 flex-row flex-center bd-1">
+<view class="txt-2 h5  w-170">收货地址</view>
+
+    <input placeholder="省，市，区，街道" class="txt-2 h5  "   model:value="{{address}}"  disabled="disabled" />
+
+<view class="flex-1"></view>
+
+
+<image mode="widthFix "  class=" icon-12 "  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
+</view> 
+</picker>
+
+
+<view class="padding-30 flex-row flex-center bd-1">
+<view class="txt-2 h5  w-170">详细地址</view>
+<input placeholder="例如：xx小区5栋302号" class="txt-2 h5  "   model:value="{{detailed}}"  />
+<view class="flex-1"></view>
+</view>
+
+<view class="padding-30 flex-row flex-center bd-1">
+<view class="txt-2 h5  w-170">设为默认地址{{type=='A'}}</view>
+
+<view class="flex-1"></view>
+<switch color="#DF001F "  bindchange="qiehuan" checked="{{more}}"></switch>
+</view>
+
+
+
+</view>
+</view>
+
+
+
+
+
+<!-- 添加收货地址 -->
+<view class="position-fixed w-100 " style="bottom:0;left:0">
+<view class="margin-left-130 margin-right-130 margin-bottom-20 h-80 line-height-80 txt-white h6 txt-bold text-center bg-2 radius-40" bindtap="baocun"
+ wx:if="{{type=='A'}}" >
+    保存
+</view>
+
+<view class="flex-row padding-left-30 padding-right-30 margin-bottom-20  " wx:else>
+    <view class="h-80 flex-1 line-height-80 bd-3  radius-40 text-center txt-3 h6 txt-bold" bindtap="shanchu">删除地址</view>
+    <view class="margin-left-30"></view>
+    <view class="h-80 flex-1 line-height-80 bg-2  radius-40 text-center txt-white h6  txt-bold" bindtap="baocun">保存</view>
+</view>
+
+</view>

@@ -1,15 +1,15 @@
 /*******使用方法，下面两句复制到page的js文件的头部
 
 import { ApiConfig } from '../../apis/apiconfig';
-import { InstApi } from '../../apis/wechat.api';
+import { InstApi } from '../../apis/consult.api';
 
-var wechatApi=new WechatApi();
+var consultApi=new ConsultApi();
 *******/
 import { ApiConfig } from 'apiconfig';
-export class WechatApi{
+export class ConsultApi{
 
 
-    decrypteddata(json, callback, showLoading = true) {
+    consultdetail(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class WechatApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'wechat/decrypteddata',
+            url: ApiConfig.GetApiUrl() + 'consult/consultdetail',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class WechatApi{
         })
     }
 
-    prepay(json, callback, showLoading = true) {
+    consultlist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class WechatApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'wechat/prepay',
+            url: ApiConfig.GetApiUrl() + 'consult/consultlist',
             data: json,
             method: 'POST',
             dataType: 'json',
