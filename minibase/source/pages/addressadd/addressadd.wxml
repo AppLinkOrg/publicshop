@@ -37,7 +37,7 @@
 </view>
 
 <view class="padding-30 flex-row flex-center bd-1">
-<view class="txt-2 h5  w-170">设为默认地址{{type=='A'}}</view>
+<view class="txt-2 h5  w-170">设为默认地址</view>
 
 <view class="flex-1"></view>
 <switch color="#DF001F "  bindchange="qiehuan" checked="{{more}}"></switch>

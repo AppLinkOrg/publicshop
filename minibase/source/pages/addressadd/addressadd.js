@@ -13,9 +13,17 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    wx.setNavigationBarTitle({
-      title: '添加收货地址',
-    })
+    if (this.Base.options.id==undefined) {
+        wx.setNavigationBarTitle({
+            title: '添加收货地址',
+          })
+    }else{
+        wx.setNavigationBarTitle({
+            title: '编辑收货地址',
+          })
+
+    }
+    
     this.Base.setMyData({
         more:false,name:'',mobile:'',address:'',detailed:'',type:'A',addresdetail:null,
     })

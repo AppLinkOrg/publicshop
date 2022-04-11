@@ -1,0 +1,32 @@
+<!-- <view class="flex-row flex-center  h-100rpx">
+<view class="flex-1 text-center txt-3 h5 "  wx:for="{{list}}"  wx:key="{{item.id}}">
+{{item.name}}
+</view>
+
+</view> -->
+
+
+<view class="bg-4 min-h100">
+
+<view class="flex-row  flex-center h-100rpx  bg-white">
+ 
+    <view wx:for="{{list}}" wx:key="{{index}}" class=" position-relative h-100rpx  flex-1" bindtap="xz" id="{{index}}">
+        <view class=" h5 line-height-100 {{select==index?'txt-3':'txt-1'}} text-center">
+            {{item.name}}
+        </view>
+        <view class="position-absolute w-100" style="bottom: 0; left:0" wx:if="{{select==index}}">
+            <view class="bg-2 w-40 h-4 margin-auto "></view>
+        </view>
+    </view>
+
+</view>
+
+
+<view >
+        <view class="h-200"></view>
+        <image src='{{uploadpath}}resource/{{res.kong}}' class="kong display-block margin-auto "></image>
+    </view>
+
+
+
+</view>

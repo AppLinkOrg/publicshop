@@ -158,6 +158,8 @@ export class AppBase {
       preventTouchMove:base.preventTouchMove,
       ketai:base.ketai,
       ketai1:base.ketai1,
+
+      tiaozhuan:base.tiaozhuan,
     }
   }
   log() {
@@ -297,14 +299,14 @@ export class AppBase {
 
 
                 that.onMyShow();
-                // memberapi.update(AppBase.UserInfo, () => {
-                //   console.log(AppBase.UserInfo);
-                //   that.Base.setMyData({
-                //     UserInfo: AppBase.UserInfo
-                //   });
-                //   that.checkPermission();
-                // });
-                that.checkPermission();
+                memberapi.update(AppBase.UserInfo, () => {
+                  console.log(AppBase.UserInfo);
+                  that.Base.setMyData({
+                    UserInfo: AppBase.UserInfo
+                  });
+                  that.checkPermission();
+                });
+                // that.checkPermission();
                 //that.Base.getAddress();
               });
             },
@@ -1131,6 +1133,7 @@ export class AppBase {
         AppBase.UserInfo.openid = openid;
         AppBase.UserInfo.session_key = session_key;
         console.log("loginres4", userres);
+        AppBase.UserInfo.warrant = 'Y';
         
         console.log(this.Base.getMyData().memberinfo, '11');
         var memberinfo = this.Base.getMyData().memberinfo;
@@ -1330,6 +1333,39 @@ export class AppBase {
     wx.navigateTo({
       url: '/pages/gueststate/gueststate?id='+id,
     })
+
+  }
+
+  tiaozhuan(e){
+    var url2 = e.currentTarget.dataset['url']
+    console.log(url2,'urloooo');
+    // wx.navigateTo({
+    //   url: '/pages/address/address',
+    // })
+    // return
+    if (url2.indexOf('pages')==-1) {
+      // 没找到
+      wx.navigateTo({
+        url: '/pages/webview/webview?url='+url2,
+      })
+      
+    }else{
+      // 找到
+      console.log(url2,'urliii');
+      if (url2.indexOf('mycenter')==-1 ||  url2.indexOf('find')==-1 ||  url2.indexOf('home')==-1 ) {
+        wx.switchTab({
+          url: '/'+url2
+        })
+      }else{
+        wx.navigateTo({
+          url:'/'+url2
+        })
+        
+      }
+     
+
+    }
+
   }
 
 

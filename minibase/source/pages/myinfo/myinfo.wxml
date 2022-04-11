@@ -4,30 +4,35 @@
     <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">头像</view>
 <view class="flex-1"></view>
-<image mode="widthFix"  class=" icon-40 margin-right-30 "  src='{{uploadpath}}resource/{{res.touxian}}'></image> 
+<image mode="widthFix"  class=" icon-40 margin-right-30  radius-50 "  src='{{memberinfo.avatarUrl}}' wx:if="{{memberinfo.warrant_value=='Y'}}"></image> 
+<image mode="widthFix"  class=" icon-40 margin-right-30 "  src='{{uploadpath}}resource/{{res.touxian}}'  wx:else></image> 
+
+
+
 </view>
 <view class="padding-30 flex-row flex-center bd-1">
-<view class="txt-2 h5 ">姓名</view>
+<view class="txt-2 h5 ">昵称</view>
 <view class="flex-1"></view>
-<input placeholder="哇咔咔" class="txt-2 h5 margin-right-30  text-right"   />
+<input placeholder="" class="txt-2 h5 margin-right-30  text-right"  model:value="{{memberinfo.nickName}}"  />
 </view>
 <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">性别</view>
 <view class="flex-1"></view>
-<input placeholder="哇咔咔" class="txt-2 h5  text-right"   />
+<input placeholder="" class="txt-2 h5  text-right"  model:value="{{memberinfo.gender_name}}  "  />
 <image mode="widthFix "  class=" icon-12  margin-left-5"  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
 </view>
 
-<view class="padding-30 flex-row flex-center bd-1">
+<!-- <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">生日</view>
 <view class="flex-1"></view>
 <input placeholder="1999-02-28" class="txt-2 h5   text-right"   />
 <image mode="widthFix "  class=" icon-12  margin-left-5"  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
-</view>
+</view> -->
+
 <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">手机</view>
 <view class="flex-1"></view>
-<input placeholder="18712232341" class="txt-2 h5 margin-right-30  text-right"   />
+<input placeholder="" class="txt-2 h5 margin-right-30  text-right"  model:value="{{memberinfo.mobile}}"  />
 </view>
 
 </view>

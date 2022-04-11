@@ -53,6 +53,18 @@
                     "pathName": "pages/addressadd/addressadd",
                     "query": "undefined=undefined",
                     "scene": null
+                },
+                {
+                    "name": "pages/order/order",
+                    "pathName": "pages/order/order",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/helpcenter/helpcenter",
+                    "pathName": "pages/helpcenter/helpcenter",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

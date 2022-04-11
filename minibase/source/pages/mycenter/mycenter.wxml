@@ -17,14 +17,29 @@
 
 
 <view class="margin-top-60 flex-row flex-center padding-left-30 padding-right-30">
-    <image mode="widthFix"  class=" icon-50  "  src='{{uploadpath}}resource/{{res.touxian}}'></image> 
+    <image mode="widthFix"  class=" icon-50  radius-50 "  src='{{memberinfo.avatarUrl}}' wx:if="{{memberinfo.warrant_value=='Y'}}"></image> 
+    <image mode="widthFix"  class=" icon-50  radius-50"  src='{{uploadpath}}resource/{{res.touxian}}'   wx:else></image> 
     <view class="margin-left-20">
-    <view class="f-32 txt-bold txt-2">用户昵称</view>
-    <view class="h6 txt-1">登陆享受更精彩服务</view>
-    
+        <view class="f-32 txt-bold txt-2"  wx:if="{{memberinfo.warrant_value=='Y'}}">{{memberinfo.nickName}}</view>
+    <view class="f-32 txt-bold txt-2"  wx:else>用户昵称</view>
+    <view class="h6 txt-1" >{{memberinfo.warrant_value=='Y'? memberinfo.mobile:'登陆享受更精彩服务'}}</view>
     </view>
     <view class="flex-1"></view>
+
+<button class="clear-button" open-type="getUserInfo"  bindtap="getUserInfo"  wx:if="{{memberinfo.warrant_value!='Y'}}">
     <view class="h-52 padding-left-15 padding-right-15 bd-3 txt-3 h7  radius-26 flex-row flex-center">登陆/注册</view>
+</button>
+
+<button class="clear-button" open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNo"  wx:if="{{memberinfo.warrant_value=='Y'&& memberinfo.sqphone_value!='Y'}}">
+    <view class="h-52 padding-left-15 padding-right-15 bd-3 txt-3 h7  radius-26 flex-row flex-center">登陆/注册</view>
+</button>
+
+
+<view class="h-52 padding-left-15 padding-right-15 bd-3  radius-26 flex-row flex-center"  wx:if="{{memberinfo.warrant_value=='Y'&& memberinfo.sqphone_value=='Y'}}"  bindtap="navtoPage"  data-page="myinfo">
+<image class="icon-16" src="{{uploadpath}}resource/{{res.cl}}"></image>
+<view class="margin-left-5 txt-3 h7 ">设置</view>
+</view>
+
 </view>
 
 <view class="margin-top-60 padding-left-30 padding-right-30 "  >
@@ -44,9 +59,11 @@
 <view class="flex-row flex-center padding-top-30">
 <view class="txt-2 h5 txt-bold padding-left-30 ">我的订单</view>
 <view class="flex-1"></view>
-<view class="h7 txt-1 ">全部订单</view>
+<view class="flex-row flex-center"  bindtap="navtoPage"  data-page="order">
+    <view class="h7 txt-1 ">全部订单</view>
 <image mode="widthFix "  class=" icon-8  margin-left-5"  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
 <view class="padding-left-15"></view>
+</view>
 </view>
 
 <view class="flex-row flex-center margin-top-36">

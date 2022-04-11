@@ -2,7 +2,7 @@
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
-
+import { ActivelunboApi } from "../../apis/activelunbo.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -13,7 +13,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      indexbanner:[],autoplay:false
+      indexbanner:[],autoplay:false,autoplay2:false,activelunbolist:[]
     })
   }
   onMyShow() {
@@ -30,6 +30,19 @@ class Content extends AppBase {
       }
       this.Base.setMyData({indexbanner:res,autoplay})
 
+    })
+
+// 活动
+    var activelunboApi = new ActivelunboApi()
+    activelunboApi.activelunbolist({},(res)=>{
+      var autoplay2=false
+      if (res.length>1) {
+        autoplay2=true
+     
+      }else{
+        autoplay2=false
+      }
+      this.Base.setMyData({activelunbolist:res,autoplay2})
     })
 
 

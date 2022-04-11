@@ -155,6 +155,17 @@ class Content extends AppBase {
         url: '/pages/finddetail/finddetail?id='+id+'&type=B',
       })
   }
+  ganhuo(e){
+
+    var item = e.currentTarget.dataset['item'];
+    var consult_id = item.consult_id;
+
+    if(consult_id>0){
+      wx.navigateTo({
+        url: '/pages/finddetail/finddetail?id='+consult_id,
+      })
+    }
+  }
   
 }
 var content = new Content();
@@ -162,6 +173,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.ganhuo = content.ganhuo;
 body.allist = content.allist;
 body.ghxq2 = content.ghxq2;
 body.ghxq = content.ghxq;

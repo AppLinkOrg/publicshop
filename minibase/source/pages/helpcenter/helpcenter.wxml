@@ -1,0 +1,23 @@
+
+
+<view class='cu-custom'  >
+	<view class="cu-bar fixed " style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;background:#FEF5F6 ">
+		<navigator class='action' bindtap="backHome" open-type="navigateBack" delta="1" hover-class="none">
+			<text class='cuIcon-back' ></text>
+		</navigator>
+		<view class='content' style='top:{{StatusBar}}px;'>帮助中心</view>
+	</view>
+</view>
+
+<image mode="widthFix" src="{{uploadpath}}resource/{{res.bghelf}}" class="w-100  h-400  " style="margin-top:{{StatusBar}}rpx;"> </image>
+<view class="margin-top-70  padding-left-30 ">
+<view class="txt-bold txt-2 f-32 ">客服工作时间</view>
+<view class="margin-top-30 h6 txt-2">工作日09:00～12:00,14:00~18:00</view>
+</view>
+
+
+<view class="margin-top-f20"></view>
+
+<view class="bd-show1 flex-row flex-center h-180 margin-left-30 margin-right-30 ">
+
+</view>

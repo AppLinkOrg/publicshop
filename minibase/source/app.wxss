@@ -1,5 +1,8 @@
 /**app.wxss**/
 @import "wxParse/wxParse.wxss";
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+
 
 page{
   background: white;
@@ -22,6 +25,9 @@ page{
 .h-80{
   height: 80rpx;
 }
+.h-140{
+  height: 140rpx;
+}
 .h-920{
   height: 920rpx;
 }
@@ -31,7 +37,7 @@ page{
 .h-55{
   height: 55rpx;
 }
-h-100rpx{
+.h-100rpx{
   height: 100rpx;
 }
 .h-160{
@@ -48,6 +54,12 @@ h-100rpx{
 }
 .h-240{
   height: 240rpx;
+}
+.h-280{
+  height: 280rpx;
+}
+.h-400{
+  height: 400rpx;
 }
 .h-420{
   height: 420rpx;
@@ -66,6 +78,9 @@ h-100rpx{
 }
 .w-170{
   width: 170rpx;
+}
+.w-210{
+  width: 210rpx;
 }
 .w-240{
   width: 240rpx;
@@ -240,7 +255,8 @@ view,navigator,input,text,textarea{
   box-shadow: 0px 4rpx 55rpx 5rpx rgba(221, 221, 221, 0.28);
 }
 .bd-show1{
-  box-shadow: 0px 8rpx 2r0px 0px rgba(192, 200, 211, 0.16);
+  /* box-shadow: 10px 10px 5px #888888; */
+  box-shadow: 0px 8rpx 20rpx 0px rgba(192, 200, 211, 0.16);
 }
 .txt-primary{
   color:#2699EC;
@@ -313,6 +329,9 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 }
 .h7{
   font-size: 20rpx !important;
+}
+.f-18{
+  font-size: 18rpx !important;
 }
 .f-22{
   font-size: 22rpx !important;
@@ -474,6 +493,9 @@ button[disabled][type=primary] {
 .margin-40{
   margin:40rpx;
 }
+.margin-top-f20{
+  margin-top: -20rpx;
+}
 .margin-top-20{
   margin-top:20rpx;
 }
@@ -488,6 +510,9 @@ button[disabled][type=primary] {
 }
 .margin-top-60{
   margin-top:60rpx;
+}
+.margin-top-70{
+  margin-top:70rpx;
 }
 .margin-top-80{
   margin-top:80rpx;
@@ -634,6 +659,10 @@ button[disabled][type=primary] {
   width: 30rpx;
   height: 30rpx;
 }
+.icon-16{
+  width: 32rpx;
+  height: 32rpx;
+}
 .icon-17{
   width: 35rpx;
   height: 35rpx;
@@ -678,6 +707,10 @@ button[disabled][type=primary] {
   width: 200rpx;
   height: 200rpx;
 }
+.icon-105{
+  width: 210rpx;
+  height: 210rpx;
+}
 .icon-265{
   width: 330rpx;
   height: 330rpx;
@@ -697,6 +730,9 @@ button[disabled][type=primary] {
 
 .line-height-80{
   line-height: 80rpx;
+}
+.line-height-100{
+  line-height: 100rpx;
 }
 
 

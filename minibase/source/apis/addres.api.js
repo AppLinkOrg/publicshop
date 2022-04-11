@@ -41,7 +41,7 @@ export class AddresApi{
         })
     }
 
-    addreslist(json, callback, showLoading = true) {
+    addresdetail(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class AddresApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'addres/addreslist',
+            url: ApiConfig.GetApiUrl() + 'addres/addresdetail',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -73,7 +73,7 @@ export class AddresApi{
         })
     }
 
-    addresdetail(json, callback, showLoading = true) {
+    addreslist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +82,7 @@ export class AddresApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'addres/addresdetail',
+            url: ApiConfig.GetApiUrl() + 'addres/addreslist',
             data: json,
             method: 'POST',
             dataType: 'json',

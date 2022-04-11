@@ -8,6 +8,9 @@
         "pages/myinfo/myinfo",
         "pages/address/address",
         "pages/addressadd/addressadd",
+        "pages/webview/webview",
+        "pages/helpcenter/helpcenter",
+        "pages/order/order",
         "pages/auth/auth"
     ],
     "permission": {
