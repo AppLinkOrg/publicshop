@@ -1,0 +1,30 @@
+<view class="padding-30">
+    <view class="txt-2 txt-bold f-32 margin-top-10">联系方式</view>
+
+    <view class="margin-top-30   h-100rpx  radius-10 bg-5  flex-row flex-center"> 
+    <input  placeholder="留下联系方式，更可能解决问题～" class="h5 txt-2 flex-1 padding-left-30 "  model:value="{{link}}"  />
+    
+    </view>
+
+    <view class="margin-top-60 flex-row flex-center">
+        <view class="txt-2 txt-bold f-32 flex-1 ">联系方式</view>
+        <view class="txt-1  h6 ">0/100</view>
+        </view>
+
+        <view class="margin-top-30 radius-10  bg-5 padding-30  h-600">
+        <textarea class="w-100 h-100" placeholder="在此处输入您想要的反馈内容"  maxlength="100"  model:value="{{opinion}}"   ></textarea>
+        </view>
+
+
+
+<view class="h-100rpx"></view>
+    
+    </view>
+
+
+    <!-- 提交 -->
+<view class="position-fixed w-100 " style="bottom:0;left:0">
+    <view class="margin-left-30 margin-right-30 margin-bottom-20 h-80 line-height-80 txt-white h6 txt-bold text-center bg-2 radius-40" bindtap="tijiao" >
+        提交
+    </view>
+</view>

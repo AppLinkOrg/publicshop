@@ -22,6 +22,21 @@ class Content extends AppBase {
     this.Base.setMyData({
         consultdetail:null
     })
+    
+    var consultApi = new ConsultApi()
+    if (this.Base.options.type=='A') {
+       // 观看人数加1
+     consultApi.audienceadd({id:this.Base.options.id,type:'A'},(res)=>{
+
+    })
+    }else{
+      consultApi.audienceadd({id:this.Base.options.id,type:'B'},(res)=>{
+
+      })
+    }
+    
+
+
 
 
   }
@@ -39,6 +54,9 @@ class Content extends AppBase {
             WxParse.wxParse('content', 'html', res.content, that, 10);
             this.Base.setMyData({consultdetail:res})
         })
+
+       
+
         
     }else{
         var caseApi = new CaseApi()

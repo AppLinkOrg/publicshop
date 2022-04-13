@@ -1337,8 +1337,15 @@ export class AppBase {
   }
 
   tiaozhuan(e){
+    
+
+
     var url2 = e.currentTarget.dataset['url']
     console.log(url2,'urloooo');
+
+    if (url2=='') {
+      return
+    }
     // wx.navigateTo({
     //   url: '/pages/address/address',
     // })

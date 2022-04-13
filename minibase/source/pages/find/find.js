@@ -42,7 +42,7 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-   this.lblist()
+   this.xzlist()
    
   }
   hdlist(){
@@ -141,6 +141,20 @@ class Content extends AppBase {
       this.Base.setMyData({select:id})
 
   }
+
+  xzlist(){
+    var select = this.Base.getMyData().select
+    if (select==1) {
+        this.hdlist() 
+    }
+    if(select==0){
+        this.lblist()
+    }
+    if (select==2) {
+        this.allist()
+    }
+
+}
   ghxq(e){
     var id = e.currentTarget.id
     wx.navigateTo({
@@ -173,6 +187,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.xzlist = content.xzlist;
 body.ganhuo = content.ganhuo;
 body.allist = content.allist;
 body.ghxq2 = content.ghxq2;

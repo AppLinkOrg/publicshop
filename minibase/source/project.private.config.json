@@ -65,6 +65,18 @@
                     "pathName": "pages/helpcenter/helpcenter",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/feedback/feedback",
+                    "pathName": "pages/feedback/feedback",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/about/about",
+                    "pathName": "pages/about/about",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

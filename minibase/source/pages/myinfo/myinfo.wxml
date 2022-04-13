@@ -13,12 +13,12 @@
 <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">昵称</view>
 <view class="flex-1"></view>
-<input placeholder="" class="txt-2 h5 margin-right-30  text-right"  model:value="{{memberinfo.nickName}}"  />
+<input placeholder="" class="txt-2 h5 margin-right-30  text-right"   disabled="disabled" model:value="{{memberinfo.nickName}}"  />
 </view>
 <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">性别</view>
 <view class="flex-1"></view>
-<input placeholder="" class="txt-2 h5  text-right"  model:value="{{memberinfo.gender_name}}  "  />
+<input placeholder="" class="txt-2 h5  text-right"  model:value="{{memberinfo.gender_name}}  "  disabled="disabled" />
 <image mode="widthFix "  class=" icon-12  margin-left-5"  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
 </view>
 
@@ -32,7 +32,7 @@
 <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">手机</view>
 <view class="flex-1"></view>
-<input placeholder="" class="txt-2 h5 margin-right-30  text-right"  model:value="{{memberinfo.mobile}}"  />
+<input placeholder="" class="txt-2 h5 margin-right-30  text-right"   disabled="disabled" model:value="{{memberinfo.mobile}}"  />
 </view>
 
 </view>

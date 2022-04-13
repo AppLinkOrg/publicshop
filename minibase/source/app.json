@@ -11,6 +11,8 @@
         "pages/webview/webview",
         "pages/helpcenter/helpcenter",
         "pages/order/order",
+        "pages/about/about",
+        "pages/feedback/feedback",
         "pages/auth/auth"
     ],
     "permission": {
