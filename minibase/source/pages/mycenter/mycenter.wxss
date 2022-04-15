@@ -11,3 +11,14 @@
   .my-radius{
       border-radius: 0px 0px 8rpx 8rpx;
   }
+  view,
+scroll-view,
+swiper,
+button,
+input,
+textarea,
+label,
+navigator,
+image {
+  box-sizing: border-box;
+}

@@ -1,22 +1,19 @@
 <view class="bg-4 min-h100">
 
-<image mode="widthFix"  class=" w-100 h-440  position-absolute " style="top: 0;left:0;z-index: -1;" src='{{uploadpath}}resource/{{res.mybg}}'></image> 
+<!-- <image   class=" w-100 h-440  position-absolute " style="top: 0;left:0;z-index: -1;" src='{{uploadpath}}resource/{{res.mybg}}'></image>  -->
 
-<view class='cu-custom '>
-	<view class="cu-bar  " style="height:{{CustomBar}}rpx;padding-top:{{StatusBar}}px;">
-	
-		<view class='content text-center flex-row flex-center ' style='top:{{StatusBar}}px;height: 100%;'>
-<view class="flex-1"></view>
-<view class="txt-2 txt-bold f-32">我的</view>
-<view class="flex-1"></view>
-     
-        
-        </view>
+<view class='cu-custom'  >
+	<view class="cu-bar fixed " style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;background:#FEF5F6 ">
+		<view class='content' style='top:{{StatusBar}}px;'>我的</view>
 	</view>
 </view>
 
 
-<view class="margin-top-60 flex-row flex-center padding-left-30 padding-right-30">
+
+<image mode="widthFix" src="{{uploadpath}}resource/{{res.mybg}}" class="w-100  h-400 display-block  " style="margin-top:{{StatusBar}}rpx;"> </image>
+<view  style="margin-top:-320rpx;"></view>
+
+<view class="margin-top-60 flex-row flex-center padding-left-30 padding-right-30  ">
     <image mode="widthFix"  class=" icon-50  radius-50 "  src='{{memberinfo.avatarUrl}}' wx:if="{{memberinfo.warrant_value=='Y'}}"></image> 
     <image mode="widthFix"  class=" icon-50  radius-50"  src='{{uploadpath}}resource/{{res.touxian}}'   wx:else></image> 
     <view class="margin-left-20">

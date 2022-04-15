@@ -39,7 +39,7 @@
 
 
 <view class="margin-top-30"></view>
-    <view class=" flex-row flex-center margin-bottom-20">
+    <view class=" flex-row flex-center margin-bottom-20"  bindtap="navtoPage"  data-page="orderdetail" >
     <image mode="widthFix"  class=" icon-80 "  src='{{uploadpath}}resource/{{res.help2}}'   style="flex:none"></image>
     <view class="margin-left-20">
    <view class="flex-row ">

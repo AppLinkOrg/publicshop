@@ -1,0 +1,133 @@
+<view class="bg-4 min-h100">
+
+<view class='cu-custom '  >
+	<view class="cu-bar fixed  box-sizing" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+		<navigator class='action' bindtap="backHome" open-type="navigateBack" delta="1" hover-class="none">
+			<text class='cuIcon-back' ></text>
+		</navigator>
+		<view class='content' style='top:{{StatusBar}}px;'></view>
+	</view>
+</view>
+
+<image mode="widthFix" src="{{uploadpath}}resource/{{res.mybg}}" class="w-100  h-360 display-block  " > </image>
+<view  style="margin-top:-246rpx;"></view>
+
+<view class="flex-row flex-center">
+<view class="flex-1"></view>
+<image src="{{uploadpath}}resource/{{res.daifu}}"  class="icon-24"></image>
+<view class="f-36 txt-2 txt-bold margin-left-20">买家待付款</view>
+<view class="flex-1"></view>
+</view>
+
+<view class="margin-top-20  h6 txt-2 text-center" >剩19小时12分自动取消</view>
+
+<view class="margin-top-60  bd-show1 flex-row flex-center h-140 margin-left-30 margin-right-30  bg-white margin-top-60 radius-20">
+<view class="flex-1 margin-left-20">
+<view class="h5 txt-2 txt-bold">三里屯太古里北区n8楼一层</view>
+<view class="margin-top-20">
+<text class="h6 txt-2 ">牛肉粥</text>
+<text class="margin-left txt-2 h6">19568447268</text>
+</view></view>
+<image src="{{uploadpath}}resource/{{res.youjian}}"  class="icon-12 margin-right-10"></image>
+</view>
+
+
+<view class="  bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20">
+    <view class=" flex-row flex-center margin-bottom-20"  >
+    <image mode="widthFix"  class=" icon-80 "  src='{{uploadpath}}resource/{{res.help2}}'   style="flex:none"></image>
+    <view class="margin-left-20">
+   <view class="flex-row ">
+    <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">小米有品amiro化妆镜LED日光镜 网红美妆镜...</view>
+    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
+    <view class="f-32 txt-bold txt-1  " style="flex:none">2999</view>
+    
+    </view>
+    <view class="flex-row flex-center margin-top padding-top-10">
+        <view class="txt-1 h6  flex-1">MINI丨粉色</view>
+        <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
+        
+        </view>
+    </view>
+   
+    </view>
+    <view class="flex-row flex-center margin-top-10">
+    <view class="flex-1 h6 txt-2">配送方式</view>
+    <view class="h6 txt-2">厂商配送</view>
+    <image src="{{uploadpath}}resource/{{res.youjian}}"  class="icon-12 margin-left-5"></image>
+
+    </view>
+    <view class="flex-row flex-center margin-top-30 margin-bottom-20 ">
+    <view class="flex-1 h6 txt-2">备注</view>
+    <view class="h6 txt-2">保护好我的设备！</view>
+    <image src="{{uploadpath}}resource/{{res.youjian}}"  class="icon-12 margin-left-5"></image>
+
+    </view>
+
+</view>
+
+<view class="  bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20 ">
+<view class="flex-row flex-center  margin-top-10">
+<view class="flex-2 h6 txt-2 flex-1">商品总额</view>
+<view class="f-18 txt-2 txt-bold">¥</view>
+<view class="h5 txt-2 txt-bold">2999.00</view>
+</view>
+
+<view class="flex-row flex-center  margin-top-30">
+<view class="flex-2 h6 txt-2 flex-1">运费</view>
+<view class="f-18 txt-2 txt-bold">¥</view>
+<view class="h5 txt-2 txt-bold">2999.00</view>
+</view>
+
+<view class="flex-row flex-center  margin-top-30  margin-bottom-10">
+<view class="flex-2 h6 txt-2 flex-1">实付金额</view>
+<view class="f-18 txt-3 txt-bold">¥</view>
+<view class="h5 txt-3 txt-bold">2999.00</view>
+</view>
+
+</view>
+
+
+<view class="  bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20 ">
+    <view class="flex-row flex-center  margin-top-10">
+<view class="flex-2 h6 txt-2 flex-1">订单编号</view>
+<view class="h6 txt-1 ">3746564732482923</view>
+<view class="margin-left-10 margin-right-10 txt-3 h6   ">|</view>
+<view class="h6 txt-3 ">复制</view>
+</view>
+
+<view class="flex-row flex-center  margin-top-30 margin-bottom-30">
+<view class="flex-2 h6 txt-2 flex-1">下单时间</view>
+<view class="h6 txt-1 ">2021-09-23 23:34:21</view>
+</view>
+
+<view class="bd-1"></view>
+
+<view class="flex-row flex-center margin-top-30 margin-bottom-10">
+<view class="flex-1"></view>
+<image src="{{uploadpath}}resource/{{res.lianxi}}" class="icon-16"></image>
+<view class="margin-left-10 txt-2 txt-bold h5">联系客服</view>
+<view class="flex-1"></view>
+</view>
+
+</view>
+
+
+<view class="h-100rpx"></view>
+
+</view>
+
+
+
+<!-- 添加收货地址 -->
+<view class="position-fixed w-100   bg-white" style="bottom:0;left:0">
+<view class="flex-row flex-center h-100rpx padding-left-30 padding-right-30">
+<view class="flex-1"></view>
+<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  ">
+    取消订单
+</view>
+<view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 ">
+    立即付款
+</view>
+
+</view>
+</view>

@@ -77,6 +77,12 @@
                     "pathName": "pages/about/about",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/orderdetail/orderdetail",
+                    "pathName": "pages/orderdetail/orderdetail",
+                    "query": "undefined=undefined",
+                    "scene": null
                 }
             ]
         }

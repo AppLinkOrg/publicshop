@@ -25,6 +25,9 @@ page{
 .h-56{
   height: 56rpx;
 }
+.h-72{
+  height: 72rpx;
+}
 .h-80{
   height: 80rpx;
 }
@@ -43,6 +46,9 @@ page{
 .h-100rpx{
   height: 100rpx;
 }
+.h-140{
+  height: 140rpx;
+}
 .h-160{
   height: 160rpx;
 }
@@ -60,6 +66,9 @@ page{
 }
 .h-280{
   height: 280rpx;
+}
+.h-360{
+  height: 360rpx;
 }
 .h-400{
   height: 400rpx;
@@ -666,6 +675,9 @@ button[disabled][type=primary] {
 .radius-30{
   border-radius: 30rpx;
 }
+.radius-36{
+  border-radius: 36rpx;
+}
 .radius-40{
   border-radius: 40rpx;
 }
@@ -704,6 +716,10 @@ button[disabled][type=primary] {
 .icon{
   width: 40rpx;
   height: 40rpx;
+}
+.icon-24{
+  width: 48rpx;
+  height: 48rpx;
 }
 .icon-25{
   width: 50rpx;
@@ -764,7 +780,9 @@ button[disabled][type=primary] {
 .line-height-56{
   line-height: 56rpx;
 }
-
+.line-height-72{
+  line-height: 72rpx;
+}
 .line-height-80{
   line-height: 80rpx;
 }
@@ -799,5 +817,8 @@ button[disabled][type=primary] {
 }
 .maintab-item{
   height: 100%;
+}
+.box-sizing{
+  box-sizing: border-box;
 }
 

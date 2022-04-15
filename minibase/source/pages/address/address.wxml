@@ -20,10 +20,11 @@
             <image src='{{uploadpath}}resource/{{res.bi}}' class=" icon-18"  bindtap="navtoPage"  data-page="addressadd"  data-param="{{'id='+item.id}}"></image>
         </view>
 
+
     </view>
 
 
-
+  
 <view class="h-100rpx"></view>
 
 <!-- 添加收货地址 -->

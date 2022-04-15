@@ -11,6 +11,7 @@
         "pages/webview/webview",
         "pages/helpcenter/helpcenter",
         "pages/order/order",
+        "pages/orderdetail/orderdetail",
         "pages/about/about",
         "pages/feedback/feedback",
         "pages/auth/auth"
