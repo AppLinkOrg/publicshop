@@ -1,0 +1,46 @@
+<view class='cu-custom'>
+    <view class="cu-bar fixed " style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px; ">
+        <view class='content' style='top:{{StatusBar}}px;color:#fff ;'>租赁</view>
+    </view>
+</view>
+
+<swiper  class="h-450"  indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF" 	indicator-active-color="#DF001F" autoplay="{{autoplay}}">
+    <block wx:for="{{leaselunbolist}}"  wx:key="index">
+        <swiper-item>
+            <image  class=" w-100 h-450 " src='{{uploadpath}}leaselunbo/{{item.img}}'  bindtap="tiaozhuan" data-url="{{item.url}}"></image> 
+        </swiper-item>
+    </block>
+</swiper>
+
+<view style="margin-top:-30rpx"></view>
+
+<view  class="flex-row flex-center h-80 padding-left-30 padding-right-30 bg-white lease-radius-20  position-relative overflow-scroll"  style="justify-content: space-between;">
+
+<view wx:for="{{leaseclasslist}}" wx:key="{{index}}" class=" h5  w-100rpx  txt-bold  {{xzshow==index?'txt-3':'txt-1' }}"  style="flex:none"  bindtap="xz"  data-index="{{index}}">
+{{item.name}}
+</view>
+
+</view>
+
+
+<view class="padding-30 flex-row "  wx:for="{{leaselist}}"  wx:key="{{index}}"  bindtap="detail" id="{{item.id}}">
+    <image class="icon-100 "   src='{{uploadpath}}lease/{{item.cover}}'></image>
+    <view class="margin-left-20 flex-1 ">
+    <view class="flex-row  flex-column h-100">
+    <view class="txt-2 h5 txt-bold w-100  txt-line-clamp-2 text-overflow">{{item.name}}</view>
+    <view class=" flex-row w-100"  style="flex-wrap: wrap;">
+        <view class="margin-top-20 h7 txt-4 padding-left-12 padding-right-12 h-36 line-height-36  bg-3 radius-8 margin-right-10 " wx:for="{{item.labelist}}" wx:key="{{indexs}}" wx:for-index="indexs" wx:for-item="items" >{{items}}</view>
+        </view>
+        <view class="flex-1"></view>
+        <view class="flex-row flex-center w-100">
+    <view class="txt-3 f-32 txt-bold">¥{{item.jiamu.presentprice}}</view>
+    <view class="txt-1 padding-left-20  h6 "  style="text-decoration: line-through;">¥{{item.jiamu.original}}</view>
+    </view>
+    </view>
+
+
+    
+    </view>
+
+
+</view>

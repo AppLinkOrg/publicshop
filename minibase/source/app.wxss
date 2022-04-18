@@ -22,6 +22,9 @@ page{
 .h-36{
   height: 36rpx;
 }
+.h-40{
+  height: 40rpx;
+}
 .h-56{
   height: 56rpx;
 }
@@ -33,6 +36,12 @@ page{
 }
 .h-140{
   height: 140rpx;
+}
+.h-846{
+  height: 846rpx;
+}
+.h-900{
+  height: 900rpx;
 }
 .h-920{
   height: 920rpx;
@@ -79,6 +88,9 @@ page{
 .h-440{
   height: 440rpx;
 }
+.h-450{
+  height: 450rpx;
+}
 .h-100{
   height: 100%;
 }
@@ -90,6 +102,9 @@ page{
 }
 .w-100{
   width: 100%;
+}
+.w-100rpx{
+  width: 100rpx;
 }
 .w-170{
   width: 170rpx;
@@ -108,6 +123,9 @@ page{
 }
 .overflow-hidden{
   overflow: hidden;
+}
+.overflow-scroll{
+  overflow: scroll;
 }
 .txt-line-clamp-2{
   -webkit-line-clamp: 2;
@@ -252,6 +270,9 @@ view,navigator,input,text,textarea{
 .bg-5{
   background: #F8F8F8;
 }
+.bg-6{
+  background: rgba(223, 0, 31, 0.08);
+}
 .white_primary{
   background: #2699EC;
   color: white;
@@ -271,6 +292,12 @@ view,navigator,input,text,textarea{
 }
 .bd-4{
   border: 1px solid #CDCDCD ;
+}
+.bd-5{
+  border: 1px solid #DDDDDD ;
+}
+.bd-6{
+  border: 1px solid #DF001F ;
 }
 .bd-show{
   box-shadow: 0px 4rpx 55rpx 5rpx rgba(221, 221, 221, 0.28);
@@ -357,12 +384,25 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 .f-22{
   font-size: 22rpx !important;
 }
+.f-30{
+  font-size: 30rpx !important;
+}
 .f-32{
   font-size: 32rpx !important;
 }
 .f-36{
   font-size: 36rpx !important;
 }
+.f-58{
+  font-size: 58rpx !important;
+}
+.f-60{
+  font-size: 60rpx !important; 
+}
+.f-80{
+  font-size: 80rpx !important;
+}
+
 .text-underline{
   text-decoration: underline;
 }
@@ -753,6 +793,10 @@ button[disabled][type=primary] {
   width: 160rpx;
   height: 160rpx;
 }
+.icon-85{
+  width: 170rpx;
+  height: 170rpx;
+}
 .icon-100{
   width: 200rpx;
   height: 200rpx;
@@ -821,4 +865,24 @@ button[disabled][type=primary] {
 .box-sizing{
   box-sizing: border-box;
 }
-
+.wx-swiper-dot{
+  width: 12rpx !important;
+  height: 4rpx !important;
+  border-radius: 2rpx !important;
+}
+.wx-swiper-dot-active{
+  width: 24rpx !important;
+height: 4rpx !important;
+border-radius: 2rpx !important;
+}
+view,
+scroll-view,
+swiper,
+button,
+input,
+textarea,
+label,
+navigator,
+image {
+  box-sizing: border-box;
+}

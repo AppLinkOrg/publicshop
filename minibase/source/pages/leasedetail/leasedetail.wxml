@@ -1,0 +1,87 @@
+<swiper class="h-846" indicator-dots="{{autoplay}}" indicator-color="#C0C8D3" indicator-active-color="#DF001F" autoplay="{{autoplay}}">
+    <block wx:for="{{leasedetail.imglist}}" wx:key="{{item.id}}">
+        <swiper-item>
+            <image mode="widthFix" class=" w-100 h-846" src='{{uploadpath}}img/{{item.img}}' bindtap="tiaozhuan" data-url="{{item.url}}"></image>
+        </swiper-item>
+
+    </block>
+
+</swiper>
+
+<view class="padding-30">
+    <view class="flex-row flex-center ">
+        <text class="f-36 txt-3 txt-bold ">¥</text>
+        <text class="f-58 txt-bold txt-3 ">{{leasedetail.jiamu.presentprice}}</text>
+
+        <text class="margin-left-30  txt-1 f-30 " style="text-decoration: line-through;">¥{{leasedetail.jiamu.original}}</text>
+        <view class="flex-1"></view>
+        <button open-type="share" class="clear-button">
+        <image class="icon " src='{{uploadpath}}resource/{{res.fenxiao}}'></image>
+    </button>
+
+    </view>
+
+    <view class=" flex-row w-100" style="flex-wrap: wrap;">
+        <view class="margin-top-20 f-22 txt-4 padding-left-12 padding-right-12 h-40 line-height-36  bg-6 radius-8 margin-right-10 "  wx:for="{{leasedetail.biaolist}}"  wx:key="{{idnex}}">{{item}}</view>
+    </view>
+
+    <view class="txt-bold f-30 txt-2 margin-top-30 padding-bottom-30 bd-1">{{leasedetail.name}}</view>
+
+ <view  wx:for="{{leasedetail.specslist}}"  wx:key="{{index}}" >
+    <view class="margin-top-30 f-30 txt-2 txt-bold">{{item.name}}</view>
+
+    <view class=" flex-row w-100" style="flex-wrap: wrap;">
+        <view class="margin-top-20 margin-right-20 bd-5 h-80 line-height-80 padding-left-30 padding-right-30 radius-8  {{item.show==indexs?'bd-6':'bd-5'}} "  style="flex:none" wx:for="{{item.sortlist}}" wx:key="{{indexs}}"  wx:for-index="indexs" wx:for-item="items"  bindtap="select"  data-index="{{index}}" data-indexs="{{indexs}}" >{{items.name}}</view>
+    </view>
+
+   
+    <!-- <view class=" flex-row w-100" style="flex-wrap: wrap;">
+        <image class="icon radius-50 margin-top-20 " src='{{uploadpath}}resource/{{res.fenxiao}}'></image>
+    </view> -->
+    
+    </view>
+
+    <view class="margin-top-30 f-30 txt-2 txt-bold">产品详情</view>
+
+<import src="../../wxParse/wxParse.wxml" />
+<view  class='nostyle margin-top-20'>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>
+
+
+<view class="h-200"></view>
+
+<!-- 添加收货地址 -->
+<view class="position-fixed w-100  bg-white" style="bottom:0;left:0">
+<view class="h-100rpx flex-row flex-center padding-left-30 padding-right-30">
+<view class="h5 txt-2 ">合计:</view>
+
+    <view class="f-36 txt-bold txt-3" >¥</view>
+<view class="f-58 txt-bold txt-3 " >1000.00</view>
+
+<view class="flex-1"></view>
+<view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 ">
+    立即租赁
+</view>
+
+
+</view>
+
+
+<view class="h-56 line-height-56 text-center w-100 flex-row flex-center">
+<view class="flex-1"></view>
+<view class="txt-1 f-22 ">点击立即租赁即表示您同意接受蜃龙的</view>
+<view class="txt-3 f-22 ">《用户租赁条款》</view>
+<view class="flex-1"></view>
+</view>
+  
+</view>
+
+
+
+
+
+
+
+
+</view>

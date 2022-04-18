@@ -11,7 +11,11 @@
         "pages/webview/webview",
         "pages/helpcenter/helpcenter",
         "pages/order/order",
+        "pages/lease/lease",
+        "pages/leasedetail/leasedetail",
+        "pages/leaseorder/leaseorder",
         "pages/orderdetail/orderdetail",
+        "pages/paysucsses/paysucsses",
         "pages/about/about",
         "pages/feedback/feedback",
         "pages/auth/auth"
@@ -38,6 +42,11 @@
                 "pagePath": "pages/home/home",
                 "iconPath": "images/icons/sc2.png",
                 "selectedIconPath": "images/icons/sc.png"
+            },{
+                "text": "租赁",
+                "pagePath": "pages/lease/lease",
+                "iconPath": "images/icons/zl.png",
+                "selectedIconPath": "images/icons/zl2.png"
             },{
                 "text": "发现",
                 "pagePath": "pages/find/find",
