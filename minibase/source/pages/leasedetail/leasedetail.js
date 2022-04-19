@@ -3,6 +3,8 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { LeaseApi } from "../../apis/lease.api.js";
+import { SealseApi } from "../../apis/sealse.api.js";
+
 var WxParse = require('../../wxParse/wxParse');
 
 
@@ -15,7 +17,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-        leasedetail:[],autoplay:false
+        leasedetail:[],autoplay:false,jiageprice:{}
     })
 
   }
@@ -52,9 +54,52 @@ class Content extends AppBase {
     var leasedetail=this.Base.getMyData().leasedetail
     leasedetail.specslist[index].show=indexs
     this.Base.setMyData({leasedetail})
+
+    this.jiage()
   }
   jiage(){
-    
+     var leasedetail=this.Base.getMyData().leasedetail
+     var str=[]
+     for(let item of leasedetail.specslist){
+       var show=item.show
+       var id = item['sortlist'][show]['id']
+
+      str.push(id)
+     }
+
+     var str2=str.sort((a,b) => a - b)
+     console.log(str2,'str2');
+
+
+
+    // return
+
+    var sealseApi = new SealseApi()
+    sealseApi.sealseprice({
+      lease_id:this.Base.options.id,
+      chooseid:str2
+
+    },(res)=>{
+
+      if (res.code==0) {
+
+        // wx.showToast({
+        //   title: res.return,
+        //   icon:'none'
+        // })
+        this.Base.setMyData({jiageprice:res.result})
+
+        
+        
+      }else{
+        wx.showToast({
+          title: res.return,
+          icon:'none'
+        })
+      }
+
+    })
+
 
   }
 
