@@ -85,30 +85,12 @@
                     "scene": null
                 },
                 {
-<<<<<<< HEAD
-                    "name": "",
-                    "pathName": "pages/cart/cart",
-=======
                     "name": "pages/lease/lease",
                     "pathName": "pages/lease/lease",
->>>>>>> ef4f3972a8d8dae38611c4f0695fea2aff9ab888
                     "query": "",
                     "scene": null
                 },
                 {
-<<<<<<< HEAD
-                    "name": "pages/cart/cart",
-                    "pathName": "pages/cart/cart",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "商品详情",
-                    "pathName": "pages/commoditydetail/commoditydetail",
-                    "query": "",
-                    "scene": null,
-                    "launchMode": "default"
-=======
                     "name": "pages/leasedetail/leasedetail",
                     "pathName": "pages/leasedetail/leasedetail",
                     "query": "id=2",
@@ -125,7 +107,6 @@
                     "pathName": "pages/paysucsses/paysucsses",
                     "query": "id=1",
                     "scene": null
->>>>>>> ef4f3972a8d8dae38611c4f0695fea2aff9ab888
                 }
             ]
         }
