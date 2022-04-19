@@ -1,0 +1,10 @@
+<!--pages/commoditydetail/commoditydetail.wxml-->
+<swiper class="h-920"  indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF" 	indicator-active-color="#DF001F" autoplay="{{autoplay}}">
+<block  wx:for="{{indexbanner}}" wx:key="{{item.id}}"   >
+<swiper-item    >
+    <image mode="widthFix"  class=" w-100 h-920" src='{{uploadpath}}indexbanner/{{item.img}}'  bindtap="tiaozhuan" data-url="{{item.url}}"></image> 
+</swiper-item>
+
+</block>
+
+</swiper>
