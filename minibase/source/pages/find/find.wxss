@@ -1,13 +1,4 @@
-.wx-swiper-dot{
-    width: 12rpx !important;
-    height: 4rpx !important;
-    border-radius: 2rpx !important;
-  }
-  .wx-swiper-dot-active{
-    width: 24rpx !important;
-  height: 4rpx !important;
-  border-radius: 2rpx !important;
-  }
+
 .padding-zy{
     padding: 9rpx 10rpx;
 }

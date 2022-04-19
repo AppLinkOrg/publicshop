@@ -85,12 +85,18 @@
                     "scene": null
                 },
                 {
+<<<<<<< HEAD
                     "name": "",
                     "pathName": "pages/cart/cart",
+=======
+                    "name": "pages/lease/lease",
+                    "pathName": "pages/lease/lease",
+>>>>>>> ef4f3972a8d8dae38611c4f0695fea2aff9ab888
                     "query": "",
                     "scene": null
                 },
                 {
+<<<<<<< HEAD
                     "name": "pages/cart/cart",
                     "pathName": "pages/cart/cart",
                     "query": "",
@@ -102,6 +108,24 @@
                     "query": "",
                     "scene": null,
                     "launchMode": "default"
+=======
+                    "name": "pages/leasedetail/leasedetail",
+                    "pathName": "pages/leasedetail/leasedetail",
+                    "query": "id=2",
+                    "scene": null
+                },
+                {
+                    "name": "pages/leaseorder/leaseorder",
+                    "pathName": "pages/leaseorder/leaseorder",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/paysucsses/paysucsses",
+                    "pathName": "pages/paysucsses/paysucsses",
+                    "query": "id=1",
+                    "scene": null
+>>>>>>> ef4f3972a8d8dae38611c4f0695fea2aff9ab888
                 }
             ]
         }
