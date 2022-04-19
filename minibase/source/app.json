@@ -18,7 +18,9 @@
         "pages/paysucsses/paysucsses",
         "pages/about/about",
         "pages/feedback/feedback",
-        "pages/auth/auth"
+        "pages/auth/auth",
+        "pages/cart/cart",
+        "pages/commoditydetail/commoditydetail"
     ],
     "permission": {
         "scope.userLocation": {
@@ -42,24 +44,29 @@
                 "pagePath": "pages/home/home",
                 "iconPath": "images/icons/sc2.png",
                 "selectedIconPath": "images/icons/sc.png"
+<<<<<<< HEAD
+            },
+            {
+=======
             },{
                 "text": "租赁",
                 "pagePath": "pages/lease/lease",
                 "iconPath": "images/icons/zl.png",
                 "selectedIconPath": "images/icons/zl2.png"
             },{
+>>>>>>> ef4f3972a8d8dae38611c4f0695fea2aff9ab888
                 "text": "发现",
                 "pagePath": "pages/find/find",
                 "iconPath": "images/icons/fx.png",
                 "selectedIconPath": "images/icons/fx2.png"
-            },{
+            },
+            {
                 "text": "我的",
                 "pagePath": "pages/mycenter/mycenter",
                 "iconPath": "images/icons/my.png",
                 "selectedIconPath": "images/icons/my2.png"
             }
         ]
-
     },
     "sitemapLocation": "sitemap.json"
 }
