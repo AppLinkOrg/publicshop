@@ -53,6 +53,10 @@ class Content extends AppBase {
     leasedetail.specslist[index].show=indexs
     this.Base.setMyData({leasedetail})
   }
+  jiage(){
+    
+
+  }
 
 
   
@@ -62,6 +66,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.jiage = content.jiage;
 body.select = content.select;
 
 Page(body)

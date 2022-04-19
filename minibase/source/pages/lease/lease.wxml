@@ -7,7 +7,7 @@
 <swiper  class="h-450"  indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF" 	indicator-active-color="#DF001F" autoplay="{{autoplay}}">
     <block wx:for="{{leaselunbolist}}"  wx:key="index">
         <swiper-item>
-            <image  class=" w-100 h-450 " src='{{uploadpath}}leaselunbo/{{item.img}}'  bindtap="tiaozhuan" data-url="{{item.url}}"></image> 
+            <image  class=" w-100 h-450 " src='{{uploadpath}}leaselunbo/{{item.img}}'   ></image> 
         </swiper-item>
     </block>
 </swiper>
