@@ -107,6 +107,20 @@
                     "pathName": "pages/paysucsses/paysucsses",
                     "query": "id=1",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/cart/cart",
+                    "query": "id=1",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "商品详情",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }

@@ -30,19 +30,18 @@
     </view>
 </view>
 
-<view class="flex-row flex-center h-100rpx margin-left-30  position-fixed">
+<view class="flex-row flex-center margin-left-30 fixation h-100rpx">
     <view class="flex-row flex-center">
-        <!-- <radio></radio> -->
         <checkbox class="" value="{{val}}" bindtap="selectAll" checked="{{selectAllStatus}}"></checkbox>
         <view class="tab margin-left-10 txt-2">全选</view>
     </view>
     <view class="flex-row flex-center" wx:if="{{show==false}}">
         <view class="w-150"></view>
-        <view class="tab txt-2">合计：</view>
+        <view class="tab txt-2 margin-left-130">合计：</view>
         <view class="h6 txt-3 txt-bold">￥</view>
         <view class="txt-3 h4-5 txt-bold">9999.00</view>
     </view>
     <view class="w-365" wx:else></view>
-    <view class="radius-36 w-200 height-70 bg-2 txt-white flex-row flex-center justify-content tab margin-left-40">{{show?"删除":"去结算"}}
+    <view class="w-210 bg-2 txt-white height-70 flex-row flex-center justify-center radius-36 margin-left-40">{{show?"删除":"去结算"}}
     </view>
 </view>

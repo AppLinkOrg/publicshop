@@ -1,66 +1,51 @@
-// pages/commoditydetail/commoditydetail.js
-Page({
+// pages/content/content.js
+import { AppBase } from "../../appbase";
+import { ApiConfig } from "../../apis/apiconfig";
+import { InstApi } from "../../apis/inst.api.js";
+import { ActiveApi } from "../../apis/active.api.js";
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
 
-    },
+class Content extends AppBase {
+  constructor() {
+    super();
+  }
+  onLoad(options) {
+    this.Base.Page = this;
+    //options.id=5;
+    super.onLoad(options);
+    wx.setNavigationBarTitle({
+      title: '商品详情',
+    })
+    this.Base.setMyData({
+      showDialog:false,
+      flag:false,
+      buttom_flag:false,
+      show:false
+    })
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
+  }
+  onMyShow() {
+    var that = this;
 
-    },
+  }
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
-})
+  toggleDialog(e) {
+    this.Base.setMyData({
+      showDialog: !this.data.showDialog,
+      flag:!this.data.flag
+    });
+  }
+  toggleDialog_buttom(e) {
+    this.Base.setMyData({
+      show: !this.data.show,
+      buttom_flag:!this.data.buttom_flag
+    });
+  }
+}
+var content = new Content();
+var body = content.generateBodyJson();
+body.onLoad = content.onLoad; 
+body.onMyShow = content.onMyShow;
+body.toggleDialog = content.toggleDialog;
+body.toggleDialog_buttom=content.toggleDialog_buttom;
+Page(body)
