@@ -18,7 +18,9 @@
         "pages/paysucsses/paysucsses",
         "pages/about/about",
         "pages/feedback/feedback",
-        "pages/auth/auth"
+        "pages/auth/auth",
+        "pages/cart/cart",
+        "pages/commoditydetail/commoditydetail"
     ],
     "permission": {
         "scope.userLocation": {
@@ -42,6 +44,11 @@
                 "pagePath": "pages/home/home",
                 "iconPath": "images/icons/sc2.png",
                 "selectedIconPath": "images/icons/sc.png"
+            },{
+                "text": "购物车",
+                "pagePath": "pages/cart/cart",
+                "iconPath": "images/icons/gwc.png",
+                "selectedIconPath": "images/icons/gwc2.png"
             },{
                 "text": "租赁",
                 "pagePath": "pages/lease/lease",
