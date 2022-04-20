@@ -111,6 +111,22 @@
                 >
                     删除订单
                 </view>
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="sale" id="{{item.id}}"
+                wx:if="{{item.orderstatus=='C'}}"  
+                >
+                申请售后
+                </view>
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20 " bindtap="shangchu" id="{{item.id}}"
+                wx:if="{{item.orderstatus=='C'}}"
+                >
+                查看物流
+                </view>
+
+                <view class="h-56 line-height-56 bd-3 padding-left-30 padding-right-30 h6 txt-3 margin-left-20  radius-28"
+                wx:if="{{item.orderstatus=='C'}}"  bindtap="zhifu"  id="{{item.id}}"
+                >
+                确认收货
+                </view>
 
 
             </view>

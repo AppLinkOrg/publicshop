@@ -112,15 +112,25 @@
                     "name": "",
                     "pathName": "pages/cart/cart",
                     "query": "id=1",
-                    "launchMode": "default",
                     "scene": null
                 },
                 {
                     "name": "商品详情",
                     "pathName": "pages/commoditydetail/commoditydetail",
                     "query": "",
-                    "scene": null,
-                    "launchMode": "default"
+                    "scene": null
+                },
+                {
+                    "name": "pages/cart/cart",
+                    "pathName": "pages/cart/cart",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/applysale/applysale",
+                    "pathName": "pages/applysale/applysale",
+                    "query": "id=7",
+                    "scene": null
                 }
             ]
         }

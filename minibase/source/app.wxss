@@ -47,6 +47,9 @@ page{
 .h-140{
   height: 140rpx;
 }
+.h-320{
+  height: 320rpx;
+}
 .h-846{
   height: 846rpx;
 }
@@ -861,6 +864,10 @@ button[disabled][type=primary] {
 .icon-60{
   width: 120rpx;
   height: 120rpx;
+}
+.icon-70{
+  width: 140rpx;
+  height: 140rpx;
 }
 .icon-75{
   width: 150rpx;

@@ -1,0 +1,92 @@
+<view class="bg-4 min-h100">
+
+    <view class="padding-30">
+        <view class="bg-white  padding-top-30 padding-bottom-30 padding-left-20 padding-right-20  radius-10">
+            <view class="h5 txt-2 txt-bold margin-bottom-30 ">请选择申请售后的商品</view>
+
+            <view class="flex-row flex-center margin-bottom-20">
+                <image src="{{uploadpath}}resource/{{res.xz}}" class="icon-18"></image>
+
+                <image mode="widthFix" class=" icon-80 margin-left-20" src='{{uploadpath}}sealseprice/{{leaseorderdetail.sealsepricedetail.img}}' style="flex:none" wx:if="{{leaseorderdetail.sealsepricedetail.img!=''}}"></image>
+                <image mode="widthFix" class=" icon-80 margin-left-20" src='{{uploadpath}}lease/{{leaseorderdetail.leasedetail.cover}}' style="flex:none" wx:else></image>
+                
+         
+                <view class="flex-row flex-column flex-1  margin-left-20  h-160">
+                    <view class="h6 txt-2 text-overflow txt-line-clamp-2 w-100  txt-line-clamp-2 text-overflow ">{{leaseorderdetail.leasedetail.name}}</view>
+                    <view class="flex-1"></view>
+                    <view class="flex-row w-100 flex-center">
+                        <view wx:for="{{leaseorderdetail.sealsepricedetail.sortlist}}" wx:key="index">
+                            <text class="txt-1 h6  ">{{item.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=index+1}}">丨</text>
+                        </view>
+
+                        <!-- <view class="h6 txt-1">丨粉色</view> -->
+                        <view class="flex-1"></view>
+                        <view class="h6 txt-1">x1</view>
+                    </view>
+                </view>
+
+            </view>
+
+        </view>
+
+
+        <view class="bg-white  padding-top-30 padding-bottom-30 padding-left-20 padding-right-20  radius-10 margin-top-20">
+            <view class="h5 txt-2 txt-bold margin-bottom-30 ">申请服务</view>
+            <view  class="flex-wrap flex-row ">
+            <view class="flex-row flex-center   {{index+1==servicelist.length?'':'margin-right-95'}}  "  wx:for="{{servicelist}}"  wx:key="{{item.id}}"  bindtap="select"   data-index="{{index}}" >
+            <image src="{{uploadpath}}resource/{{res.xz}}" class="icon-14" wx:if="{{index==serveshow}}"></image>
+            <image src="{{uploadpath}}resource/{{res.xz2}}" class="icon-14" wx:else></image>
+            <view class="h6 txt-2 margin-left-10">{{item.name}}</view>
+            </view>
+            </view>
+        </view>
+
+        <view class="bg-white  padding-top-30 padding-bottom-30 padding-left-20 padding-right-20  radius-10 margin-top-20">
+        <view class="flex-row">
+        <view class="txt-2 h6 ">押金金额</view>
+        <view class="flex-1"></view>
+        <text class="txt-3 txt-bold  h5"> <text class="txt-3  txt-bold f-18">¥</text>{{leaseorderdetail.deposit}} </text>
+        </view>
+        <view class="flex-row  flex-center margin-top-30">
+            <view class="flex-1 h6 txt-2">申请原因</view>
+            <picker mode="selector"  range="{{reasonlist}}"  range-key="name"  bindchange="applyreason">  
+            <view class="flex-row flex-1 flex-center">
+                <input type="text" placeholder="请选择申请原因" class="h6 txt-2  text-right flex-1"  model:value="{{reason_name}}"  disabled="disabled"  />
+                <image src="{{uploadpath}}resource/{{res.youjian}}" class="icon-12 margin-left-5"></image>
+            </view>
+            
+        </picker>
+          
+        </view>
+        <view class="flex-1 h6 txt-2  margin-top-30">申请说明</view>
+        <view class="margin-top-20 bg-4 radius-8 min-height-320 padding-20  ">
+        <textarea class="h6 txt-2 h-100rpx" placeholder="请描述申请售后服务的具体原因"  model:value="{{explain}}"></textarea>
+        <view class="flex-row flex-center margin-top-20">
+        <view class="flex-w"></view>
+            <image src="{{uploadpath}}safeimg/{{item}}" class="icon-70 margin-right-20 margin-top-20"  bindtap="upimg"  wx:for="{{imglist}}" wx:key="{{index}}"></image>
+        <image src="{{uploadpath}}resource/{{res.shang}}" class="icon-70 margin-top-20"  bindtap="upimg"></image>
+        </view>
+
+
+        
+        </view>
+
+
+
+        </view>
+
+
+
+
+    </view>
+
+</view>
+
+
+<!-- 添加收货地址 -->
+<view class="position-fixed w-100 " style="bottom:0;left:0" >
+    <view class="margin-left-30 margin-right-30 margin-bottom-20 h-80 line-height-80 txt-white h6 txt-bold text-center bg-2 radius-40" bindtap="tijiao">
+        提交
+    </view>
+</view>

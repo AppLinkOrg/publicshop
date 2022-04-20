@@ -63,29 +63,56 @@ quxiao(e){
   var orderstatus = e.currentTarget.dataset['orderstatus'];
   var orderApi =new OrderApi()
 
+  console.log(orderstatus,'orderstatus');
+  // return
+
   wx.showModal({
     content: '确定要取消这个订单吗？',
     success(res){
       if (res.confirm) {
         if (id>0) {
-          orderApi.update({
-            id,type:'A',leixin:'A'
-          },(res)=>{
-            if (res.code==0) {
-              wx.showToast({
-                title: '取消成功',
-                icon:'none'
-              })
 
-        that.orlist()
-              
-            }else{
-              wx.showToast({
-                title: '操作失败',
-              })
-            }
+          if (orderstatus=='B') {
+            var wechatApi =new  WechatApi()
+            wechatApi.refund2({
+              id
+            },(res)=>{
+              if (res.code==0) {
+                wx.showToast({
+                  title: '取消成功',
+                  icon:'none'
+                })
+                that.orlist()
+              }else{
+                wx.showToast({
+                  title: '操作失败',
+                }) 
+              }
+            })
+
+            
+          }
+          if (orderstatus=='A') {
+            orderApi.update({
+              id,type:'A',leixin:'A'
+            },(res)=>{
+              if (res.code==0) {
+                wx.showToast({
+                  title: '取消成功',
+                  icon:'none'
+                })
+  
+          that.orlist()
+                
+              }else{
+                wx.showToast({
+                  title: '操作失败',
+                })
+              }
+          
+            })
+          }
         
-          })
         }
 
         
@@ -160,6 +187,16 @@ that.Base.toast("支付失败");
 
 
 }
+sale(e){
+  // 申请售后
+  var id = e.currentTarget.id
+  wx.navigateTo({
+    url: '/pages/applysale/applysale?id='+id,
+  })
+
+}
+
+
 
 }
 var content = new Content();
@@ -167,6 +204,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.sale = content.sale;
 body.zhifu = content.zhifu;
 body.shangchu = content.shangchu;
 body.quxiao = content.quxiao;
