@@ -119,6 +119,27 @@
                     "name": "商品详情",
                     "pathName": "pages/commoditydetail/commoditydetail",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "发票服务",
+                    "pathName": "pages/invoice/invoice",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "物流信息",
+                    "pathName": "pages/logistics/logistics",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "分类列表",
+                    "pathName": "pages/classify/classify",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }
