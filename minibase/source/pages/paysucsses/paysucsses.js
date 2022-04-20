@@ -11,9 +11,17 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({
+      amount:0
+    })
+
   }
   onMyShow() {
+    
     var that = this;
+    this.Base.setMyData({amount:this.Base.options.amount})
+
+
   }
   xq(){
   

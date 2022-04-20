@@ -8,21 +8,21 @@
 
 <view class="bg-4 min-h100">
 
-<view class="flex-row  flex-center h-100rpx  bg-white">
- 
-    <view wx:for="{{list}}" wx:key="{{index}}" class=" position-relative h-100rpx  flex-1" bindtap="xz" id="{{index}}">
-        <view class=" h5 line-height-100 {{select==index?'txt-3':'txt-1'}} text-center">
-            {{item.name}}
+    <view class="flex-row  flex-center h-100rpx  bg-white">
+
+        <view wx:for="{{list}}" wx:key="{{index}}" class=" position-relative h-100rpx  flex-1" bindtap="xz" id="{{index}}">
+            <view class=" h5 line-height-100 {{select==index?'txt-3':'txt-1'}} text-center">
+                {{item.name}}
+            </view>
+            <view class="position-absolute w-100" style="bottom: 0; left:0" wx:if="{{select==index}}">
+                <view class="bg-2 w-40 h-4 margin-auto "></view>
+            </view>
         </view>
-        <view class="position-absolute w-100" style="bottom: 0; left:0" wx:if="{{select==index}}">
-            <view class="bg-2 w-40 h-4 margin-auto "></view>
-        </view>
+
     </view>
 
-</view>
 
-
-<view wx:if="{{false}}">
+    <view wx:if="{{false}}">
         <view class="h-200"></view>
         <image src='{{uploadpath}}resource/{{res.kong}}' class="kong display-block margin-auto "></image>
     </view>
@@ -30,67 +30,99 @@
     <!--  -->
     <view class="margin-left-30 margin-right-30 ">
 
-    <view class="bg-white radius-10 margin-top-20  padding-left-20 padding-right-20 padding-top-30 padding-bottom-30 ">
+        <view class="bg-white radius-10 margin-top-20  padding-left-20 padding-right-20 padding-top-30 padding-bottom-30 " wx:for="{{orderlist}}" wx:key="{{item.id}}">
 
-    <view class="flex-row flex-center">
-    <view class="h6 txt-2 flex-1">2021-08-21 17:23:34</view>
-    <view class="txt-3 h6 txt-bold">待付款</view>
-    </view>
+            <view class="flex-row flex-center">
+                <view class="h6 txt-2 flex-1">{{item.submit_time}}</view>
+                <view class="txt-3 h6 txt-bold">
+                    {{item.orderstatus=='A'?'待付款':item.orderstatus=='B' ? '待发货':item.orderstatus=='C'?'待收货':item.orderstatus=='D'?'已完成':'交易关闭' }}
+                </view>
+            </view>
 
 
-<view class="margin-top-30"></view>
-    <view class=" flex-row flex-center margin-bottom-20"  bindtap="navtoPage"  data-page="orderdetail" >
-    <image mode="widthFix"  class=" icon-80 "  src='{{uploadpath}}resource/{{res.help2}}'   style="flex:none"></image>
-    <view class="margin-left-20">
-   <view class="flex-row ">
-    <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">小米有品amiro化妆镜LED日光镜 网红美妆镜...</view>
-    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
-    <view class="f-32 txt-bold txt-1  " style="flex:none">2999</view>
-    
-    </view>
-    <view class="flex-row flex-center margin-top padding-top-10">
-        <view class="txt-1 h6  flex-1">MINI丨粉色</view>
-        <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
-        
+            <view class="margin-top-30"></view>
+            <view class=" flex-row flex-center margin-bottom-20" bindtap="navtoPage" data-page="orderdetail">
+                <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}sealseprice/{{item.sealsepricedetail.img}}' style="flex:none" wx:if="{{item.sealsepricedetail.img!=''}}"></image>
+                <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}lease/{{item.leasedetail.cover}}' style="flex:none" wx:else></image>
+
+                <view class="margin-left-20  flex-1">
+                    <view class="flex-row ">
+                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.leasedetail.name}}</view>
+                        <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
+                        <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.sealsepricedetail.presentprice}}</view>
+
+                    </view>
+                    <view class="flex-row flex-center margin-top padding-top-10 w-100">
+                        <view wx:for="{{item.sealsepricedetail.sortlist}}" wx:key="index">
+                            <text class="txt-1 h6  ">{{item.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=index+1}}">丨</text>
+                        </view>
+                        <view class="flex-1"></view>
+                        <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
+                        <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
+
+                    </view>
+                </view>
+
+            </view>
+
+            <view class="margin-top flex-row flex-center">
+                <view class="flex-1"></view>
+                <view class="txt-1 h6 ">总价：¥ {{item.amount}}</view>
+                <view class="txt-1 h6  margin-left-20">押金：¥ {{item.deposit}}</view>
+                <view class="margin-left txt-1 h6 ">实付金额</view>
+
+
+                <text class="h6 txt-2 txt-bold margin-left-10">¥ </text>
+                <text class="txt-2 f-32 txt-bold">{{item.amount}}</text>
+
+            </view>
+
+
+            <view class="margin-top flex-row flex-center" wx:if="{{false}}">
+                <view class="flex-1"></view>
+                <view class="txt-1 h6 ">共 3 件商品</view>
+                <view class="margin-left txt-1 h6 ">实付金额</view>
+
+
+                <text class="h6 txt-2 txt-bold margin-left-10">¥ </text>
+                <text class="txt-2 f-32 txt-bold">8997</text>
+
+
+            </view>
+
+            <view class="flex-row flex-center margin-top-50">
+                <view class="flex-1"></view>
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="quxiao" id="{{item.id}}"  
+                data-orderstatus="{{item.orderstatus}}"  
+                wx:if="{{item.orderstatus=='A' || item.orderstatus=='B'}}"
+                   >
+                    取消租赁
+                </view>
+
+                <view class="h-56 line-height-56 bd-3 padding-left-30 padding-right-30 h6 txt-3 margin-left-20  radius-28"
+                wx:if="{{item.orderstatus=='A'}}"  bindtap="zhifu"  id="{{item.id}}"
+                >
+                    立即付款
+                </view>
+
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="shangchu" id="{{item.id}}"
+                wx:if="{{item.orderstatus=='E'}}"
+                >
+                    删除订单
+                </view>
+
+
+            </view>
+
+
+
+
+
+
         </view>
-    </view>
-   
-    </view>
 
 
-    <view class="margin-top flex-row flex-center">
-    <view class="flex-1"></view>
-    <view class="txt-1 h6 ">共 3 件商品</view>
-    <view class="margin-left txt-1 h6 ">实付金额</view>
-
-   
-    <text class="h6 txt-2 txt-bold margin-left-10">¥ </text>
-    <text class="txt-2 f-32 txt-bold">8997</text>
- 
-    
-    </view>
-
-    <view class="flex-row flex-center margin-top-50">
-        <view class="flex-1"></view>
-        <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" >
-            取消订单
-            </view>
-
-            <view class="h-56 line-height-56 bd-3 padding-left-30 padding-right-30 h6 txt-3 margin-left-20  radius-28" >
-                立即付款
-            </view>
-
-
-    </view>
- 
-
-
-
-
-    
-    </view>
-    
-    
     </view>
 
 

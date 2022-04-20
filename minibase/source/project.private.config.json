@@ -99,7 +99,7 @@
                 {
                     "name": "pages/leaseorder/leaseorder",
                     "pathName": "pages/leaseorder/leaseorder",
-                    "query": "id=1",
+                    "query": "sealseprice_id=3&id=2",
                     "scene": null
                 },
                 {

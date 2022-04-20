@@ -57,10 +57,10 @@
 <view class="h5 txt-2 ">合计:</view>
 
     <view class="f-36 txt-bold txt-3" >¥</view>
-<view class="f-58 txt-bold txt-3 " >{{jiageprice.presentprice+leasedetail.deposit}}</view>
+<view class="f-58 txt-bold txt-3 " >{{jiageprice.presentprice*1+leasedetail.deposit*1}}</view>
 
 <view class="flex-1"></view>
-<view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 ">
+<view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 "  bindtap="zulin">
     立即租赁
 </view>
 
