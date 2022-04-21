@@ -81,7 +81,7 @@
                 {
                     "name": "pages/orderdetail/orderdetail",
                     "pathName": "pages/orderdetail/orderdetail",
-                    "query": "undefined=undefined",
+                    "query": "type=A&id=9",
                     "scene": null
                 },
                 {

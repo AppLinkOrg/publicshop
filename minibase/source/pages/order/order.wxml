@@ -30,7 +30,7 @@
     <!--  -->
     <view class="margin-left-30 margin-right-30 ">
 
-        <view class="bg-white radius-10 margin-top-20  padding-left-20 padding-right-20 padding-top-30 padding-bottom-30 " wx:for="{{orderlist}}" wx:key="{{item.id}}">
+        <view class="bg-white radius-10 margin-top-20  padding-left-20 padding-right-20 padding-top-30 padding-bottom-30 " wx:for="{{orderlist}}" wx:key="{{item.id}}"  bindtap="orderxq" id="{{item.id}}">
 
             <view class="flex-row flex-center">
                 <view class="h6 txt-2 flex-1">{{item.submit_time}}</view>
@@ -41,7 +41,7 @@
 
 
             <view class="margin-top-30"></view>
-            <view class=" flex-row flex-center margin-bottom-20" bindtap="navtoPage" data-page="orderdetail">
+            <view class=" flex-row flex-center margin-bottom-20" >
                 <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}sealseprice/{{item.sealsepricedetail.img}}' style="flex:none" wx:if="{{item.sealsepricedetail.img!=''}}"></image>
                 <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}lease/{{item.leasedetail.cover}}' style="flex:none" wx:else></image>
 
@@ -112,18 +112,24 @@
                     删除订单
                 </view>
                 <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="sale" id="{{item.id}}"
-                wx:if="{{item.orderstatus=='C'}}"  
+                wx:if="{{item.orderstatus=='D'}}"  
                 >
                 申请售后
                 </view>
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20" bindtap="sale" id="{{item.id}}"
+                wx:if="{{item.orderstatus=='D'}}"  
+                >
+                发票服务
+                </view>
+
                 <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20 " bindtap="shangchu" id="{{item.id}}"
-                wx:if="{{item.orderstatus=='C'}}"
+                wx:if="{{item.orderstatus=='C' || item.orderstatus=='D'}}"
                 >
                 查看物流
                 </view>
 
                 <view class="h-56 line-height-56 bd-3 padding-left-30 padding-right-30 h6 txt-3 margin-left-20  radius-28"
-                wx:if="{{item.orderstatus=='C'}}"  bindtap="zhifu"  id="{{item.id}}"
+                wx:if="{{item.orderstatus=='C'}}"  bindtap="shouhuo"  id="{{item.id}}"
                 >
                 确认收货
                 </view>

@@ -195,6 +195,51 @@ sale(e){
   })
 
 }
+shouhuo(e){
+  // 确认收货
+  var that =this
+  var id = e.currentTarget.id
+  wx.showModal({
+    content: '确定要收货这个订单吗？',
+    success(res){
+      if (res.confirm) {
+        var orderApi =new OrderApi()
+        orderApi.update({
+          id,type:'A',leixin:'C'
+        },(res)=>{
+          if (res.code==0) {
+            wx.showToast({
+              title: '收货成功',
+              icon:'none'
+            })
+  
+      that.orlist()
+            
+          }else{
+            wx.showToast({
+              title: '操作失败',
+            })
+          }
+      
+        })
+  
+  
+        
+      }else if (res.cancel) {
+        console.log('用户点击取消')
+      }
+  
+    }
+  })
+
+}
+orderxq(e){
+  var id = e.currentTarget.id
+  wx.navigateTo({
+    url: '/pages/orderdetail/orderdetail?type=A&id='+id,
+  })
+
+}
 
 
 
@@ -204,6 +249,8 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.orderxq = content.orderxq;
+body.shouhuo = content.shouhuo;
 body.sale = content.sale;
 body.zhifu = content.zhifu;
 body.shangchu = content.shangchu;

@@ -5,7 +5,7 @@ import { InstApi } from "../../apis/inst.api.js";
 import { LeaseorderApi } from "../../apis/leaseorder.api.js";
 import { ServiceApi } from "../../apis/service.api.js";
 import { ReasonApi } from "../../apis/reason.api.js";
-
+import { SafeApi } from "../../apis/safe.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -44,7 +44,8 @@ class Content extends AppBase {
     serviceApi.servicelist({
         type:'A'
     },(res)=>{
-this.Base.setMyData({servicelist:res})
+        var service_id=res[0]['id'];
+this.Base.setMyData({servicelist:res,service_id})
     })
 
 
@@ -94,7 +95,61 @@ this.Base.setMyData({servicelist:res})
   tijiao(){
       var service_id=this.Base.getMyData().service_id
       var reason_id=this.Base.getMyData().reason_id
-      var leaseorder_id=thsi.Base.options.id
+      var leaseorder_id=this.Base.options.id
+      var explain = this.Base.getMyData().explain
+      var imglist = this.Base.getMyData().imglist
+      
+      var imgliststr=imglist.toString()
+
+
+
+      if(reason_id<=0){
+          wx.showToast({
+            title: '请选择申请原因',
+            icon:'none'
+          })
+          return
+      }
+      if(explain=='' ){
+        wx.showToast({
+          title: '请描述申请售后服务的具体原因',
+          icon:'none'
+        })
+        return
+    }
+
+    var safeApi = new SafeApi()
+    safeApi.safeadd({
+        leaseorder_id,
+        service_id,
+        reason_id,
+        explain,
+        imgliststr
+
+    },(res)=>{
+        if (res.code==0) {
+            wx.showToast({
+              title: '提交成功',
+              icon:'none'
+            })
+
+            this.Base.setMyData({
+                service_id:'',reason_id:'',explain:'',imglist:[],reason_name:'',serveshow:0
+            })
+            
+        }else{
+            wx.showToast({
+                title: res.return,
+                icon:'none'
+              }) 
+
+        }
+
+
+
+    })
+
+
 
 
 
