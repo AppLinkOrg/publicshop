@@ -17,7 +17,7 @@ class Content extends AppBase {
       title: '收货地址',
     })
     this.Base.setMyData({
-      addreslist:[]
+      addreslist:[],type:''
     })
     
     
@@ -34,10 +34,31 @@ class Content extends AppBase {
     })
 
 
+    if (this.Base.options.type!=undefined) {
+      this.Base.setMyData({type:this.Base.options.type})
+    }
+
+
+  }
+  fanhui(e){
+    var id = e.currentTarget.id;
+    let pages = getCurrentPages();
+    let prevPage =pages[pages.length-2]
+    prevPage.setData({
+      address_id:id
+    })
+    wx.navigateBack({
+      delta:1
+    })
+   
+
+    
   }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
+
+body.fanhui = content.fanhui;
 Page(body)

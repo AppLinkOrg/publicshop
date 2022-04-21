@@ -47,6 +47,9 @@ page{
 .h-140{
   height: 140rpx;
 }
+.h-320{
+  height: 320rpx;
+}
 .h-846{
   height: 846rpx;
 }

@@ -16,6 +16,7 @@
         "pages/leaseorder/leaseorder",
         "pages/orderdetail/orderdetail",
         "pages/paysucsses/paysucsses",
+        "pages/applysale/applysale",
         "pages/about/about",
         "pages/feedback/feedback",
         "pages/auth/auth",

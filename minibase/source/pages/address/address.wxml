@@ -7,7 +7,7 @@
 </view>
 
     <view wx:else class="bg-white">
-        <view class="padding-30 margin-bottom-20 flex-row flex-center bd-1"  wx:for="{{addreslist}}"  wx:key="{{index}}">
+        <view class="padding-30 margin-bottom-20 flex-row flex-center bd-1"  wx:for="{{addreslist}}"  wx:key="{{index}}"   bindtap="fanhui" id="{{item.id}}">
             <view>
                <view class="flex-row flex-center">
                 <view class="bg-2 txt-white h7 padding-left-10 padding-right-10  h-32 line-height-32 radius-5 margin-right-10 "  wx:if="{{item.more_value=='Y'}}">默认</view>
@@ -17,7 +17,7 @@
                <view class="margin-top-20  h5 txt-2 txt-bold">{{item.address}}{{item.detailed}}</view>
             </view>
             <view class="flex-1"></view>
-            <image src='{{uploadpath}}resource/{{res.bi}}' class=" icon-18"  bindtap="navtoPage"  data-page="addressadd"  data-param="{{'id='+item.id}}"></image>
+            <image src='{{uploadpath}}resource/{{res.bi}}' class=" icon-18"  catchtap="navtoPage"  data-page="addressadd"  data-param="{{'id='+item.id}}"></image>
         </view>
 
 
@@ -28,7 +28,7 @@
 <view class="h-100rpx"></view>
 
 <!-- 添加收货地址 -->
-<view class="position-fixed w-100 " style="bottom:0;left:0">
+<view class="position-fixed w-100 " style="bottom:0;left:0"  wx:if="{{type!='A'}}">
     <view class="margin-left-130 margin-right-130 margin-bottom-20 h-80 line-height-80 txt-white h6 txt-bold text-center bg-2 radius-40" bindtap="navtoPage" data-page="addressadd">
         + 添加收货地址
     </view>

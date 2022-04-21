@@ -99,7 +99,109 @@
                 {
                     "name": "pages/leaseorder/leaseorder",
                     "pathName": "pages/leaseorder/leaseorder",
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/activedetail/activedetail",
+                    "pathName": "pages/activedetail/activedetail",
                     "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/find/find",
+                    "pathName": "pages/find/find",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/finddetail/finddetail",
+                    "pathName": "pages/finddetail/finddetail",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mycenter/mycenter",
+                    "pathName": "pages/mycenter/mycenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/myinfo/myinfo",
+                    "pathName": "pages/myinfo/myinfo",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/address/address",
+                    "pathName": "pages/address/address",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/addressadd/addressadd",
+                    "pathName": "pages/addressadd/addressadd",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order/order",
+                    "pathName": "pages/order/order",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/helpcenter/helpcenter",
+                    "pathName": "pages/helpcenter/helpcenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/feedback/feedback",
+                    "pathName": "pages/feedback/feedback",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/about/about",
+                    "pathName": "pages/about/about",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/orderdetail/orderdetail",
+                    "pathName": "pages/orderdetail/orderdetail",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/lease/lease",
+                    "pathName": "pages/lease/lease",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/leasedetail/leasedetail",
+                    "pathName": "pages/leasedetail/leasedetail",
+                    "query": "id=2",
+                    "scene": null
+                },
+                {
+                    "name": "pages/leaseorder/leaseorder",
+                    "pathName": "pages/leaseorder/leaseorder",
+                    "query": "id=1",
+                    "query": "sealseprice_id=3&id=2",
                     "scene": null
                 },
                 {
@@ -112,7 +214,6 @@
                     "name": "",
                     "pathName": "pages/cart/cart",
                     "query": "id=1",
-                    "launchMode": "default",
                     "scene": null
                 },
                 {

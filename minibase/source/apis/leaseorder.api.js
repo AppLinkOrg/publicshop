@@ -1,15 +1,15 @@
 /*******使用方法，下面两句复制到page的js文件的头部
 
 import { ApiConfig } from '../../apis/apiconfig';
-import { InstApi } from '../../apis/order.api';
+import { InstApi } from '../../apis/leaseorder.api';
 
-var orderApi=new OrderApi();
+var leaseorderApi=new LeaseorderApi();
 *******/
 import { ApiConfig } from 'apiconfig';
-export class OrderApi{
+export class LeaseorderApi{
 
 
-    orderlist(json, callback, showLoading = true) {
+    leaseorderadd(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class OrderApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/orderlist',
+            url: ApiConfig.GetApiUrl() + 'leaseorder/leaseorderadd',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class OrderApi{
         })
     }
 
-    update(json, callback, showLoading = true) {
+    leaseorderdetail(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class OrderApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/update',
+            url: ApiConfig.GetApiUrl() + 'leaseorder/leaseorderdetail',
             data: json,
             method: 'POST',
             dataType: 'json',

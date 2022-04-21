@@ -25,15 +25,15 @@
                 </view>
             </scroll-view> -->
 
-            <view class=" h5 txt-1">
-                <view class="flex-1" wx:for="{{3}}">
-                    <view class="radius-3 btn bg-2" wx:if="{{orderstatus==index}}"></view>
+            <view class=" h5 txt-1 ">
+                <view class="flex-1 line-height-100 h-100rpx " wx:for="{{3}}" >
+                    <view class="radius-3 btn bg-2 " wx:if="{{orderstatus==index}}"></view>
                 </view>
             </view>
             <view class="flex-center">
-                <view class="txt-2 f-26 padding-left-30 h-100rpx" bindtap="bindchoose" data-index="0">推荐</view>
-                <view class="txt-2 f-26 padding-left-30 h-100rpx" bindtap="bindchoose" data-index="1">产品类别</view>
-                <view class="txt-2 f-26 padding-left-30 h-100rpx" bindtap="bindchoose" data-index="2">产品类别</view>
+                <view class="txt-2 f-26 padding-left-30 h-100rpx " bindtap="bindchoose" data-index="0">推荐</view>
+                <view class="txt-2 f-26 padding-left-30 h-100rpx " bindtap="bindchoose" data-index="1">产品类别</view>
+                <view class="txt-2 f-26 padding-left-30 h-100rpx " bindtap="bindchoose" data-index="2">产品类别</view>
             </view>
             
         </view>

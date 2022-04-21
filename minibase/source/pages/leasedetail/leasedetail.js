@@ -17,7 +17,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-        leasedetail:[],autoplay:false,jiageprice:{}
+        leasedetail:[],autoplay:false,jiageprice:null,str2
     })
 
   }
@@ -41,8 +41,12 @@ class Content extends AppBase {
           item.show=0;
         }
 
+        
 
-        this.Base.setMyData({leasedetail:res,autoplay})
+
+        this.Base.setMyData({leasedetail:res,autoplay,jiageprice:res.jiamu})
+
+        this.jiage()
     })
 
 
@@ -87,7 +91,7 @@ class Content extends AppBase {
         //   title: res.return,
         //   icon:'none'
         // })
-        this.Base.setMyData({jiageprice:res.result})
+        this.Base.setMyData({jiageprice:res.result,str2})
 
         
         
@@ -102,6 +106,18 @@ class Content extends AppBase {
 
 
   }
+  zulin(){
+    var str2 = this.Base.getMyData().str2
+    var jiageprice = this.Base.getMyData().jiageprice
+   
+
+  
+
+    wx.navigateTo({
+      url: '/pages/leaseorder/leaseorder?sealseprice_id='+jiageprice.id+'&id='+this.Base.options.id,
+    })
+
+  }
 
 
   
@@ -111,6 +127,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.zulin = content.zulin;
 body.jiage = content.jiage;
 body.select = content.select;
 

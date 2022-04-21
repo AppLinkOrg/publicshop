@@ -1,7 +1,7 @@
 <view class="h-200"></view>
 <image   class=" icon-85  display-block margin-auto "  src='{{uploadpath}}resource/{{res.sucess}}'  ></image>
 <view class="txt-bold h4  txt-2 margin-top-36  text-center">支付成功</view>
-<view class="f-80 txt-bold txt-2 text-center margin-top "><text class="f-60 txt-bold txt-2">¥</text>196.00</view>
+<view class="f-80 txt-bold txt-2 text-center margin-top "><text class="f-60 txt-bold txt-2">¥</text>{{amount}}</view>
 
 <view class="h-200"></view>
 
