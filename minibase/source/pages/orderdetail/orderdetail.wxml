@@ -166,15 +166,25 @@
     取消租赁
 </view>
 
-<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  margin-left-20"  wx:if="{{leaseorderdetail.orderstatus=='D'}}">
+<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  margin-left-20"  wx:if="{{leaseorderdetail.orderstatus=='D' &&leaseorderdetail.safe_id==0}}"
+bindtap="afer">
     申请售后
 </view>
+
+<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  margin-left-20"  wx:if="{{leaseorderdetail.orderstatus=='D' && leaseorderdetail.safe_id>0}}"
+bindtap="afer2">
+查看售后详情
+</view>
+
+
 <view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6 margin-left-20 "  wx:if="{{leaseorderdetail.orderstatus=='D'}}">
     发票服务
 </view>
-<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  margin-left-20"  wx:if="{{leaseorderdetail.orderstatus=='C' || leaseorderdetail.orderstatus=='D'}}">
+<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  margin-left-20"  wx:if="{{leaseorderdetail.orderstatus=='C' || leaseorderdetail.orderstatus=='D' }}">
     查看物流
 </view>
+
+
 
 <view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 "  wx:if="{{leaseorderdetail.orderstatus=='C'}}"
 bindtap="shouhuo"  

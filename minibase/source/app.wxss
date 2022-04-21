@@ -65,6 +65,9 @@ page{
 .h-55{
   height: 55rpx;
 }
+.h-60{
+  height: 60rpx;
+}
 .h-100rpx{
   height: 100rpx;
 }
@@ -142,6 +145,9 @@ page{
 }
 .w-240{
   width: 240rpx;
+}
+.w-280{
+  width: 280rpx;
 }
 .w-300{
   width: 300rpx;

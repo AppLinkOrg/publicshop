@@ -64,19 +64,19 @@
 </view>
 
 <view class="flex-row flex-center margin-top-36">
-<view class="flex-1  ">
-    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.daifu}}'></image>
+<view class="flex-1  " bindtap="orderxq" id="1">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.daifu}}' ></image>
      <view class="txt-2 h6 padding-top-15 text-center ">待付款</view>
 </view>
-<view class="flex-1">
+<view class="flex-1" bindtap="orderxq" id="2">
     <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.c1}}'></image>
      <view class="txt-2 h6 padding-top-15 text-center ">待发货</view>
 </view>
-<view class="flex-1">
+<view class="flex-1" bindtap="orderxq" id="3">
     <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.c2}}'></image>
      <view class="txt-2 h6 padding-top-15 text-center ">待收货</view>
 </view>
-<view class="flex-1">
+<view class="flex-1" bindtap="navtoPage"  data-page="refund">
     <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.c3}}'></image>
      <view class="txt-2 h6 padding-top-15 text-center ">退款/售后</view>
 </view>

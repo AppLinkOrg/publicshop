@@ -39,9 +39,18 @@ class Content extends AppBase {
 
 
   }
+  orderxq(e){
+    var id = e.currentTarget.id
+    wx.navigateTo({
+      url: '/pages/order/order?num='+id,
+    })
+
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
+
+body.orderxq = content.orderxq;
 Page(body)

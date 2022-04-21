@@ -14,7 +14,7 @@ class Content extends AppBase {
     super.onLoad(options);
     this.Base.setMyData({
       
-      orderstatus:0
+      orderstatus:0,wh:160
     })
   }
   onMyShow() {
@@ -30,6 +30,14 @@ class Content extends AppBase {
           orderstatus:e.currentTarget.dataset.index
       })
   }
+  changeWidth(e){
+    var length = e.detail.value.length
+    var wh=length*20
+    // this.Base.setMyData({wh})
+    console.log('changeWidth',e);
+    // let input = document.getElementById("myInput");
+    // input.size = input.value.length > 4 ? input.value.length : 4;
+  }
 
 
 }
@@ -38,4 +46,6 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindchoose = content.bindchoose;
+
+body.changeWidth = content.changeWidth;
 Page(body)

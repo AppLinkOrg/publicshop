@@ -1,0 +1,168 @@
+<view class="bg-4 min-h100">
+
+<view class='cu-custom '  >
+	<view class="cu-bar fixed  box-sizing" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+		<navigator class='action' bindtap="backHome" open-type="navigateBack" delta="1" hover-class="none">
+			<text class='cuIcon-back' ></text>
+		</navigator>
+		<view class='content' style='top:{{StatusBar}}px;'></view>
+	</view>
+</view>
+
+<image mode="widthFix" src="{{uploadpath}}resource/{{res.mybg}}" class="w-100  h-360 display-block  " > </image>
+<view  style="margin-top:-246rpx;"></view>
+
+<view class="flex-row flex-center">
+<view class="flex-1" wx:if="{{safedetail.examine=='A'}}"></view>
+<image src="{{uploadpath}}resource/{{res.chu}}"  class="icon-24"  wx:if="{{safedetail.examine=='A'}}"></image>
+
+<view class="f-36 txt-2 txt-bold margin-left-30">
+{{safedetail.examine=='A'?'等待商家处理':safedetail.examine=='B'?'商家已同意申请，等待寄回商品':safedetail.examine=='C'?'商品已退回，等待商家审核退款':safedetail.examine=='D'?'服务已完成，感谢您的支持':'商家已拒绝申请'}}
+</view>
+
+<view class="flex-1"></view>
+</view>
+
+<view class="margin-top-20  h6 txt-2   {{safedetail.examine=='A'?'text-center ':' margin-left-30'}}" >
+{{safedetail.examine=='A'?'您已成功发起申请，请等待商家处理。':safedetail.examine=='B'?'剩19小时12分上传物流单号':safedetail.examine=='C'?'审核完成后1～3个工作日完成押金退还':safedetail.examine=='D'?'已完成退款':safedetail.reason}}
+</view>
+
+
+<view class="bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20" wx:if="{{safedetail.examine=='B'}}">
+    <view class="h5 txt-2 txt-bold">请寄回商品</view>
+    <view class="margin-top-30 bg-4 radius-8 padding-top-30 padding-left-20 padding-right-20 padding-bottom-30">
+    <view>
+    <text class="txt-1 h6 ">收货人：</text>
+    <text class="txt-1 h6 ">{{businessinfo.name}}</text>
+    </view>
+    <view class="margin-top-20 "> 
+        <text class="txt-1 h6 ">联系电话：</text>
+    <text class="txt-1 h6 ">{{businessinfo.telephone}}</text>
+    </view>
+
+    <view class="margin-top-20 flex-row  "> 
+        <view class="txt-1 h6 " >退货地址：</view>
+    <text class="txt-1 h6 flex-1 ">{{businessinfo.address}}</text>
+    </view>
+    
+    </view>
+    <view class="margin-top flex-row flex-center">
+    <view class="txt-2 h5">物流单号</view>
+
+    <input  placeholder="请输入物流单号" class="h6 txt-2 text-right flex-1"   model:value="{{logisticsorderno}}"  />
+      <!-- <image src="{{uploadpath}}resource/{{res.youjian}}"  class="icon-12 margin-left-5" ></image> -->
+    </view>
+    <view class="margin-top flex-row flex-center">
+    <view class="txt-2 h5">物流公司</view>
+    <input  placeholder="请输入物流公司" class="h6 txt-2 text-right flex-1"    model:value="{{company}}" />
+    </view>
+
+    <view class=" margin-bottom-20 margin-top h-80 line-height-80 txt-white h6 txt-bold text-center bg-2 radius-40" bindtap="safetijiao" >
+        提交
+    </view>
+
+
+</view>
+
+<view class="  bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20">
+<view class="h5 txt-2 txt-bold">商品信息</view>
+    <view class=" flex-row flex-center margin-bottom-20 margin-top-30"  >
+        <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}sealseprice/{{safedetail.sealsepricedetail.img}}' style="flex:none" wx:if="{{safedetail.sealsepricedetail.img!=''}}"></image>
+                <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}lease/{{safedetail.lease_cover}}' style="flex:none" wx:else></image>
+
+ 
+    <view class="margin-left-20">
+   <view class="flex-row ">
+    <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{safedetail.lease_name}}</view>
+    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
+    <view class="f-32 txt-bold txt-1  " style="flex:none">{{safedetail.leaseorder_price}}</view>
+    
+    </view>
+    <view class="flex-row flex-center margin-top padding-top-10">
+        <view wx:for="{{safedetail.sealsepricedetail.sortlist}}" wx:key="index">
+                            <text class="txt-1 h6  ">{{item.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=index+1}}">丨</text>
+                        </view>
+        <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
+        <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
+        
+        </view>
+    </view>
+   
+    </view>
+    <view class="flex-row flex-center margin-top-10">
+    <view class="flex-1 h6 txt-2">配送方式</view>
+    <view class="h6 txt-2">厂商配送</view>
+    <image src="{{uploadpath}}resource/{{res.youjian}}"  class="icon-12 margin-left-5"></image>
+
+    </view>
+    <view class="flex-row flex-center margin-top-30 margin-bottom-20 ">
+    <view class="flex-1 h6 txt-2">备注</view>
+    <view class="h6 txt-1 ">{{safedetail.leaseorder_remarks==''?'无备注':safedetail.leaseorder_remarks}}</view>
+    <image src="{{uploadpath}}resource/{{res.youjian}}"  class="icon-12 margin-left-5" ></image>
+
+    </view>
+
+</view>
+
+<view class="  bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20 ">
+
+<view class="flex-row flex-center  margin-top-10">
+<view class="flex-2 h6 txt-2 flex-1">退款金额</view>
+<view class="f-18 txt-1 txt-bold">¥</view>
+<view class="h5 txt-1 txt-bold">{{safedetail.amount}}</view>
+</view>
+
+
+<view class="flex-row flex-center  margin-top-30  margin-bottom-10">
+<view class="flex-2 h6 txt-2 flex-1">服务类型</view>
+<view class="h5 txt-1 txt-bold">{{safedetail.service_name}}</view>
+</view>
+
+<view class="flex-row flex-center  margin-top-30  margin-bottom-10">
+<view class="flex-2 h6 txt-2 flex-1">申请原因</view>
+<view class="h5 txt-1 txt-bold">{{safedetail.reason_name}}</view>
+</view>
+
+<view class="flex-row flex-center  margin-top-30  margin-bottom-10">
+<view class="flex-2 h6 txt-2 flex-1">申请时间</view>
+<view class="h5 txt-1 txt-bold">{{safedetail.submit_time}}</view>
+</view>
+
+
+<view class="flex-row flex-center  margin-top-30  margin-bottom-10">
+<view class="flex-2 h6 txt-2 flex-1">服务单号</view>
+<view class="h6 txt-1 ">{{safedetail.leaseorder_orderno}}</view>
+<view class="margin-left-10 margin-right-10 txt-3 h6   ">|</view>
+<view class="h6 txt-3 ">复制</view>
+</view>
+
+</view>
+
+
+
+
+
+<view class="h-100rpx"></view>
+
+<view class="h-100rpx"></view>
+
+</view>
+
+
+
+<!-- 添加收货地址 -->
+<view class="position-fixed w-100   bg-white" style="bottom:0;left:0"  wx:if="{{safedetail.examine=='A' || safedetail.examine=='B'}}">
+<view class="flex-row flex-center h-100rpx padding-left-30 padding-right-30">
+<view class="flex-1"></view>
+<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  "  bindtap="chexiao" >
+    撤销申请
+</view>
+
+
+
+
+
+</view>
+
+</view>

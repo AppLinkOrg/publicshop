@@ -1,38 +1,38 @@
 <!--pages/invoice/invoice.wxml-->
 <view>
-    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 ">
+    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30  bd-1 ">
         <view class=" h5  w-170 txt-2">名称</view>
-        <input type="text" placeholder="填写抬头名称" class="h5 txt-4"/>
+        <input type="text" placeholder="填写抬头名称" class="h5 txt-2" model:value="{{name}}"   />
     </view>
 
-    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 ">
+    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 bd-1">
         <view class=" h5  w-170 txt-2">税号</view>
-        <input type="text" placeholder="填写纳税人识别号" class="h5 txt-4"/>
+        <input type="text" placeholder="填写纳税人识别号" class="h5 txt-2"  model:value="{{duty}}" />
     </view>
 
-    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 ">
+    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 bd-1">
         <view class=" h5  w-170 txt-2">单位地址</view>
-        <input type="text" placeholder="公司地址（选填）" class="h5 txt-4"/>
+        <input type="text" placeholder="公司地址（选填）" class="h5 txt-2"  model:value="{{address}}" />
     </view>
 
-    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 ">
+    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 bd-1">
         <view class=" h5  w-170 txt-2">电话号码</view>
-        <input type="text" placeholder="填写电话号码" class="h5 txt-4"/>
+        <input type="number" placeholder="填写电话号码" class="h5 txt-2"  model:value="{{mobile}}"  />
     </view>
 
-    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 ">
+    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 bd-1">
         <view class=" h5  w-170 txt-2">开户银行</view>
-        <input type="text" placeholder="开户银行（选填）" class="h5 txt-4"/>
+        <input type="text" placeholder="开户银行（选填）" class="h5 txt-2"  model:value="{{bank}}"   />
     </view>
 
-    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 ">
+    <view class="h-100rpx flex-row flex-center margin-left-30 margin-right-30 bd-1">
         <view class=" h5  w-170 txt-2">银行账户</view>
-        <input type="text" placeholder="银行账户（选填）" class="h5 txt-4"/>
+        <input type="text" placeholder="银行账户（选填）" class="h5 txt-2" model:value="{{bankaccount}}" />
     </view>
 </view>
 
 <view class="position-fixed w-100 " style="bottom:0;left:0">
-    <view class="margin-left-30 margin-right-30 margin-bottom-20 h-80 line-height-80 txt-white h5 txt-bold text-center bg-2 radius-40">
+    <view class="margin-left-30 margin-right-30 margin-bottom-20 h-80 line-height-80 txt-white h5 txt-bold text-center bg-2 radius-40"  bindtap="shenqing">
         申请开票
     </view>
 </view>

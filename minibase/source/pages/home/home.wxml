@@ -47,27 +47,27 @@
 
 <!--  人气推荐-->
 <view class="flex-row flex-center padding-30">
-    <view class="txt-2 txt-bold f-32 ">活动专区</view>
+    <view class="txt-2 txt-bold f-32 ">人气推荐</view>
     <view class="flex-1"></view>
-    <view class="h6 txt-3 ">了解更多</view>
+    <view class="flex-row flex-center"  bindtap="genduo">
+        <view class="h6 txt-3 ">了解更多</view>
     <image src="{{uploadpath}}resource/{{res.youjian2}}"  class="margin-left-5  icon-10"></image>
+    </view>
+    
 </view>
 
 <view class="flex-row padding-left-30 padding-right-30" style="overflow: scroll;">
 
-<view class="w-210   bd-show1  margin-bottom-10  margin-left-30  radius-8" style="flex:none">
-    <image src="{{uploadpath}}resource/{{res.youjian2}}"  class="margin-left-5  icon-105"></image>
+<view class="w-210   bd-show1  margin-bottom-10  margin-left-30  radius-8" style="flex:none"  wx:for="{{recommendlist}}" wx:key="{{item.id}}">
+    <image src="{{uploadpath}}shop/{{item.shop_cover}}"  class="margin-left-5  icon-105"></image>
     
     <view class=" bg-white h-140  padding-top-20 padding-left-10 padding-right-10 ">
-    <view class="f-22 txt-2  text-overflow txt-line-clamp-2  txt-bold ">小米有品amiro化妆 镜LED日光镜...</view>
-    <view class="flex-row flex-center">
-    <view class="txt-3 f-32 ">¥2999</view>
-    <view class="txt-1 padding-left-20  f-18 "  style="text-decoration: line-through;">¥3999</view>
+    <view class="f-22 txt-2  text-overflow txt-line-clamp-2  txt-bold ">{{item.shop_summary}}</view>
+    <view class="flex-row flex-center  margin-top-20">
+    <view class="txt-3 f-32 ">¥{{item.pricelist.present}}</view>
+    <view class="txt-1 padding-left-20  f-18 "  style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
     </view>
     </view>
-
-
-
 </view>
 
 
@@ -80,19 +80,21 @@
 <view class="flex-row flex-center padding-30">
     <view class="txt-2 txt-bold f-32 ">热卖爆款</view>
     <view class="flex-1"></view>
+    <view class="flex-row flex-center"  bindtap="genduo">
     <view class="h6 txt-3 ">了解更多</view>
     <image src="{{uploadpath}}resource/{{res.youjian2}}"  class="margin-left-5  icon-10"></image>
+</view>
 </view>
 
 <!--  -->
 <view class="flex-row padding-left-30 padding-right-30  margin-top-30 " style="flex-wrap:wrap;justify-content:space-between">
-<view class="bg-white my-radius bd-show1  w-330 margin-bottom-30  radius-8">
-    <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}resource/{{res.a4}}'></image>
+<view class="bg-white my-radius bd-show1  w-330 margin-bottom-30  radius-8" wx:for="{{hotmoneylist}}" wx:key="{{item.id}}">
+    <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}shop/{{item.shop_cover}}'></image>
     <view class="padding-left-20 padding-right-20">
-    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow ">小米有品amiro化妆镜L ED日ED日光镜网红美妆镜ED日光镜网红美妆镜光镜网红美妆镜</view>
+    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow ">{{item.shop_summary}}</view>
     <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
-    <view class="txt-3 f-36 txt-bold">¥2999</view>
-    <view class="margin-left-20 txt-1 txt-1 h6 ">¥3999</view>
+    <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
+    <view class="margin-left-20 txt-1 txt-1 h6 ">¥{{item.pricelist.original}}</view>
     </view>
     </view>
 </view>

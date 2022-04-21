@@ -169,12 +169,37 @@ that.ordetail()
     })
   
   }
+
+  afer(){
+// 申请售后
+var id = this.Base.options.id
+var type=this.Base.options.type
+
+wx.navigateTo({
+  url: '/pages/applysale/applysale?id='+id+'&type='+type,
+})
+  }
+  afer2(){
+    // 申请售后
+    var id = this.Base.options.id
+    var type=this.Base.options.type
+    var leaseorderdetail = this.Base.getMyData().leaseorderdetail
+    var safe_id=leaseorderdetail.safe_id
+    
+    wx.navigateTo({
+      url: '/pages/refunddetail/refunddetail?id='+safe_id+'&type='+type,
+    })
+      }
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+
+body.afer2 = content.afer2;
+body.afer = content.afer;
 body.shouhuo = content.shouhuo;
 body.ordetail = content.ordetail;
 body.quxiao = content.quxiao;

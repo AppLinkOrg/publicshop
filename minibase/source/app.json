@@ -24,6 +24,8 @@
         "pages/commoditydetail/commoditydetail",
         "pages/invoice/invoice",
         "pages/logistics/logistics",
+        "pages/refund/refund",
+        "pages/refunddetail/refunddetail",
         "pages/classify/classify"
     ],
     "permission": {

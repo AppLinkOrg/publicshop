@@ -21,6 +21,12 @@ class Content extends AppBase {
         ],
         select:0,orderlist:[]
     })
+
+    if(this.Base.options.num !=undefined){
+      this.Base.setMyData({select:this.Base.options.num })
+    }
+
+    
   }
   onMyShow() {
     var that = this;
@@ -195,6 +201,14 @@ sale(e){
   })
 
 }
+sale2(e){
+// 查看售后详情
+var id = e.currentTarget.id
+var type = e.currentTarget.dataset['type'];
+wx.navigateTo({
+  url: '/pages/refunddetail/refunddetail?id='+id+'&type='+type,
+})
+}
 shouhuo(e){
   // 确认收货
   var that =this
@@ -240,6 +254,15 @@ orderxq(e){
   })
 
 }
+faqiao(e){
+  var id = e.currentTarget.id
+
+  wx.navigateTo({
+    url: '/pages/invoice/invoice?type=A&id='+id,
+  })
+
+
+}
 
 
 
@@ -249,6 +272,8 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.sale2 = content.sale2;
+body.faqiao = content.faqiao;
 body.orderxq = content.orderxq;
 body.shouhuo = content.shouhuo;
 body.sale = content.sale;

@@ -1,6 +1,26 @@
-<!--pages/classify/classify.wxml-->
+<view class='cu-custom'  >
+	<view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px; ">
+		<navigator class='action' bindtap="backHome" open-type="navigateBack" delta="1" hover-class="none">
+			<text class='cuIcon-back' ></text>
+		</navigator>
+
+        <view class="flex-row flex-center h-60 radius-30 w-280  bg-4 ">
+        <view class="flex-1"></view>
+        <image src='{{uploadpath}}resource/{{res.search}}' class="icon-10" mode='widthFix'></image>
+        <view>
+            <input placeholder="搜索您需要的商品" class="txt-2 h7 margin-left-10  h-60" style="width: {{wh}}rpx;"  maxlength="8"   />
+        </view>
+      
+        <view class="flex-1"></view>
+        </view>
+
+	</view>
+</view>
+
+<view  style="height:{{CustomBar}}px;"></view>
+
 <!-- <view class='cu-custom fixed'>
-	<view class="cu-bar  " style="height:{{CustomBar}}rpx;padding-top:{{StatusBar}}px;">
+	<view class="cu-bar bg-white " style="height:{{CustomBar}}rpx;padding-top:{{StatusBar}}px;">
 	
 		<view class='content flex-row flex-center' style='top:{{StatusBar}}px;height: 100%;'>
         <view class="flex-1"></view>

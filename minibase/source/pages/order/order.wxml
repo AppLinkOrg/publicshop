@@ -22,13 +22,13 @@
     </view>
 
 
-    <view wx:if="{{false}}">
+    <view wx:if="{{orderlist.length==0}}">
         <view class="h-200"></view>
         <image src='{{uploadpath}}resource/{{res.kong}}' class="kong display-block margin-auto "></image>
     </view>
 
     <!--  -->
-    <view class="margin-left-30 margin-right-30 ">
+    <view class="margin-left-30 margin-right-30 "  ex:else >
 
         <view class="bg-white radius-10 margin-top-20  padding-left-20 padding-right-20 padding-top-30 padding-bottom-30 " wx:for="{{orderlist}}" wx:key="{{item.id}}"  bindtap="orderxq" id="{{item.id}}">
 
@@ -112,11 +112,18 @@
                     删除订单
                 </view>
                 <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="sale" id="{{item.id}}"
-                wx:if="{{item.orderstatus=='D'}}"  
+                wx:if="{{item.orderstatus=='D' && item.safe_id==0 }}"  
                 >
                 申请售后
                 </view>
-                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20" bindtap="sale" id="{{item.id}}"
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="sale2" id="{{item.safe_id}}"
+                data-type="{{item.type}}"
+                wx:if="{{item.orderstatus=='D' && item.safe_id>0 }}"  
+                >
+                查看售后详情
+                </view>
+
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20" bindtap="faqiao" id="{{item.id}}"
                 wx:if="{{item.orderstatus=='D'}}"  
                 >
                 发票服务
