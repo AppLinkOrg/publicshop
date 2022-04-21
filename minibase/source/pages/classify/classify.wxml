@@ -1,0 +1,61 @@
+<!--pages/classify/classify.wxml-->
+<!-- <view class='cu-custom fixed'>
+	<view class="cu-bar  " style="height:{{CustomBar}}rpx;padding-top:{{StatusBar}}px;">
+	
+		<view class='content flex-row flex-center' style='top:{{StatusBar}}px;height: 100%;'>
+        <view class="flex-1"></view>
+
+            <view class="h-55 w-240 radius-30 bg-1 flex-row flex-center">
+        <image class="icon-12 margin-left"   src='{{uploadpath}}resource/{{res.search}}'></image>
+        <input  placeholder="搜索您需要的商品" class="h7 txt-white padding-left-10"  placeholder-class="txt-white"/>
+    </view>
+    <view class="flex-1"></view>
+        
+        </view>
+	</view>
+</view> -->
+
+<view class="bg-4">
+    <view class="flex-row">
+        <!-- 左边分类 -->
+        <view class="w-210 bg-white flex-center flex-row">
+            <!-- <scroll-view>
+                <view class="h-100rpx flex-row flex-center">
+                    <view class="txt-2 f-26 bd-classify h-40 padding-left-30">推荐</view>
+                </view>
+            </scroll-view> -->
+
+            <view class=" h5 txt-1 ">
+                <view class="flex-1 line-height-100 h-100rpx " wx:for="{{3}}" >
+                    <view class="radius-3 btn bg-2 " wx:if="{{orderstatus==index}}"></view>
+                </view>
+            </view>
+            <view class="flex-center">
+                <view class="txt-2 f-26 padding-left-30 h-100rpx " bindtap="bindchoose" data-index="0">推荐</view>
+                <view class="txt-2 f-26 padding-left-30 h-100rpx " bindtap="bindchoose" data-index="1">产品类别</view>
+                <view class="txt-2 f-26 padding-left-30 h-100rpx " bindtap="bindchoose" data-index="2">产品类别</view>
+            </view>
+            
+        </view>
+
+
+
+        <!-- 右边详细分类 -->
+        <view class="margin-left-30">
+            <view>
+                <image src="../../images/aaa.png" class="h-160 w-480 margin-top-20 radius-8"></image>
+            </view>
+            <view class="margin-top-40 h5">推荐</view>
+            <view class="margin-top-20 bg-white radius-8 flex-row">
+                <view>
+                    <image src="../../images/pss2dvxo0rhmop05mahjhwgvvjkihfmi1859e27abe-f471-44e6-ab65-4225dcf881a5.png" class="icon-70 padding-10"></image>
+                </view>
+                <view class="margin-left-10">
+                    <view class="txt-2 h6 margin-top-10">小米有品amiro化妆镜</view>
+                    <view class="txt-3 f-32 margin-top-40 txt-bold">¥2999</view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</view>
