@@ -25,6 +25,7 @@
         "pages/invoice/invoice",
         "pages/logistics/logistics",
         "pages/refund/refund",
+        "pages/confirmorder/confirmorder",
         "pages/refunddetail/refunddetail",
         "pages/classify/classify"
     ],

@@ -41,6 +41,24 @@
                     "pathName": "pages/classify/classify",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/commoditydetail/commoditydetail",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/cart/cart",
+                    "pathName": "pages/cart/cart",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/confirmorder/confirmorder",
+                    "pathName": "pages/confirmorder/confirmorder",
+                    "query": "str=2,1",
+                    "scene": null
                 }
             ]
         }

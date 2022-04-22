@@ -6,42 +6,62 @@
 <view class="w-690 bd-1 margin-top-30 margin-left-30"></view>
 
 
-<view class="flex-row flex-center margin-top-30 margin-left-30">
+<view class="flex-row flex-center margin-top-30 margin-left-30  margin-right-30"  wx:for="{{cartlist}}" wx:key="{{item.id}}"  bindtap="xzbind" id="{{index}}">
     <!-- 左侧盒子 -->
-    <view class="justify-between flex-center align-items flex-row">
-        <checkbox-group class="" style="position:relative;" bindchange="checkboxChange" data-checkid='{{index}}'>
+    <!-- <view class="justify-between flex-center align-items flex-row"> -->
+        <!-- <checkbox-group class=""  bindchange="checkboxChange" data-checkid='{{index}}'>
             <checkbox data-index="{{index}}" bindtap="selectList" value="{{val}}">
             </checkbox>
-        </checkbox-group>
-        <image src="../../images/pss2dvxo0rhmop05mahjhwgvvjkihfmi1859e27abe-f471-44e6-ab65-4225dcf881a5.png"
-            class="icon-80 margin-left-30"></image>
-    </view>
+        </checkbox-group> -->
+
+        <image src="{{uploadpath}}resource/{{res.xz}}"  class="icon-18 " wx:if="{{item.show}}" style="flex:none" ></image>
+        <image src="{{uploadpath}}resource/{{res.xz2}}"  class="icon-18 " wx:else style="flex:none"></image>
+       
+    <!-- </view> -->
+    <image src="{{uploadpath}}shop/{{item.shop_cover}}"    class="icon-80 margin-left-30"  style="flex:none"></image>
     <!-- 右侧盒子 -->
     <view class="margin-left-20">
-        <view class="txt-2 h5">【新品首发】坚果G9S投影仪家用...</view>
-        <view class="txt-4 h6 margin-top-20">白色（官方标配）</view>
+        <view class="txt-2 h5 text-overflow txt-line-clamp-2 ">{{item.shop_summary}}</view>
+        <!-- <view class="txt-4 h6 margin-top-20">白色（官方标配）</view> -->
+        <view class="flex-row flex-wrap">
+            <view wx:for="{{item.sort}}" wx:key="indexs"  wx:for-item="items" wx:for-index="indexs">
+                            <text class="txt-1 h6  ">{{items.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{items.sort.length!=index+1}}">丨</text>
+        </view>
+        </view>
+
+
         <view class="flex-row justify-between margin-top-50">
             <view class="flex-row">
                 <view class="h6 txt-3 txt-bold">￥</view>
-                <view class="txt-3 h4-5 txt-bold">9999.00</view>
+                <view class="txt-3 h4-5 txt-bold">{{item.pricelist_present}}</view>
             </view>
-            <view class="margin-right-30 txt-2 h4-5">x3</view>
+            <view class="margin-right-30 txt-2 h4-5">x{{item.num}}</view>
         </view>
     </view>
 </view>
 
-<view class="flex-row flex-center margin-left-30 fixation h-100rpx">
-    <view class="flex-row flex-center">
-        <checkbox class="" value="{{val}}" bindtap="selectAll" checked="{{selectAllStatus}}"></checkbox>
+
+ <view class="fixation w-100">
+    <view class="flex-row flex-center margin-left-30 margin-right-30  h-100rpx ">
+    <view class="flex-row flex-center"  bindtap="quanbind">
+        <image src="{{uploadpath}}resource/{{res.xz}}"  class="icon-18 " wx:if="{{quanshow}}" style="flex:none" ></image>
+        <image src="{{uploadpath}}resource/{{res.xz2}}"  class="icon-18 " wx:else style="flex:none"></image>
+
+        <!-- <checkbox class="" value="{{val}}" bindtap="selectAll" checked="{{selectAllStatus}}"></checkbox> -->
         <view class="tab margin-left-10 txt-2">全选</view>
     </view>
-    <view class="flex-row flex-center" wx:if="{{show==false}}">
-        <view class="w-150"></view>
+<view class="flex-1" wx:if="{{show==false}}"></view>
+    <view class="flex-row flex-center " wx:if="{{show==false}}">
+ 
         <view class="tab txt-2 margin-left-130">合计：</view>
         <view class="h6 txt-3 txt-bold">￥</view>
-        <view class="txt-3 h4-5 txt-bold">9999.00</view>
+        <view class="txt-3 h4-5 txt-bold">{{amount}}</view>
     </view>
-    <view class="w-365" wx:else></view>
-    <view class="w-210 bg-2 txt-white height-70 flex-row flex-center justify-center radius-36 margin-left-40">{{show?"删除":"去结算"}}
+    <view class="flex-1" wx:else></view>
+    <view class="w-210 bg-2 txt-white height-70  line-height-70 text-center radius-36 margin-left-40" bindtap="gosc">
+    {{show?"删除":"去结算"}} 
     </view>
+</view>
+
 </view>

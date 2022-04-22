@@ -1,0 +1,103 @@
+<view class="bg-4 min-h100">
+    <view class="margin-top-60  bd-show1 flex-row flex-center h-140 margin-left-30 margin-right-30  bg-white margin-top-60 radius-20">
+        <view class="flex-1 margin-left-20"  wx:if="{{addresdetail==null}}"  bindtap="xzaddres">
+            <view class="h5 txt-2 txt-bold">请选择地址</view>
+        </view>
+
+
+        <view class="flex-1 margin-left-20"  wx:else  bindtap="xzaddres">
+            <view class="h5 txt-2 txt-bold">{{addresdetail.address}}  {{addresdetail.detailed}}</view>
+            <view class="margin-top-20">
+                <text class="h6 txt-2 ">{{addresdetail.name}}</text>
+                <text class="margin-left txt-2 h6">{{addresdetail.mobile}}</text>
+            </view>
+        </view>
+
+       
+
+
+        <image src="{{uploadpath}}resource/{{res.youjian}}" class="icon-12 margin-right-10"></image>
+    </view>
+
+
+    <view class="  bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20"   >
+        <view class=" flex-row flex-center margin-bottom-20"  wx:for="{{cartdetail}}"  wx:key="{{item.id}}">
+            <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}pricelist/{{item.pricelist_img}}' style="flex:none" wx:if="{{item.pricelist_img!=''}}"></image>
+            <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}shop/{{item.cover}}' style="flex:none" wx:else></image>
+            <view class="margin-left-20  flex-1">
+                <view class="flex-row ">
+                    <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.name}}</view>
+                    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
+                    <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.pricelist_present}}</view>
+
+                </view>
+                <view class="flex-row flex-center margin-top padding-top-10">
+                <view wx:for="{{item.storelist}}"  wx:key="indexs" data-index="indexs" >
+                    <text class="txt-1 h6  ">{{item.name}}</text>
+                    <text class="txt-1 h6  "  wx:if="{{item.storelist.length!=indexs+1}}">丨</text>
+                </view>
+                <view class="flex-1"></view>
+                <view class="h6 txt-1">x{{item.cart_num}}</view>
+            
+
+                </view>
+            </view>
+
+        </view>
+        <view class="flex-row flex-center margin-top-10">
+            <view class="flex-1 h6 txt-2">配送方式</view>
+            <view class="h6 txt-2">普通快递 免邮</view>
+            <image src="{{uploadpath}}resource/{{res.youjian}}" class="icon-12 margin-left-5"></image>
+
+        </view>
+        <view class="flex-row flex-center margin-top-30 margin-bottom-20 ">
+            <view class="flex-1 h6 txt-2">备注</view>
+            <input type="text" placeholder="建议留言前先与客服确认" class="h6 txt-2  text-right"  model:value="{{remarks}}"  />
+            <image src="{{uploadpath}}resource/{{res.youjian}}" class="icon-12 margin-left-5"></image>
+
+        </view>
+
+    </view>
+
+    <view class="  bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20 ">
+        <view class="flex-row flex-center  margin-top-10">
+            <view class="flex-2 h6 txt-2 flex-1">商品总额</view>
+            <view class="f-18 txt-2 txt-bold">¥</view>
+            <view class="h5 txt-2 txt-bold">{{amount}}</view>
+        </view>
+
+
+        <view class="flex-row flex-center  margin-top-30">
+            <view class="flex-2 h6 txt-2 flex-1">运费</view>
+            <view class="f-18 txt-2 txt-bold">¥</view>
+            <view class="h5 txt-2 txt-bold">{{cartdetail[0].freight}}</view>
+        </view>
+
+        <view class="flex-row flex-center  margin-top-30  margin-bottom-10">
+            <view class="flex-2 h6 txt-2 flex-1">实付金额</view>
+            <view class="f-18 txt-3 txt-bold">¥</view>
+            <view class="h5 txt-3 txt-bold">{{amount*1+cartdetail[0].freight*1}}</view>
+        </view>
+
+    </view>
+
+
+</view>
+
+
+<!-- 添加收货地址 -->
+<view class="position-fixed w-100   bg-white" style="bottom:0;left:0">
+    <view class="flex-row flex-center h-100rpx padding-left-30 padding-right-30">
+
+        <view class="h5 txt-2 ">合计:</view>
+
+        <view class="f-36 txt-bold txt-3">¥</view>
+        <view class="f-58 txt-bold txt-3 ">{{amount*1+cartdetail[0].freight*1}}</view>
+
+        <view class="flex-1"></view>
+        <view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 "  bindtap="tijiao">
+            提交订单
+        </view>
+
+    </view>
+</view>

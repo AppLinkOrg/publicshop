@@ -79,6 +79,7 @@ class Content extends AppBase {
     // return
 
     var sealseApi = new SealseApi()
+    
     sealseApi.sealseprice({
       lease_id:this.Base.options.id,
       chooseid:str2

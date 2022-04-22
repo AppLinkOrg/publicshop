@@ -7,11 +7,19 @@
 </block>
 </swiper> -->
 
-<swiper class="h-700">
-    <block>
+<view class='cu-custom'>
+    <view class="cu-bar fixed " style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <navigator class='action' bindtap="backHome" open-type="navigateBack" delta="1" hover-class="none">
+            <text class='cuIcon-back '></text>
+        </navigator>
+    </view>
+</view>
+
+
+<swiper class="h-700" indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF" indicator-active-color="#DF001F" autoplay="{{autoplay}}">
+    <block wx:for="{{shopdetail.shopimglist}}" wx:key="{{item.id}}">
         <swiper-item>
-            <image src="../../images/pss2dvxo0rhmop05mahjhwgvvjkihfmi1859e27abe-f471-44e6-ab65-4225dcf881a5.png"
-                class="w-100 h-700"></image>
+            <image src="{{uploadpath}}shopimg/{{item.img}}" class="w-100 h-700"></image>
         </swiper-item>
     </block>
 </swiper>
@@ -21,9 +29,9 @@
         <view class="flex-row flex-center">
             <view class=" flex-row flex-center">
                 <view class="txt-3 f-36">￥</view>
-                <view class="txt-3 f-58">1000.00</view>
+                <view class="txt-3 f-58">{{shopdetail.pricelist.present}}</view>
             </view>
-            <view class="txt-4 f-30 text-decoration margin-left-30 ">￥2000.00</view>
+            <view class="txt-4 f-30 text-decoration margin-left-30 ">￥{{shopdetail.pricelist.original}}</view>
         </view>
         <view>
             <image class="icon-18 margin-right-30" src='{{uploadpath}}resource/{{res.fenxiao}}'></image>
@@ -31,14 +39,13 @@
     </view>
 
     <view class="margin-top-30 margin-left-30 flex-row">
-        <view class="txt-1 f-22 biaoqian-bg">超人气商品</view>
-        <view class="txt-1 f-22 biaoqian-bg margin-left-10">2022年销量王</view>
+        <view class="txt-1 f-22 biaoqian-bg {{index==0?'':'margin-left-10'}} " wx:for="{{shopdetail.labelist}}" wx:key="{{index}}">{{item}}</view>
     </view>
 
-    <view class="margin-left-30 margin-top-30 txt-2 f-30 txt-bold">JmGo/坚果U2 4K三色激光电视投影仪家用超高清3D超短焦智能家庭影院</view>
+    <view class="margin-left-30 margin-top-30 txt-2 f-30 txt-bold">{{shopdetail.summary}}</view>
 
     <view class="justify-between flex-row margin-top-30">
-        <view class="margin-left-30 txt-2 h6">已售20</view>
+        <view class="margin-left-30 txt-2 h6">已售{{shopdetail.sold}}</view>
         <view class="margin-right-30 txt-2 h6">包邮</view>
     </view>
 
@@ -60,23 +67,26 @@
     <view class="margin-left-30 margin-top-60 txt-2 f-30 txt-bold">产品详情</view>
 
     <import src="../../wxParse/wxParse.wxml" />
-    <view class='nostyle margin-top-20'>
+    <view class='nostyle margin-top-20 w-100'>
         <template is="wxParse" data="{{wxParseData:content.nodes}}" />
     </view>
     <view class="h-200"></view>
 </view>
 
-<view class="flex-row h-100rpx flex-center">
-    <view class="margin-left-30  flex-row flex-column" bindtap="toggleDialog">
-        <image class=" icon-18" src='{{uploadpath}}resource/{{res.lianxi}}'></image>
-        <view>客服</view>
+<view class="position-fixed w-100  bg-white" style="bottom:0;left:0">
+    <view class="flex-row h-100rpx flex-center">
+        <view class="margin-left-30  flex-row flex-column" bindtap="toggleDialog">
+            <image class=" icon-18" src='{{uploadpath}}resource/{{res.lianxi}}'></image>
+            <view>客服</view>
+        </view>
+        <view class="margin-left-30 flex-row flex-column"  bindtap="gocart">
+            <image class=" icon-18" src='{{uploadpath}}resource/{{res.cart}}'></image>
+            <view>购物车</view>
+        </view>
+        <button class="cart-btn" bindtap="toggleDialog_buttom">加入购物车</button>
+        <button class="buy-btn">立即购买</button>
     </view>
-    <view class="margin-left-30 flex-row flex-column">
-        <image class=" icon-18" src='{{uploadpath}}resource/{{res.cart}}'></image>
-        <view>购物车</view>
-    </view>
-    <button class="cart-btn" bindtap="toggleDialog_buttom">加入购物车</button>
-    <button class="buy-btn">立即购买</button>
+
 </view>
 
 <view class="zhezao" wx:if="{{flag}}">
@@ -86,23 +96,97 @@
             <view class="zan-dialog__container ">
                 <view class=" h-600 w-590 white-block margin-left-80">
                     <view class="margin-left-95 margin-right-95 margin-top-80">
-                        <image
-                            src="../../images/ps9ov6q7snsl19ncuw64v8vkzqlurh5paa4ab6ae5-4461-4f80-ad80-17a285b38cad.png"
-                            class="icon-200 h-400 w-400"></image>
+                        <image src="{{uploadpath}}inst/{{instinfo.img}}" class="icon-200 h-400 w-400"></image>
                     </view>
                     <view class="modal-content">
                         <view class="txt-1 f-30 text-center margin-top-30">添加客服微信联系客服</view>
                     </view>
                 </view>
-                <image class=" icon-36 margin-left-339 margin-top-72" bindtap="toggleDialog"
-                    src='{{uploadpath}}resource/{{res.quxiao}}'>
+                <image class=" icon-36 margin-left-339 margin-top-72" bindtap="toggleDialog" src='{{uploadpath}}resource/{{res.quxiao}}'>
                 </image>
             </view>
         </view>
     </view>
 </view>
 
-<view class="zhezao1 " wx:if="{{buttom_flag}}">
+<view class="position-fixed w-100 h-100 bg-7" style="top:0;left:0" wx:if="{{buttom_flag}}" catchtouchmove='true'></view>
+<view class="h-760 position-fixed w-100   " style="bottom:0;left:0"  wx:if="{{buttom_flag}}" catchtouchmove='true'>
+   <scroll-view scroll-y="{{true}}" style="height:760rpx" >
+    <!-- <view class="  h-760  "> -->
+    <view class="position-relative icon-100 margin-left-30 ">
+        <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100  position-absolute " style="top:0;left:0rpx;z-index: 2;" wx:if="{{jiageprice.img!=''}}" ></image>
+        <image src="{{uploadpath}}shop/{{shopdetail.cover}}" class="icon-100 position-absolute " style="top:0;left:0rpx;z-index: 2;" wx:else></image>
+
+
+
+    </view>
+       <view style="margin-top:-160rpx"></view>
+        <view class=" bg-white padding-left-30 padding-right-30   com-radius   " style="height:{{760-40}}rpx">
+         
+
+            <view class="flex-row  margin-top-30 ">
+                <view class="w-200 h-160"></view>
+                <view class="margin-left-20">
+                    <view>
+                        <text class="txt-bold txt-3 f-32">¥</text>
+                        <text class="f-43 txt-3 txt-bold">{{jiageprice.present}}</text>
+                    </view>
+                    <view class="margin-top-30 txt-1 h5 margin-left-15" style="text-decoration: line-through;">¥{{jiageprice.original}}</view>
+                </view>
+                <view class="flex-1"></view>
+                <image src="{{uploadpath}}resource/{{res.close}}" class="icon-20" bindtap="close" ></image>
+
+            </view>
+
+       
+                <view wx:for="{{shopdetail.specslist}}"  wx:key="{{item.id}}">
+                    <view class="f-26 txt-2 margin-top-30">{{item.name}}</view>
+                <view class="flex-row flex-wrap ">
+                    <view class="h-52b line-height-52 padding-left-20 padding-right-20 h6 bg  margin-top-20 radius-8 {{indexs==0?'':'margin-left-20'}} {{item.show==indexs?'bd-3 txt-3':' bd-7'}} "
+                    
+                     wx:for="{{item.sortlist}}" wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items"  bindtap="xzbind" data-index="{{index}}" data-indexs="{{indexs}}"
+                     >{{items.name}}</view>
+                </view>
+                </view>
+
+                
+                <!-- <view class="f-26 txt-2  margin-top-30">颜色</view>
+                <view class="flex-row flex-wrap ">
+                    <image src="{{uploadpath}}resource/{{res.close}}" class="icon-24 radius-50 margin-top-20 "></image>
+                </view> -->
+
+                <view class="flex-row flex-center margin-top-50">
+                    <view class="f-26 txt-2  ">数量</view>
+                    <view class="flex-1"></view>
+                    <image src="{{uploadpath}}resource/{{res.jian}}" class="icon-30 " bindtap="jian"></image>
+                    <view class="h-60 line-height-60 padding-left-30 padding-right-30 txt-2 h6 com-border ">{{num}}</view>
+                    <image src="{{uploadpath}}resource/{{res.jia}}" class="icon-30 " bindtap="jia"></image>
+
+                </view>
+
+                <button class="bg-2 w-690 h-72 f-26 txt-white radius-36 margin-top-60 margin-bottom-20"  bindtap="queding">确认</button>
+
+                
+                
+
+
+         
+
+
+
+        </view>
+
+
+    <!-- </view> -->
+   
+   </scroll-view>
+
+
+</view>
+
+
+<!-- <view class="position-fixed w-100 h-100  bg-7 " wx:if="{{buttom_flag}}">
+
     <view class="t_w">
         <view class="zan-dialog {{show?'zan-dialog--show':''}}">
             <view class="zan-dialog__mask " bindtap="toggleDialog" />
@@ -154,4 +238,4 @@
             </view>
         </view>
     </view>
-</view>
+</view> -->

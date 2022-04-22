@@ -73,6 +73,13 @@ class Content extends AppBase {
       url: '/pages/classify/classify',
     })
   }
+  tuijain(e){
+    var id = e.currentTarget.id
+    wx.navigateTo({
+      url: '/pages/commoditydetail/commoditydetail?id='+id,
+    })
+   
+  }
 
 
 }
@@ -81,6 +88,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 
+body.tuijain = content.tuijain;
 body.genduo = content.genduo;
 
 Page(body)

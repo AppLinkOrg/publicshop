@@ -46,7 +46,7 @@
 </view>
 
 <!--  人气推荐-->
-<view class="flex-row flex-center padding-30">
+<view class="flex-row flex-center padding-30"   >
     <view class="txt-2 txt-bold f-32 ">人气推荐</view>
     <view class="flex-1"></view>
     <view class="flex-row flex-center"  bindtap="genduo">
@@ -58,7 +58,7 @@
 
 <view class="flex-row padding-left-30 padding-right-30" style="overflow: scroll;">
 
-<view class="w-210   bd-show1  margin-bottom-10  margin-left-30  radius-8" style="flex:none"  wx:for="{{recommendlist}}" wx:key="{{item.id}}">
+<view class="w-210   bd-show1  margin-bottom-10  margin-left-30  radius-8" style="flex:none"  wx:for="{{recommendlist}}" wx:key="{{item.id}}" bindtap="tuijain"  id="{{item.shop_id}}">
     <image src="{{uploadpath}}shop/{{item.shop_cover}}"  class="margin-left-5  icon-105"></image>
     
     <view class=" bg-white h-140  padding-top-20 padding-left-10 padding-right-10 ">
