@@ -210,6 +210,36 @@ return
 
 
   }
+  onShareAppMessage(res){
+    var taht =this
+    
+    var shopdetail = this.Base.getMyData().shopdetail
+    var path='/pages/commoditydetail/commoditydetail?id='+shopdetail.id
+    var title = shopdetail.summary
+    var imageUrl=ApiConfig.GetUploadPath()+'shop/'+shopdetail.cover
+    // console.log(imageUrl,'imageUrl');
+    // return
+    var shareObj={
+      title:title,
+      path:path,
+      imageUrl:imageUrl,
+      success:function (res){
+        console.log(res,'success');
+      },
+      fail:function(res){
+        console.log(res,'fail');
+      },
+      complete:function(res){
+        console.log(res,'complete');
+      }
+
+    }
+    return shareObj
+
+    
+
+
+  }
 
 
 }
@@ -218,6 +248,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.onShareAppMessage = content.onShareAppMessage;
 body.queding = content.queding;
 body.gocart = content.gocart;
 body.jiage = content.jiage;

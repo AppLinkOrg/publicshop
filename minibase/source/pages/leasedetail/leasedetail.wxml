@@ -25,7 +25,7 @@
         <view class="margin-top-20 f-22 txt-4 padding-left-12 padding-right-12 h-40 line-height-36  bg-6 radius-8 margin-right-10 "  wx:for="{{leasedetail.biaolist}}"  wx:key="{{idnex}}">{{item}}</view>
     </view>
 
-    <view class="txt-bold f-30 txt-2 margin-top-30 padding-bottom-30 bd-1">{{leasedetail.name}}</view>
+    <view class="txt-bold f-30 txt-2 margin-top-30 padding-bottom-30 bd-1">{{leasedetail.introduction}}</view>
 
  <view  wx:for="{{leasedetail.specslist}}"  wx:key="{{index}}" >
     <view class="margin-top-30 f-30 txt-2 txt-bold">{{item.name}}</view>

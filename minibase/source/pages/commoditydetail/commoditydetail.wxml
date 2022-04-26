@@ -34,7 +34,11 @@
             <view class="txt-4 f-30 text-decoration margin-left-30 ">￥{{shopdetail.pricelist.original}}</view>
         </view>
         <view>
-            <image class="icon-18 margin-right-30" src='{{uploadpath}}resource/{{res.fenxiao}}'></image>
+        
+        <button open-type="share" class="clear-button">
+            <image class="icon-18 margin-right-30" src='{{uploadpath}}resource/{{res.fenxiao}}'  ></image>
+        </button>
+
         </view>
     </view>
 

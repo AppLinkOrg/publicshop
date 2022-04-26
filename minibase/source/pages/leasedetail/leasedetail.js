@@ -119,7 +119,36 @@ class Content extends AppBase {
     })
 
   }
+  onShareAppMessage(res){
+    var taht =this
+    
+    var leasedetail = this.Base.getMyData().leasedetail
+    var path='/pages/leasedetail/leasedetail?id='+leasedetail.id
+    var title = leasedetail.introduction
+    var imageUrl=ApiConfig.GetUploadPath()+'lease/'+leasedetail.cover
+    // console.log(imageUrl,'imageUrl');
+    // return
+    var shareObj={
+      title:title,
+      path:path,
+      imageUrl:imageUrl,
+      success:function (res){
+        console.log(res,'success');
+      },
+      fail:function(res){
+        console.log(res,'fail');
+      },
+      complete:function(res){
+        console.log(res,'complete');
+      }
 
+    }
+    return shareObj
+
+    
+
+
+  }
 
   
 }
@@ -128,6 +157,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.onShareAppMessage = content.onShareAppMessage;
 body.zulin = content.zulin;
 body.jiage = content.jiage;
 body.select = content.select;

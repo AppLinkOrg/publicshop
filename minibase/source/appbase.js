@@ -49,6 +49,7 @@ export class AppBase {
   data = {
     uploadpath: ApiConfig.GetUploadPath(),
     uploadapi: ApiConfig.GetApiUrl(),
+    
     copyright: {
       name: "",
       website: "mecloud.com"
