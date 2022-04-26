@@ -48,6 +48,7 @@ export class AppBase {
   options = null;
   data = {
     uploadpath: ApiConfig.GetUploadPath(),
+    uploadapi: ApiConfig.GetApiUrl(),
     copyright: {
       name: "",
       website: "mecloud.com"
@@ -160,6 +161,7 @@ export class AppBase {
       ketai1:base.ketai1,
 
       tiaozhuan:base.tiaozhuan,
+      copy:base.copy,
     }
   }
   log() {
@@ -242,6 +244,10 @@ export class AppBase {
   minimm
   onShow() {
     var that = this;
+
+   
+
+ 
     
     var instapi = new InstApi();
     instapi.resources({}, (res) => {
@@ -292,6 +298,12 @@ export class AppBase {
                 console.log(data);
                 AppBase.UserInfo.openid = data.openid;
                 AppBase.UserInfo.session_key = data.session_key;
+
+                         // 添加上级分销数据
+    var memberid=this.Base.options.memberid;
+    AppBase.UserInfo.memberid=memberid
+
+    
                 console.log(AppBase.UserInfo);
                 ApiConfig.SetToken(data.openid);
                 console.log("goto update info");
@@ -371,6 +383,14 @@ export class AppBase {
       that.onMyShow();
       // that.checkPermission();
     }
+
+
+   
+    
+    
+    console.log(this.Base.options.memberid,'memberid');
+
+
     that.checkPermission();
   }
   checkPermission() {
@@ -1066,6 +1086,14 @@ export class AppBase {
       }
     })
   }
+  copy(e){
+    var str = e.currentTarget.dataset.str
+    wx.setClipboardData({
+      data: str,
+    })
+
+
+  }
   toast(msg) {
     wx.showToast({
       title: msg,
@@ -1134,6 +1162,11 @@ export class AppBase {
         AppBase.UserInfo.session_key = session_key;
         console.log("loginres4", userres);
         AppBase.UserInfo.warrant = 'Y';
+
+         // 添加上级分销数据
+    var memberid=this.Base.options.memberid;
+    AppBase.UserInfo.memberid=memberid
+
         
         console.log(this.Base.getMyData().memberinfo, '11');
         var memberinfo = this.Base.getMyData().memberinfo;

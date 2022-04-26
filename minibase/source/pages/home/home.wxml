@@ -1,4 +1,4 @@
-<view class='cu-custom fixed'>
+<!-- <view class='cu-custom fixed'>
 	<view class="cu-bar  " style="height:{{CustomBar}}rpx;padding-top:{{StatusBar}}px;">
 	
 		<view class='content flex-row flex-center' style='top:{{StatusBar}}px;height: 100%;'>
@@ -11,6 +11,23 @@
     <view class="flex-1"></view>
         
         </view>
+	</view>
+</view> -->
+
+<view class='cu-custom fixed'  >
+	<view class="cu-bar fixed " style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px">
+
+        	<view class=' flex-row flex-center w-100' style='top:{{StatusBar}}px;height: 100%;'>
+        <view class="flex-1"></view>
+
+            <view class="h-55 w-240 radius-30 bg-1 flex-row flex-center" bindtap="navtoPage" data-page="search">
+        <image class="icon-12 margin-left"   src='{{uploadpath}}resource/{{res.sousuo}}'></image>
+        <input  placeholder="搜索您需要的商品" class="h7 txt-white padding-left-10"  placeholder-class="txt-white" disabled="disabled"  />
+    </view>
+    <!-- <view class="flex-1"></view> -->
+        
+        </view>
+ 
 	</view>
 </view>
 
@@ -62,7 +79,7 @@
     <image src="{{uploadpath}}shop/{{item.shop_cover}}"  class="margin-left-5  icon-105"></image>
     
     <view class=" bg-white h-140  padding-top-20 padding-left-10 padding-right-10 ">
-    <view class="f-22 txt-2  text-overflow txt-line-clamp-2  txt-bold ">{{item.shop_summary}}</view>
+    <view class="f-22 txt-2  text-overflow txt-line-clamp-2  txt-bold overflow-hidden ">{{item.shop_summary}}</view>
     <view class="flex-row flex-center  margin-top-20">
     <view class="txt-3 f-32 ">¥{{item.pricelist.present}}</view>
     <view class="txt-1 padding-left-20  f-18 "  style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
@@ -88,7 +105,7 @@
 
 <!--  -->
 <view class="flex-row padding-left-30 padding-right-30  margin-top-30 " style="flex-wrap:wrap;justify-content:space-between">
-<view class="bg-white my-radius bd-show1  w-330 margin-bottom-30  radius-8" wx:for="{{hotmoneylist}}" wx:key="{{item.id}}">
+<view class="bg-white my-radius bd-show1  w-330 margin-bottom-30  radius-8" wx:for="{{hotmoneylist}}" wx:key="{{item.id}}" bindtap="tuijain"  id="{{item.shop_id}}">
     <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}shop/{{item.shop_cover}}'></image>
     <view class="padding-left-20 padding-right-20">
     <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow ">{{item.shop_summary}}</view>

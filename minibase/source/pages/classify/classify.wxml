@@ -11,7 +11,7 @@
         <view class="flex-1"></view>
         <image src='{{uploadpath}}resource/{{res.search}}' class="icon-10" mode='widthFix'></image>
         <view>
-            <input placeholder="搜索您需要的商品" class="txt-2 h7 margin-left-10  h-60" style="width: {{wh}}rpx;"  maxlength="8"   />
+            <input placeholder="搜索您需要的商品" class="txt-2 h7 margin-left-10  h-60" style="width: {{wh}}rpx;"  maxlength="8" disabled="disabled" bindtap="navtoPage" data-page="search"  />
         </view>
       
         <view class="flex-1"></view>
@@ -85,9 +85,10 @@
 
            <scroll-view  scroll-y="true" style="height:80vh" scroll-with-animation="true"  scroll-into-view="{{vieid}}" bindscroll="scrollpage" >
          
-          <view wx:for="{{shoplist}}"  wx:key="{{index}}">
+          <view wx:for="{{shoplist}}"  wx:key="{{index}}" >
             <view class="margin-top-40 h5 txt-bold "  id="list{{index}}">{{item.name}}</view>
-           <view class="margin-top-20 bg-white radius-8 flex-row  "  wx:for="{{item.shoplist}}"  wx:key="{{indexs}}"  wx:for-item="items"  wx:for-index="indexs">
+           <view class="margin-top-20 bg-white radius-8 flex-row  "  wx:for="{{item.shoplist}}"  wx:key="{{indexs}}"  wx:for-item="items" 
+            wx:for-index="indexs"  bindtap="xq" id="{{items.id}}">
     
                    <image src="{{uploadpath}}shop/{{items.cover}}" class="icon-70 padding-10"></image>
   

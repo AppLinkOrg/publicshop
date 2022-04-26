@@ -654,6 +654,9 @@ button[disabled][type=primary] {
 .margin-20{
   margin:20rpx;
 }
+.margin-30{
+  margin:30rpx;
+}
 .margin-40{
   margin:40rpx;
 }
@@ -895,6 +898,10 @@ button[disabled][type=primary] {
   width: 72rpx;
   height: 72rpx;
 }
+.icon{
+  width: 80rpx;
+  height: 80rpx;
+}
 .icon-40{
   width: 80rpx;
   height: 80rpx;
@@ -1075,4 +1082,11 @@ background-color: #fcebed;
   border-radius: 50%;
   /* background-color: #CDCDCD; */
   /* border: 1rpx solid #CDCDCD; */
+}
+.usebox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }

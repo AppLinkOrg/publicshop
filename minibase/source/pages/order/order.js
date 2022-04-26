@@ -69,7 +69,10 @@ quxiao(e){
   var orderstatus = e.currentTarget.dataset['orderstatus'];
   var orderApi =new OrderApi()
 
-  console.log(orderstatus,'orderstatus');
+  var types=e.currentTarget.dataset['type'];
+  
+
+  console.log(types,'orderstatus');
   // return
 
   wx.showModal({
@@ -79,28 +82,55 @@ quxiao(e){
         if (id>0) {
 
           if (orderstatus=='B') {
-            var wechatApi =new  WechatApi()
-            wechatApi.refund2({
-              id
-            },(res)=>{
-              if (res.code==0) {
-                wx.showToast({
-                  title: '取消成功',
-                  icon:'none'
-                })
-                that.orlist()
-              }else{
-                wx.showToast({
-                  title: '操作失败',
-                }) 
-              }
-            })
+            if (types=='B') {
+              var wechatApi =new  WechatApi()
+              wechatApi.refund4({
+                id
+              },(res)=>{
+                if (res.code==0) {
+                  wx.showToast({
+                    title: '取消成功',
+                    icon:'none'
+                  })
+                  that.orlist()
+                }else{
+                  wx.showToast({
+                    title: '操作失败',
+                  }) 
+                }
+              })
+            }else{
+              var wechatApi =new  WechatApi()
+              wechatApi.refund2({
+                id
+              },(res)=>{
+                if (res.code==0) {
+                  wx.showToast({
+                    title: '取消成功',
+                    icon:'none'
+                  })
+                  that.orlist()
+                }else{
+                  wx.showToast({
+                    title: '操作失败',
+                  }) 
+                }
+              })
+            }
+       
 
             
           }
           if (orderstatus=='A') {
+            var type='';
+            if (types=='B') {
+              type='D'
+            }else{
+              type='A'
+            }
+            
             orderApi.update({
-              id,type:'A',leixin:'A'
+              id,type,leixin:'A'
             },(res)=>{
               if (res.code==0) {
                 wx.showToast({
@@ -133,13 +163,21 @@ shangchu(e){
  // 删除订单
  var that = this 
   var id = e.currentTarget.id
+  var types=e.currentTarget.dataset.type
+
 wx.showModal({
   content: '确定要删除这个订单吗？',
   success(res){
     if (res.confirm) {
       var orderApi =new OrderApi()
+      var type=''
+      if (types=='B') {
+        type='D'
+      }else{
+        type='A'
+      }
       orderApi.update({
-        id,type:'A',leixin:'B'
+        id,type,leixin:'B'
       },(res)=>{
         if (res.code==0) {
           wx.showToast({
@@ -171,9 +209,34 @@ zhifu(e){
   // 支付
   var that = this 
   var id = e.currentTarget.id
+  var types = e.currentTarget.dataset.type
 
   var wechatApi = new WechatApi()
-  wechatApi.prepay({
+
+  console.log('ffff',types);
+  
+  // return
+
+  if (types=='B') {
+    wechatApi.prepay2({
+      id
+    },(payret)=>{
+      payret.complete=function(e){
+  
+        console.log(e,'ecomplete');
+        if (e.errMsg == "requestPayment:ok") {
+          that.Base.toast("支付成功")
+          that.orlist()
+  
+        }else{
+  that.Base.toast("支付失败");
+        }
+      }
+      wx.requestPayment(payret)
+  
+    })
+  }else{
+      wechatApi.prepay({
     id
   },(payret)=>{
     payret.complete=function(e){
@@ -190,14 +253,17 @@ that.Base.toast("支付失败");
     wx.requestPayment(payret)
 
   })
+  }
+
 
 
 }
 sale(e){
   // 申请售后
   var id = e.currentTarget.id
+  var type=e.currentTarget.dataset.type
   wx.navigateTo({
-    url: '/pages/applysale/applysale?id='+id,
+    url: '/pages/applysale/applysale?id='+id+'&type='+type,
   })
 
 }
@@ -213,13 +279,22 @@ shouhuo(e){
   // 确认收货
   var that =this
   var id = e.currentTarget.id
+  var types=e.currentTarget.dataset.type
+
   wx.showModal({
     content: '确定要收货这个订单吗？',
     success(res){
       if (res.confirm) {
         var orderApi =new OrderApi()
+
+        var type=''
+        if (types=='B') {
+          type='D'
+        }else{
+          type='A'
+        }
         orderApi.update({
-          id,type:'A',leixin:'C'
+          id,type,leixin:'C'
         },(res)=>{
           if (res.code==0) {
             wx.showToast({
@@ -249,18 +324,30 @@ shouhuo(e){
 }
 orderxq(e){
   var id = e.currentTarget.id
+  var type=e.currentTarget.dataset.type
   wx.navigateTo({
-    url: '/pages/orderdetail/orderdetail?type=A&id='+id,
+    url: '/pages/orderdetail/orderdetail?type='+type+'&id='+id,
   })
 
 }
 faqiao(e){
   var id = e.currentTarget.id
+  var type=e.currentTarget.dataset.type
 
   wx.navigateTo({
-    url: '/pages/invoice/invoice?type=A&id='+id,
+    url: '/pages/invoice/invoice?type='+type+'&id='+id,
   })
 
+
+}
+chakan(e){
+  var id = e.currentTarget.id
+  var type=e.currentTarget.dataset.type
+  this.Base.toast('暂未开放')
+return
+  wx.navigateTo({
+    url: '/pages/logistics/logistics?type='+type+'&id='+id,
+  })
 
 }
 
@@ -272,6 +359,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.chakan = content.chakan;
 body.sale2 = content.sale2;
 body.faqiao = content.faqiao;
 body.orderxq = content.orderxq;

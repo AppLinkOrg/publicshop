@@ -71,30 +71,55 @@ class Content extends AppBase {
       })
       return
     }
-   
+
+    var invoiceApi =new InvoiceApi()
+    if (type=='A') {
+      invoiceApi.invoicelist({
+        leaseorder_id:id,name,duty,address,mobile,bank,bankaccount,
+        type
+      },(res)=>{
+        if (res.code==0) {
+          wx.showToast({
+            title: '提交成功',
+            icon:'none'
+          })
+          this.Base.setMyData({name:'',duty:'',address:'',mobile:'',bank:'',bankaccount:''})
+        }else{
+          wx.showToast({
+            title: res.return,
+            icon:'none'
+          })
+  
+        }
+  
+      })
+    }else{
+      invoiceApi.invoicelist({
+        shoporder_id:id,name,duty,address,mobile,bank,bankaccount,
+        type
+      },(res)=>{
+        if (res.code==0) {
+          wx.showToast({
+            title: '提交成功',
+            icon:'none'
+          })
+          this.Base.setMyData({name:'',duty:'',address:'',mobile:'',bank:'',bankaccount:''})
+        }else{
+          wx.showToast({
+            title: res.return,
+            icon:'none'
+          })
+  
+        }
+  
+      })
+
+    }
     
 
 
-    var invoiceApi =new InvoiceApi()
-    invoiceApi.invoicelist({
-      leaseorder_id:id,name,duty,address,mobile,bank,bankaccount,
-      type
-    },(res)=>{
-      if (res.code==0) {
-        wx.showToast({
-          title: '提交成功',
-          icon:'none'
-        })
-        this.Base.setMyData({name:'',duty:'',address:'',mobile:'',bank:'',bankaccount:''})
-      }else{
-        wx.showToast({
-          title: res.return,
-          icon:'none'
-        })
+    
 
-      }
-
-    })
 
 
     

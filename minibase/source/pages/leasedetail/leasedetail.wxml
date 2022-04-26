@@ -16,7 +16,7 @@
         <text class="margin-left-30  txt-1 f-30 " style="text-decoration: line-through;">¥{{leasedetail.jiamu.original}}</text>
         <view class="flex-1"></view>
         <button open-type="share" class="clear-button">
-        <image class="icon " src='{{uploadpath}}resource/{{res.fenxiao}}'></image>
+        <image class="icon-20 " src='{{uploadpath}}resource/{{res.fenxiao}}'></image>
     </button>
 
     </view>
@@ -85,3 +85,7 @@
 
 
 </view>
+
+
+<button open-type="getUserInfo" class="clear-button usebox" hover-class="none" wx:if="{{memberinfo.warrant_value!='Y'}}" bindtap="getUserInfo" ></button>
+  <button  open-type="getPhoneNumber" class="clear-button usebox" hover-class="none" wx:if="{{memberinfo.warrant_value=='Y'&& memberinfo.sqphone_value!='Y'}}" bindgetphonenumber="getPhoneNo"  ></button>

@@ -28,7 +28,7 @@ class Content extends AppBase {
       shopdetail:{},
       autoplay:false,
       num:1,jiageprice:{},
-      type:'',str2:''
+      type:'',str2:'',guistr:''
     })
 
   }
@@ -103,7 +103,8 @@ class Content extends AppBase {
     });
   }
   toggleDialog_buttom(e) {
-    this.Base.setMyData({type:'A',buttom_flag:true})
+    var type=e.currentTarget.dataset.type
+    this.Base.setMyData({type,buttom_flag:true})
 
     return
 
@@ -171,6 +172,42 @@ return
 
 
     }
+
+    if (type=='B') {
+      var chooseid = str2.toString()
+      var json={
+        num:num,
+        shop_id:this.Base.options.id,
+        type:'B',
+        chooseid,
+        pricelist_id:jiageprice.id
+      }
+      var strjson = JSON.stringify(json)
+      wx.navigateTo({
+        url: '/pages/confirmorder/confirmorder?strjson='+ strjson,
+      })
+
+      
+    }
+
+    if (type=='C') {
+      var guistr =''
+      var guistrarr =[]
+      var shopdetail = this.Base.getMyData().shopdetail
+  
+      for(let item of shopdetail.specslist){
+        var show=item.show
+        var name = item['sortlist'][show]['name']
+        guistrarr.push(name)
+      }
+      guistr=guistrarr.toString()
+      this.Base.setMyData({guistr,buttom_flag:false})
+
+      
+      
+    }
+
+
 
   }
 

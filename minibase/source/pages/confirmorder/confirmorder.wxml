@@ -26,19 +26,20 @@
             <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}shop/{{item.cover}}' style="flex:none" wx:else></image>
             <view class="margin-left-20  flex-1">
                 <view class="flex-row ">
-                    <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.name}}</view>
+                    <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.summary}}</view>
                     <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
                     <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.pricelist_present}}</view>
 
                 </view>
                 <view class="flex-row flex-center margin-top padding-top-10">
-                <view wx:for="{{item.storelist}}"  wx:key="indexs" data-index="indexs" >
-                    <text class="txt-1 h6  ">{{item.name}}</text>
+                <view wx:for="{{item.storelist}}"  wx:key="indexs" data-index="indexs"  wx:for-index="indexs" wx:for-item="items">
+                    <text class="txt-1 h6  ">{{items.name}}</text>
                     <text class="txt-1 h6  "  wx:if="{{item.storelist.length!=indexs+1}}">丨</text>
                 </view>
                 <view class="flex-1"></view>
-                <view class="h6 txt-1">x{{item.cart_num}}</view>
-            
+
+                <!-- <view class="h6 txt-1" wx:if="{{type=='B'}}">x{{strjson.num}}</view> -->
+                <view class="h6 txt-1" >x{{item.cart_num}}</view>
 
                 </view>
             </view>
@@ -70,13 +71,13 @@
         <view class="flex-row flex-center  margin-top-30">
             <view class="flex-2 h6 txt-2 flex-1">运费</view>
             <view class="f-18 txt-2 txt-bold">¥</view>
-            <view class="h5 txt-2 txt-bold">{{cartdetail[0].freight}}</view>
+            <view class="h5 txt-2 txt-bold">{{freight}}</view>
         </view>
 
         <view class="flex-row flex-center  margin-top-30  margin-bottom-10">
             <view class="flex-2 h6 txt-2 flex-1">实付金额</view>
             <view class="f-18 txt-3 txt-bold">¥</view>
-            <view class="h5 txt-3 txt-bold">{{amount*1+cartdetail[0].freight*1}}</view>
+            <view class="h5 txt-3 txt-bold">{{amount*1+freight*1}}</view>
         </view>
 
     </view>

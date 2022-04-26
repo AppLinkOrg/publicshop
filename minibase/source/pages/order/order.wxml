@@ -30,7 +30,7 @@
     <!--  -->
     <view class="margin-left-30 margin-right-30 "  ex:else >
 
-        <view class="bg-white radius-10 margin-top-20  padding-left-20 padding-right-20 padding-top-30 padding-bottom-30 " wx:for="{{orderlist}}" wx:key="{{item.id}}"  bindtap="orderxq" id="{{item.id}}">
+        <view class="bg-white radius-10 margin-top-20  padding-left-20 padding-right-20 padding-top-30 padding-bottom-30 " wx:for="{{orderlist}}" wx:key="{{item.id}}"  bindtap="orderxq" id="{{item.id}}"  data-type="{{item.type}}"  >
 
             <view class="flex-row flex-center">
                 <view class="h6 txt-2 flex-1">{{item.submit_time}}</view>
@@ -41,7 +41,7 @@
 
 
             <view class="margin-top-30"></view>
-            <view class=" flex-row flex-center margin-bottom-20" >
+            <view class=" flex-row flex-center margin-bottom-20"  wx:if="{{item.type=='A'}}">
                 <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}sealseprice/{{item.sealsepricedetail.img}}' style="flex:none" wx:if="{{item.sealsepricedetail.img!=''}}"></image>
                 <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}lease/{{item.leasedetail.cover}}' style="flex:none" wx:else></image>
 
@@ -53,9 +53,9 @@
 
                     </view>
                     <view class="flex-row flex-center margin-top padding-top-10 w-100">
-                        <view wx:for="{{item.sealsepricedetail.sortlist}}" wx:key="index">
-                            <text class="txt-1 h6  ">{{item.name}}</text>
-                            <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=index+1}}">丨</text>
+                        <view wx:for="{{item.sealsepricedetail.sortlist}}" wx:key="index" wx:for-index="indexx" wx:for-item="itemx">
+                            <text class="txt-1 h6  ">{{itemx.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=indexx+1}}">丨</text>
                         </view>
                         <view class="flex-1"></view>
                         <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
@@ -65,78 +65,108 @@
                 </view>
 
             </view>
+            <view wx:else>
+             <view class=" flex-row flex-center margin-bottom-20"  wx:for="{{item.shoporder.orderitem}}"  wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items" >
+                <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}pricelist/{{items.pricelist_img}}' style="flex:none" wx:if="{{items.pricelist_img!=''}}"></image>
+                <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}shop/{{items.shop_cover}}' style="flex:none" wx:else></image>
 
-            <view class="margin-top flex-row flex-center">
+                <view class="margin-left-20  flex-1">
+                    <view class="flex-row ">
+                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{items.shop_name}}</view>
+                        <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
+                        <view class="f-32 txt-bold txt-1  " style="flex:none">{{items.pricelist_present}}</view>
+
+                    </view>
+                    <view class="flex-row flex-center margin-top padding-top-10 w-100">
+                        <view wx:for="{{items.sortlist}}" wx:key="indexx" wx:for-index="indexx" wx:for-item="itemx">
+                            <text class="txt-1 h6  ">{{itemx.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{items.sortlist.length!=indexx+1}}">丨</text>
+                        </view>
+                        <view class="flex-1"></view>
+                        <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
+                        <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
+
+                    </view>
+                </view>
+
+            </view>
+            </view>
+           
+
+            <view class="margin-top flex-row flex-center" wx:if="{{item.type=='A'}}">
                 <view class="flex-1"></view>
-                <view class="txt-1 h6 ">总价：¥ {{item.amount}}</view>
-                <view class="txt-1 h6  margin-left-20">押金：¥ {{item.deposit}}</view>
+                <view class="txt-1 h6 ">总价：¥ {{item.leaseorder.price}}</view>
+                <view class="txt-1 h6  margin-left-20">押金：¥ {{item.leaseorder.deposit}}</view>
                 <view class="margin-left txt-1 h6 ">实付金额</view>
 
 
                 <text class="h6 txt-2 txt-bold margin-left-10">¥ </text>
-                <text class="txt-2 f-32 txt-bold">{{item.amount}}</text>
+                <text class="txt-2 f-32 txt-bold">{{item.leaseorder.amount}}</text>
 
             </view>
 
 
-            <view class="margin-top flex-row flex-center" wx:if="{{false}}">
+            <view class="margin-top flex-row flex-center" wx:else>
                 <view class="flex-1"></view>
-                <view class="txt-1 h6 ">共 3 件商品</view>
+                <view class="txt-1 h6 ">共 {{item.shoporder.totle}} 件商品</view>
                 <view class="margin-left txt-1 h6 ">实付金额</view>
 
 
                 <text class="h6 txt-2 txt-bold margin-left-10">¥ </text>
-                <text class="txt-2 f-32 txt-bold">8997</text>
+                <text class="txt-2 f-32 txt-bold">{{item.shoporder.amount}}</text>
 
 
             </view>
 
             <view class="flex-row flex-center margin-top-50">
                 <view class="flex-1"></view>
-                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="quxiao" id="{{item.id}}"  
+               
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" 
+                catchtap="quxiao" id="{{item.id}}"  
+                data-type="{{item.type}}"
                 data-orderstatus="{{item.orderstatus}}"  
                 wx:if="{{item.orderstatus=='A' || item.orderstatus=='B'}}"
                    >
-                    取消租赁
+                    {{item.type=='A'?'取消租赁':'取消订单'}}
                 </view>
 
                 <view class="h-56 line-height-56 bd-3 padding-left-30 padding-right-30 h6 txt-3 margin-left-20  radius-28"
-                wx:if="{{item.orderstatus=='A'}}"  bindtap="zhifu"  id="{{item.id}}"
+                wx:if="{{item.orderstatus=='A'}}"  catchtap="zhifu"  id="{{item.id}}" data-type="{{item.type}}"
                 >
                     立即付款
                 </view>
 
-                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="shangchu" id="{{item.id}}"
-                wx:if="{{item.orderstatus=='E'}}"
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" catchtap="shangchu" id="{{item.id}}"
+                wx:if="{{item.orderstatus=='E'}}"  data-type="{{item.type}}"
                 >
                     删除订单
                 </view>
-                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="sale" id="{{item.id}}"
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" catchtap="sale" id="{{item.id}}" data-type="{{item.type}}"
                 wx:if="{{item.orderstatus=='D' && item.safe_id==0 }}"  
                 >
                 申请售后
                 </view>
-                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" bindtap="sale2" id="{{item.safe_id}}"
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28" catchtap="sale2" id="{{item.safe_id}}"
                 data-type="{{item.type}}"
                 wx:if="{{item.orderstatus=='D' && item.safe_id>0 }}"  
                 >
                 查看售后详情
                 </view>
 
-                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20" bindtap="faqiao" id="{{item.id}}"
-                wx:if="{{item.orderstatus=='D'}}"  
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20" catchtap="faqiao" id="{{item.id}}"
+                wx:if="{{item.orderstatus=='D'}}"   data-type="{{item.type}}"
                 >
                 发票服务
                 </view>
 
-                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20 " bindtap="shangchu" id="{{item.id}}"
+                <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20 " catchtap="chakan" id="{{item.id}}"
                 wx:if="{{item.orderstatus=='C' || item.orderstatus=='D'}}"
                 >
                 查看物流
                 </view>
 
                 <view class="h-56 line-height-56 bd-3 padding-left-30 padding-right-30 h6 txt-3 margin-left-20  radius-28"
-                wx:if="{{item.orderstatus=='C'}}"  bindtap="shouhuo"  id="{{item.id}}"
+                wx:if="{{item.orderstatus=='C'}}"  catchtap="shouhuo"  id="{{item.id}}" data-type="{{item.type}}"
                 >
                 确认收货
                 </view>

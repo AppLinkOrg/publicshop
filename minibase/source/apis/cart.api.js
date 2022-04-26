@@ -41,7 +41,7 @@ export class CartApi{
         })
     }
 
-    cartlist(json, callback, showLoading = true) {
+    cartdetail(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class CartApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'cart/cartlist',
+            url: ApiConfig.GetApiUrl() + 'cart/cartdetail',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -73,7 +73,7 @@ export class CartApi{
         })
     }
 
-    cartdetail(json, callback, showLoading = true) {
+    cartlist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +82,7 @@ export class CartApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'cart/cartdetail',
+            url: ApiConfig.GetApiUrl() + 'cart/cartlist',
             data: json,
             method: 'POST',
             dataType: 'json',

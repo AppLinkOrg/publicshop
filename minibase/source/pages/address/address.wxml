@@ -28,7 +28,7 @@
 <view class="h-100rpx"></view>
 
 <!-- 添加收货地址 -->
-<view class="position-fixed w-100 " style="bottom:0;left:0"  wx:if="{{type!='A'}}">
+<view class="position-fixed w-100 " style="bottom:0;left:0"  >
     <view class="margin-left-130 margin-right-130 margin-bottom-20 h-80 line-height-80 txt-white h6 txt-bold text-center bg-2 radius-40" bindtap="navtoPage" data-page="addressadd">
         + 添加收货地址
     </view>

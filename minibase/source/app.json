@@ -21,6 +21,8 @@
         "pages/feedback/feedback",
         "pages/auth/auth",
         "pages/cart/cart",
+        "pages/ceshi/ceshi",
+        "pages/search/search",
         "pages/commoditydetail/commoditydetail",
         "pages/invoice/invoice",
         "pages/logistics/logistics",

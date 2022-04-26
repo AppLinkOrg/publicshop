@@ -66,7 +66,7 @@
 
 <view class="  bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20">
 <view class="h5 txt-2 txt-bold">商品信息</view>
-    <view class=" flex-row flex-center margin-bottom-20 margin-top-30"  >
+    <view class=" flex-row flex-center margin-bottom-20 margin-top-30" wx:if="{{safedetail.type=='A'}}"  >
         <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}sealseprice/{{safedetail.sealsepricedetail.img}}' style="flex:none" wx:if="{{safedetail.sealsepricedetail.img!=''}}"></image>
                 <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}lease/{{safedetail.lease_cover}}' style="flex:none" wx:else></image>
 
@@ -90,18 +90,45 @@
     </view>
    
     </view>
-    <view class="flex-row flex-center margin-top-10">
+    <view wx:else>
+        <view class=" flex-row flex-center margin-bottom-20 margin-top-30" wx:for="{{safedetail.shopitemlist}}" wx:key="{{index}}" >
+        <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}pricelist/{{item.pricelist_img}}' style="flex:none" wx:if="{{item.pricelist_img!=''}}"></image>
+                <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}shop/{{item.shop_cover}}' style="flex:none" wx:else></image>
+
+ 
+    <view class="margin-left-20 flex-1">
+   <view class="flex-row ">
+    <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.shop_summary}}</view>
+    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
+    <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.present}}</view>
+    
+    </view>
+    <view class="flex-row flex-center margin-top padding-top-10">
+        <view wx:for="{{item.shopitem}}" wx:key="{{indexs}}"  wx:for-index="indexs" wx:for-item="items">
+                            <text class="txt-1 h6  ">{{items.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{item.shopitem.length!=indexs+1}}">丨</text>
+                        </view>
+        <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
+        <view class="txt-1 h6 margin-left-50" style="flex:none">x{{item.num}}</view>
+        
+        </view>
+    </view>
+   
+    </view>
+    </view>
+
+    <!-- <view class="flex-row flex-center margin-top-10">
     <view class="flex-1 h6 txt-2">配送方式</view>
     <view class="h6 txt-2">厂商配送</view>
     <image src="{{uploadpath}}resource/{{res.youjian}}"  class="icon-12 margin-left-5"></image>
 
-    </view>
-    <view class="flex-row flex-center margin-top-30 margin-bottom-20 ">
+    </view> -->
+    <!-- <view class="flex-row flex-center margin-top-30 margin-bottom-20 ">
     <view class="flex-1 h6 txt-2">备注</view>
     <view class="h6 txt-1 ">{{safedetail.leaseorder_remarks==''?'无备注':safedetail.leaseorder_remarks}}</view>
     <image src="{{uploadpath}}resource/{{res.youjian}}"  class="icon-12 margin-left-5" ></image>
 
-    </view>
+    </view> -->
 
 </view>
 
@@ -132,9 +159,9 @@
 
 <view class="flex-row flex-center  margin-top-30  margin-bottom-10">
 <view class="flex-2 h6 txt-2 flex-1">服务单号</view>
-<view class="h6 txt-1 ">{{safedetail.leaseorder_orderno}}</view>
+<view class="h6 txt-1 ">{{safedetail.leaseorder_orderno==''? safedetail.shoporder_orderno:safedetail.leaseorder_orderno}}</view>
 <view class="margin-left-10 margin-right-10 txt-3 h6   ">|</view>
-<view class="h6 txt-3 ">复制</view>
+<view class="h6 txt-3 "  bindtap="copy" data-str="{{safedetail.leaseorder_orderno==''? safedetail.shoporder_orderno:safedetail.leaseorder_orderno}}">复制</view>
 </view>
 
 </view>

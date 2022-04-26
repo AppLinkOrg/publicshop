@@ -1,0 +1,3 @@
+<canvas style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;background: red;" canvas-id="myCanvas" />
+
+<button bindtap="savePhoto">点击</button>

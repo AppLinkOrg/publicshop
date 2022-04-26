@@ -1,0 +1,39 @@
+<!--pages/search/search.wxml-->
+ 
+<view class="navigate_bar bg-white">
+  <view class='search  flex-row flex-center    margin-30'>
+    <image class='icon-15 margin-left-20' src="{{uploadpath}}resource/{{res.search}}"></image>
+    <input class='h6 txt-gray2 margin-left-10 flex-1' placeholder="输入搜索内容" bindinput="searchinput"  model:value="{{summary}}"></input>
+    <view class="h5 txt-orange padding-15 " bindtap="sousuo">搜索</view>
+  </view>
+
+
+
+</view>
+
+<view class="height-220"></view>
+
+<view class="flex-row padding-left-30 padding-right-30  margin-top-30 " style="flex-wrap:wrap;justify-content:space-between">
+<view class="bg-white my-radius bd-show1  w-330 margin-bottom-30  radius-8" wx:for="{{shoplist2}}" wx:key="{{item.id}}" bindtap="tuijain"  id="{{item.id}}">
+    <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}shop/{{item.cover}}'></image>
+    <view class="padding-left-20 padding-right-20">
+    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow ">{{item.summary}}</view>
+    <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
+    <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
+    <view class="margin-left-20 txt-1 txt-1 h6 ">¥{{item.pricelist.original}}</view>
+    </view>
+    </view>
+</view>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+<view class="height-70"></view>

@@ -109,6 +109,10 @@ import { OrderApi } from "../../apis/order.api.js";
  for(let item of cartlist){
       item.show=true
     }
+    }else{
+      for(let item of cartlist){
+        item.show=false
+      }
     }
    
 
@@ -148,7 +152,9 @@ this.jiage()
       },(res)=>{
         if (res.code==0) {
           that.Base.toast('删除成功')
+          
           that.carlist()
+          that.jiage()
         }else{
           that.Base.toast('删除失败')
         }

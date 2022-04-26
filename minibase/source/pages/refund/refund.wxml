@@ -31,7 +31,7 @@
 
 
     <view class="margin-top-30"></view>
-    <view class=" flex-row flex-center margin-bottom-20" >
+    <view class=" flex-row flex-center margin-bottom-20"  wx:if="{{item.type=='A'}}">
         <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}sealseprice/{{item.sealsepricedetail.img}}' style="flex:none" wx:if="{{item.sealsepricedetail.img!=''}}"></image>
         <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}lease/{{item.lease_cover}}' style="flex:none" wx:else></image>
 
@@ -55,8 +55,34 @@
         </view>
 
     </view>
+    <view wx:else>
+        <view class=" flex-row flex-center margin-bottom-20"  wx:for="{{item.shopitemlist}}"  wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items">
+        <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}pricelist/{{items.pricelist_img}}' style="flex:none" wx:if="{{items.pricelist_img!=''}}"></image>
+        <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}shop/{{items.shop_cover}}' style="flex:none" wx:else></image>
 
-    <view class="margin-top flex-row flex-center">
+        <view class="margin-left-20  flex-1">
+            <view class="flex-row ">
+                <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{items.shop_summary}}</view>
+                <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
+                <view class="f-32 txt-bold txt-1  " style="flex:none">{{items.present}}</view>
+
+            </view>
+            <view class="flex-row flex-center margin-top padding-top-10 w-100">
+                <view wx:for="{{items.shopitem}}" wx:key="indexx" wx:for-index="indexx" wx:for-item="itemx">
+                    <text class="txt-1 h6  ">{{itemx.name}}</text>
+                    <text class="txt-1 h6  " wx:if="{{items.shopitem.length!=indexx+1}}">丨</text>
+                </view>
+                <view class="flex-1"></view>
+                <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
+                <view class="txt-1 h6 margin-left-50" style="flex:none">x{{items.num}}</view>
+
+            </view>
+        </view>
+
+    </view>
+    </view>
+
+    <view class="margin-top flex-row flex-center" wx:if="{{item.type=='A'}}">
         <view class="flex-1"></view>
         <view class="txt-1 h6 ">总价：¥ {{item.leaseorder_price}}</view>
         <view class="txt-1 h6  margin-left-20">押金：¥ {{item.leaseorder_deposit}}</view>
@@ -69,14 +95,14 @@
     </view>
 
 
-    <view class="margin-top flex-row flex-center" wx:if="{{false}}">
+    <view class="margin-top flex-row flex-center" wx:else>
         <view class="flex-1"></view>
-        <view class="txt-1 h6 ">共 3 件商品</view>
+        <view class="txt-1 h6 ">共 {{item.zonnum}} 件商品</view>
         <view class="margin-left txt-1 h6 ">实付金额</view>
 
 
         <text class="h6 txt-2 txt-bold margin-left-10">¥ </text>
-        <text class="txt-2 f-32 txt-bold">8997</text>
+        <text class="txt-2 f-32 txt-bold">{{item.amount}}</text>
 
 
     </view>

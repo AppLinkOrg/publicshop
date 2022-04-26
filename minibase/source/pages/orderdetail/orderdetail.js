@@ -4,8 +4,8 @@ import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { LeaseorderApi } from "../../apis/leaseorder.api.js";
 import { OrderApi } from "../../apis/order.api.js";
-
-
+import { ShoporderApi } from "../../apis/shoporder.api.js";
+import { WechatApi } from "../../apis/wechat.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -50,19 +50,28 @@ that.ordetail()
         this.Base.setMyData({leaseorderdetail:res})
       })
 
+    }else{
+      var shoporderApi  =new ShoporderApi()
+      shoporderApi.shoporderdetail({
+        id:this.Base.options.id
+      },(res)=>{
+        this.Base.setMyData({leaseorderdetail:res})
+      })
+
     }
+
   }
   quxiao(e){
     // 取消订单
     var that = this 
     var id = this.Base.options.id
-    var type=this.Base.options.type
-    var leaseorderdetail=this.Base.getMyData().leaseorderdetail
-    var orderstatus=leaseorderdetail.orderstatus
-  
+    var orderstatus = e.currentTarget.dataset['orderstatus'];
     var orderApi =new OrderApi()
   
-    console.log(orderstatus,'orderstatus');
+    var types=this.Base.getMyData().type;
+    
+  
+    console.log(types,'orderstatus');
     // return
   
     wx.showModal({
@@ -71,37 +80,65 @@ that.ordetail()
         if (res.confirm) {
           if (id>0) {
   
-            if (orderstatus=='B' && type=='A') {
-              var wechatApi =new  WechatApi()
-              wechatApi.refund2({
-                id
-              },(res)=>{
-                if (res.code==0) {
-                  wx.showToast({
-                    title: '取消成功',
-                    icon:'none'
-                  })
-                  that.ordetail()
-                }else{
-                  wx.showToast({
-                    title: '操作失败',
-                  }) 
-                }
-              })
+            if (orderstatus=='B') {
+              if (types=='B') {
+                var wechatApi =new  WechatApi()
+                wechatApi.refund4({
+                  id
+                },(res)=>{
+                  if (res.code==0) {
+                    wx.showToast({
+                      title: '取消成功',
+                      icon:'none'
+                    })
+                    that.ordetail()
+                  }else{
+                    wx.showToast({
+                      title: '操作失败',
+                    }) 
+                  }
+                })
+              }else{
+                var wechatApi =new  WechatApi()
+                wechatApi.refund2({
+                  id
+                },(res)=>{
+                  if (res.code==0) {
+                    wx.showToast({
+                      title: '取消成功',
+                      icon:'none'
+                    })
+                    that.ordetail()
+               
+                  }else{
+                    wx.showToast({
+                      title: '操作失败',
+                    }) 
+                  }
+                })
+              }
+         
   
               
             }
-            if (orderstatus=='A'&& type=='A') {
+            if (orderstatus=='A') {
+              var type='';
+              if (types=='B') {
+                type='D'
+              }else{
+                type='A'
+              }
+              
               orderApi.update({
-                id,type:'A',leixin:'A'
+                id,type,leixin:'A'
               },(res)=>{
                 if (res.code==0) {
                   wx.showToast({
                     title: '取消成功',
                     icon:'none'
                   })
-    
-            that.ordetail()
+    that.ordetail()
+            // that.orlist()
                   
                 }else{
                   wx.showToast({
@@ -125,39 +162,41 @@ that.ordetail()
 
   shouhuo(e){
     // 确认收货
-    var that = this 
+    var that =this
     var id = this.Base.options.id
-    var type=this.Base.options.type
-    var leaseorderdetail=this.Base.getMyData().leaseorderdetail
-    var orderstatus=leaseorderdetail.orderstatus
-
+    var types=this.Base.getMyData().type;
+  
     wx.showModal({
       content: '确定要收货这个订单吗？',
       success(res){
         if (res.confirm) {
           var orderApi =new OrderApi()
-
-          if (type=='A') {
-            orderApi.update({
-              id,type:'A',leixin:'C'
-            },(res)=>{
-              if (res.code==0) {
-                wx.showToast({
-                  title: '收货成功',
-                  icon:'none'
-                })
-      
-          that.ordetail()
-                
-              }else{
-                wx.showToast({
-                  title: '操作失败',
-                })
-              }
-          
-            })
+  
+          var type=''
+          if (types=='B') {
+            type='D'
+          }else{
+            type='A'
           }
-         
+          orderApi.update({
+            id,type,leixin:'C'
+          },(res)=>{
+            if (res.code==0) {
+              wx.showToast({
+                title: '收货成功',
+                icon:'none'
+              })
+              that.ordetail()
+    
+        // that.orlist()
+              
+            }else{
+              wx.showToast({
+                title: '操作失败',
+              })
+            }
+        
+          })
     
     
           
@@ -190,6 +229,113 @@ wx.navigateTo({
       url: '/pages/refunddetail/refunddetail?id='+safe_id+'&type='+type,
     })
       }
+shangchu(e){
+  // 删除订单
+  var that = this 
+    var id = this.Base.options.id
+    var types=this.Base.getMyData().type
+  
+  wx.showModal({
+    content: '确定要删除这个订单吗？',
+    success(res){
+      if (res.confirm) {
+        var orderApi =new OrderApi()
+        var type=''
+        if (types=='B') {
+          type='D'
+        }else{
+          type='A'
+        }
+        orderApi.update({
+          id,type,leixin:'B'
+        },(res)=>{
+          if (res.code==0) {
+            wx.showToast({
+              title: '删除成功',
+              icon:'none'
+            })
+  
+      wx.navigateBack({
+        delta: 1,
+      })
+            
+          }else{
+            wx.showToast({
+              title: '操作失败',
+            })
+          }
+      
+        })
+  
+  
+        
+      }else if (res.cancel) {
+        console.log('用户点击取消')
+      }
+  
+    }
+  })
+  
+  }
+  zhifu(e){
+    // 支付
+    var that = this 
+    var id = this.Base.options.id
+    var types=this.Base.getMyData().type
+  
+    var wechatApi = new WechatApi()
+  
+    if (types=='B') {
+      wechatApi.prepay2({
+        id
+      },(payret)=>{
+        payret.complete=function(e){
+    
+          console.log(e,'ecomplete');
+          if (e.errMsg == "requestPayment:ok") {
+            that.Base.toast("支付成功")
+            that.ordetail()
+    
+          }else{
+    that.Base.toast("支付失败");
+          }
+        }
+        wx.requestPayment(payret)
+    
+      })
+    }else{
+        wechatApi.prepay({
+      id
+    },(payret)=>{
+      payret.complete=function(e){
+  
+        console.log(e,'ecomplete');
+        if (e.errMsg == "requestPayment:ok") {
+          that.Base.toast("支付成功")
+          that.ordetail()
+  
+        }else{
+  that.Base.toast("支付失败");
+        }
+      }
+      wx.requestPayment(payret)
+  
+    })
+    }
+  
+  
+  
+  }
+  faqiao(e){
+    var id = this.Base.options.id
+    var types=this.Base.getMyData().type
+  
+    wx.navigateTo({
+      url: '/pages/invoice/invoice?type='+types+'&id='+id,
+    })
+  
+  
+  }
 
 }
 var content = new Content();
@@ -198,6 +344,9 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 
 
+body.faqiao = content.faqiao;
+body.zhifu = content.zhifu;
+body.shangchu = content.shangchu;
 body.afer2 = content.afer2;
 body.afer = content.afer;
 body.shouhuo = content.shouhuo;

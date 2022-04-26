@@ -57,7 +57,49 @@
                 {
                     "name": "pages/confirmorder/confirmorder",
                     "pathName": "pages/confirmorder/confirmorder",
-                    "query": "str=2,1",
+                    "query": "strjson={\"num\":1,\"shop_id\":\"1\",\"type\":\"B\",\"chooseid\":\"2,4\",\"pricelist_id\":\"2\"}",
+                    "scene": null
+                },
+                {
+                    "name": "pages/orderdetail/orderdetail",
+                    "pathName": "pages/orderdetail/orderdetail",
+                    "query": "type=B&id=6",
+                    "scene": null
+                },
+                {
+                    "name": "pages/applysale/applysale",
+                    "pathName": "pages/applysale/applysale",
+                    "query": "id=1&type=B",
+                    "scene": null
+                },
+                {
+                    "name": "pages/refunddetail/refunddetail",
+                    "pathName": "pages/refunddetail/refunddetail",
+                    "query": "type=B&id=3",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mycenter/mycenter",
+                    "pathName": "pages/mycenter/mycenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/ceshi/ceshi",
+                    "pathName": "pages/ceshi/ceshi",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mycenter/mycenter",
+                    "pathName": "pages/mycenter/mycenter",
+                    "query": "memberid=2",
+                    "scene": null
+                },
+                {
+                    "name": "pages/search/search",
+                    "pathName": "pages/search/search",
+                    "query": "",
                     "scene": null
                 }
             ]

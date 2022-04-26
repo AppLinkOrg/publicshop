@@ -51,11 +51,19 @@
 
     <view class="w-690 bd-1 margin-top-30 margin-left-30"></view>
 
-    <view class="margin-top-30 flex-row margin-left-30 flex-center justify-between">
+    <!-- <view class="margin-top-30 flex-row margin-left-30 flex-center justify-between"  bindtap="toggleDialog_buttom" data-type="C">
         <view class="flex-row">
             <view class="txt-4 h5">规格</view>
+            <input placeholder="请选择规格" class="h6 txt-2 margin-left-20" model:value="{{guistr}}" disabled="disabled" />
             <view class="h6 txt-2 margin-left-20">已选 白色 （官方标配）</view>
         </view>
+        <image class=" icon-8 margin-right-30" src='{{uploadpath}}resource/{{res.youjian}}'></image>
+    </view> -->
+
+    <view class="flex-row flex-center margin-top-30 margin-left-30 " bindtap="toggleDialog_buttom" data-type="C">
+        <view class="txt-4 h5">规格</view>
+        <input placeholder="请选择规格" class="h6 txt-2 margin-left-20 flex-1" model:value="{{guistr}}" disabled="disabled" />
+        
         <image class=" icon-8 margin-right-30" src='{{uploadpath}}resource/{{res.youjian}}'></image>
     </view>
 
@@ -83,8 +91,8 @@
             <image class=" icon-18" src='{{uploadpath}}resource/{{res.cart}}'></image>
             <view>购物车</view>
         </view>
-        <button class="cart-btn" bindtap="toggleDialog_buttom">加入购物车</button>
-        <button class="buy-btn">立即购买</button>
+        <button class="cart-btn" bindtap="toggleDialog_buttom"  data-type='A'>加入购物车</button>
+        <button class="buy-btn"  bindtap="toggleDialog_buttom" data-type='B'>立即购买</button>
     </view>
 
 </view>
@@ -239,3 +247,8 @@
         </view>
     </view>
 </view> -->
+
+
+
+<button open-type="getUserInfo" class="clear-button usebox" hover-class="none" wx:if="{{memberinfo.warrant_value!='Y'}}" bindtap="getUserInfo" ></button>
+  <button  open-type="getPhoneNumber" class="clear-button usebox" hover-class="none" wx:if="{{memberinfo.warrant_value=='Y'&& memberinfo.sqphone_value!='Y'}}" bindgetphonenumber="getPhoneNo"  ></button>

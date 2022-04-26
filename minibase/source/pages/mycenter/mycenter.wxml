@@ -10,6 +10,8 @@
 
 
 
+
+
 <image mode="widthFix" src="{{uploadpath}}resource/{{res.mybg}}" class="w-100  h-400 display-block  " style="margin-top:{{StatusBar}}rpx;"> </image>
 <view  style="margin-top:-320rpx;"></view>
 
@@ -102,14 +104,18 @@
     <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a3}}'></image>
      <view class="txt-2 h6 padding-top-15 text-center ">帮助中心</view>
 </view>
+<view class="flex-1"  bindtap="shorebind">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.shore}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">我的分享</view>
+</view>
 <view class="flex-1"  bindtap="navtoPage"  data-page="about">
     <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a2}}'></image>
      <view class="txt-2 h6 padding-top-15 text-center ">关于我们</view>
 </view>
-<view class="flex-1">
+<!-- <view class="flex-1">
     <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a4}}'></image>
      <view class="txt-2 h6 padding-top-15 text-center ">我的活动</view>
-</view>
+</view> -->
 </view>
 
 </view>
@@ -120,7 +126,24 @@
 <image mode="widthFix "  class="w-100  h-23 margin-top margin-bottom-30"  src='{{uploadpath}}resource/{{res.	tubiao}}'></image>
 
 <!--  -->
-<view class="flex-row padding-left-30 padding-right-30 " style="flex-wrap:wrap;justify-content:space-between">
+<view class="flex-row padding-left-30 padding-right-30  margin-top-30 " style="flex-wrap:wrap;justify-content:space-between">
+<view class="bg-white my-radius bd-show1  w-330 margin-bottom-30  radius-8" wx:for="{{recommendlist}}" wx:key="{{item.id}}" bindtap="tuijain"  id="{{item.shop_id}}">
+    <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}shop/{{item.shop_cover}}'></image>
+    <view class="padding-left-20 padding-right-20">
+    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow overflow-hidden">{{item.shop_summary}}</view>
+    <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
+    <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
+    <view class="margin-left-20 txt-1 txt-1 h6 ">¥{{item.pricelist.original}}</view>
+    </view>
+    </view>
+</view>
+
+
+</view>
+
+
+
+<!-- <view class="flex-row padding-left-30 padding-right-30 " style="flex-wrap:wrap;justify-content:space-between">
 <view class="bg-white my-radius bd-show1  w-330 margin-bottom-30">
     <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}resource/{{res.a4}}'></image>
     <view class="padding-left-20 padding-right-20">
@@ -133,7 +156,7 @@
 </view>
 
 
-</view>
+</view> -->
 
 
 <view class="h-23"></view>
@@ -142,4 +165,34 @@
 
 
 </view>
+
+
+
+<view class="position-fixed w-100 h-100 bg-7" style="top:0;left:0" wx:if="{{shoreshow}}" catchtouchmove='true'></view>
+<view class=" position-fixed w-100    " style="top:30%;left:0"  wx:if="{{shoreshow}}" catchtouchmove='true'>
+<view class="bg-white margin-top-200  margin-left-80 margin-right-80 radius-10 padding-30 ">
+<view class="flex-row ">
+<view class="flex-1"></view>
+<image src="{{uploadpath}}resource/{{res.close}}" class="icon-20"  bindtap="close"></image>
+</view>
+<view class="margin-top-30"></view>
+    <image src="{{uploadapi}}inst/qrcode2?inst_id=1&url=%2Fpages%2Fmycenter%2Fmycenter%3Fmember_id2%3D{{memberinfo.id}}" class="icon-100 display-block margin-auto "></image>
+    <!-- <view class="margin-top-50 txt-2 txt-bold h6 text-center ">{{instinfo.name}}</view>
+    <view class="flex-row margin-top-30 ">
+    <view class="flex-1"></view>
+    <text class="txt-2 h6 text-center ">{{instinfo.introduce}}</text>
+    <view class="flex-1"></view>
+    </view> -->
+
+    
+
+    <view class="margin-left-30 margin-right-30 h-80 line-height-80 txt-white bg-2 radius-40 h5 text-center margin-top-70"  bindtap="savePhoto">分享</view>
+</view>
+</view>
+
+
+<!-- <view hidden="{{true}}"> -->
+    <canvas style="width:{{canvasWidth}}px; height:{{canvasHeight}}px;position:fixed;left:999px" canvas-id="myCanvas" />
+<!-- </view> -->
+
 
