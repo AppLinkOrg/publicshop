@@ -49,7 +49,7 @@
                     <view class="flex-row ">
                         <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.leasedetail.name}}</view>
                         <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
-                        <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.sealsepricedetail.presentprice}}</view>
+                        <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.leaseorder.price}}</view>
 
                     </view>
                     <view class="flex-row flex-center margin-top padding-top-10 w-100">
@@ -72,9 +72,11 @@
 
                 <view class="margin-left-20  flex-1">
                     <view class="flex-row ">
-                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{items.shop_name}}</view>
-                        <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
-                        <view class="f-32 txt-bold txt-1  " style="flex:none">{{items.pricelist_present}}</view>
+                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 overflow-hidden">{{items.shop_summary}}</view>
+                        <view style="flex:none">
+                            <text class="h6 txt-2 txt-bold txt-1 margin-left-50" >¥</text>
+                        <text class="f-32 txt-bold txt-1  " >{{items.present}}</text>
+                        </view>
 
                     </view>
                     <view class="flex-row flex-center margin-top padding-top-10 w-100">
@@ -84,7 +86,7 @@
                         </view>
                         <view class="flex-1"></view>
                         <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
-                        <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
+                        <view class="txt-1 h6 margin-left-50" style="flex:none">x{{items.num}}</view>
 
                     </view>
                 </view>

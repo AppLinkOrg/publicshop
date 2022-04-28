@@ -66,12 +66,24 @@ import { OrderApi } from "../../apis/order.api.js";
         }
 
   carlist(){
+    var quanshow = this.Base.getMyData().quanshow
+    var that=this
+    
     var cartApi = new CartApi()
     cartApi.cartlist({},(res)=>{
-      for (let item of res) {
+      if (quanshow==false) {
+        for (let item of res) {
         item.show=false
       }
+      }else{
+        for (let item of res) {
+          item.show=true
+        }
+      }
+      
       this.Base.setMyData({cartlist:res})
+
+      that.jiage()
     })
 
   }

@@ -18,15 +18,17 @@
         <image src="{{uploadpath}}resource/{{res.xz2}}"  class="icon-18 " wx:else style="flex:none"></image>
        
     <!-- </view> -->
-    <image src="{{uploadpath}}shop/{{item.shop_cover}}"    class="icon-80 margin-left-30"  style="flex:none"></image>
+    
+    <image src="{{uploadpath}}pricelist/{{item.pricelist_img}}"    class="icon-80 margin-left-30"  style="flex:none"  wx:if="{{item.pricelist_img!=''}}"></image>
+    <image src="{{uploadpath}}shop/{{item.shop_cover}}"    class="icon-80 margin-left-30"  style="flex:none" wx:else></image>
     <!-- 右侧盒子 -->
     <view class="margin-left-20">
         <view class="txt-2 h5 text-overflow txt-line-clamp-2 ">{{item.shop_summary}}</view>
         <!-- <view class="txt-4 h6 margin-top-20">白色（官方标配）</view> -->
-        <view class="flex-row flex-wrap">
-            <view wx:for="{{item.sort}}" wx:key="indexs"  wx:for-item="items" wx:for-index="indexs">
+        <view class="flex-row flex-wrap ">
+            <view wx:for="{{item.sort}}" wx:key="indexs"  wx:for-item="items" wx:for-index="indexs" class="margin-top-20">
                             <text class="txt-1 h6  ">{{items.name}}</text>
-                            <text class="txt-1 h6  " wx:if="{{items.sort.length!=index+1}}">丨</text>
+                            <text class="txt-1 h6  " wx:if="{{item.sort.length!=indexs+1}}">丨</text>
         </view>
         </view>
 
@@ -39,10 +41,16 @@
             <view class="margin-right-30 txt-2 h4-5">x{{item.num}}</view>
         </view>
     </view>
+
+ 
 </view>
 
+<view class="h-100rpx"></view>
+    <view class="h-100rpx"></view>
 
- <view class="fixation w-100">
+
+
+ <view class="fixation w-100 bg-white">
     <view class="flex-row flex-center margin-left-30 margin-right-30  h-100rpx ">
     <view class="flex-row flex-center"  bindtap="quanbind">
         <image src="{{uploadpath}}resource/{{res.xz}}"  class="icon-18 " wx:if="{{quanshow}}" style="flex:none" ></image>

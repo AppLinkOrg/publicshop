@@ -28,7 +28,7 @@ class Content extends AppBase {
       shopdetail:{},
       autoplay:false,
       num:1,jiageprice:{},
-      type:'',str2:'',guistr:''
+      type:'',str2:[],guistr:''
     })
 
   }
@@ -86,6 +86,7 @@ class Content extends AppBase {
       if (res.code==0) {
         this.Base.setMyData({jiageprice:res.result,str2})
       }else{
+        this.Base.setMyData({jiageprice:null,str2:[]})
  wx.showToast({
           title: res.return,
           icon:'none'

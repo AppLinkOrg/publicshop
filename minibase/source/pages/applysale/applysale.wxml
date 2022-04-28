@@ -39,7 +39,7 @@
                 
          
                 <view class="flex-row flex-column flex-1  margin-left-20  h-160">
-                    <view class="h6 txt-2 text-overflow txt-line-clamp-2 w-100  txt-line-clamp-2 text-overflow ">{{item.shop_name}}</view>
+                    <view class="h6 txt-2 text-overflow txt-line-clamp-2 w-100  txt-line-clamp-2 text-overflow ">{{item.shop_summary}}</view>
                     <view class="flex-1"></view>
                     <view class="flex-row w-100 flex-center">
                         <view wx:for="{{item.sortlist}}" wx:key="index" wx:for-index="indexs" wx:for-item="items" >
@@ -115,6 +115,10 @@
     </view>
 
 </view>
+
+
+<view class="h-100rpx"></view>
+<view class="h-100rpx"></view>
 
 
 <!-- 添加收货地址 -->

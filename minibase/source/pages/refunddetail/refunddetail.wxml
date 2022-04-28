@@ -16,17 +16,22 @@
 <view class="flex-1" wx:if="{{safedetail.examine=='A'}}"></view>
 <image src="{{uploadpath}}resource/{{res.chu}}"  class="icon-24"  wx:if="{{safedetail.examine=='A'}}"></image>
 
-<view class="f-36 txt-2 txt-bold margin-left-30">
+<view class="f-36 txt-2 txt-bold margin-left-30" >
 {{safedetail.examine=='A'?'等待商家处理':safedetail.examine=='B'?'商家已同意申请，等待寄回商品':safedetail.examine=='C'?'商品已退回，等待商家审核退款':safedetail.examine=='D'?'服务已完成，感谢您的支持':'商家已拒绝申请'}}
 </view>
 
 <view class="flex-1"></view>
 </view>
 
-<view class="margin-top-20  h6 txt-2   {{safedetail.examine=='A'?'text-center ':' margin-left-30'}}" >
-{{safedetail.examine=='A'?'您已成功发起申请，请等待商家处理。':safedetail.examine=='B'?'剩19小时12分上传物流单号':safedetail.examine=='C'?'审核完成后1～3个工作日完成押金退还':safedetail.examine=='D'?'已完成退款':safedetail.reason}}
+<view class="margin-top-20  h6   {{safedetail.examine=='E'?'txt-3':'txt-2'}}  {{safedetail.examine=='A'?'text-center ':' margin-left-30'}}"  wx:if="{{type=='A'}}">
+{{safedetail.examine=='A'?'您已成功发起申请，请等待商家处理。':safedetail.examine=='B'?'':safedetail.examine=='C'?'审核完成后1～3个工作日完成押金退还':safedetail.examine=='D'?'已完成退款':'*失败原因：'+safedetail.reason}}
 </view>
 
+<!-- 剩'+str+'上传物流单号 -->
+
+<view class="margin-top-20  h6 {{safedetail.examine=='E'?'txt-3':'txt-2'}}   {{safedetail.examine=='A'?'text-center ':' margin-left-30'}}" wx:else >
+{{safedetail.examine=='A'?'您已成功发起申请，请等待商家处理。':safedetail.examine=='B'?'':safedetail.examine=='C'?'':safedetail.examine=='D'?'已完成退款':'*失败原因： '+safedetail.reason}}
+</view>
 
 <view class="bd-show1  padding-20 margin-left-30 margin-right-30  bg-white margin-top-20 radius-20" wx:if="{{safedetail.examine=='B'}}">
     <view class="h5 txt-2 txt-bold">请寄回商品</view>
@@ -71,19 +76,23 @@
                 <image mode="widthFix" class=" icon-80 " src='{{uploadpath}}lease/{{safedetail.lease_cover}}' style="flex:none" wx:else></image>
 
  
-    <view class="margin-left-20">
+    <view class="margin-left-20 flex-1">
    <view class="flex-row ">
     <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{safedetail.lease_name}}</view>
-    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
-    <view class="f-32 txt-bold txt-1  " style="flex:none">{{safedetail.leaseorder_price}}</view>
+   <view style="flex:none">
+    <text class="h6 txt-2 txt-bold txt-1 margin-left-50" >¥</text>
+    <text class="f-32 txt-bold txt-1  " style="flex:none">{{safedetail.leaseorder_price}}</text>
+    
+    </view>
     
     </view>
     <view class="flex-row flex-center margin-top padding-top-10">
-        <view wx:for="{{safedetail.sealsepricedetail.sortlist}}" wx:key="index">
-                            <text class="txt-1 h6  ">{{item.name}}</text>
-                            <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=index+1}}">丨</text>
+        <view wx:for="{{safedetail.sealsepricedetail.sortlist}}" wx:key="indexs" wx:for-index="indexs" wx:for-item="items">
+                            <text class="txt-1 h6  ">{{items.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{safedetail.sealsepricedetail.sortlist.length!=indexs+1}}">丨</text>
                         </view>
         <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
+        <view class="flex-1"></view>
         <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
         
         </view>
@@ -99,8 +108,10 @@
     <view class="margin-left-20 flex-1">
    <view class="flex-row ">
     <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.shop_summary}}</view>
-    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
-    <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.present}}</view>
+    <view>
+        <text class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</text>
+    <text class="f-32 txt-bold txt-1  " style="flex:none">{{item.present}}</text>
+    </view>
     
     </view>
     <view class="flex-row flex-center margin-top padding-top-10">
@@ -108,6 +119,7 @@
                             <text class="txt-1 h6  ">{{items.name}}</text>
                             <text class="txt-1 h6  " wx:if="{{item.shopitem.length!=indexs+1}}">丨</text>
                         </view>
+                        <view class="flex-1"></view>
         <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
         <view class="txt-1 h6 margin-left-50" style="flex:none">x{{item.num}}</view>
         
@@ -179,14 +191,16 @@
 
 
 <!-- 添加收货地址 -->
-<view class="position-fixed w-100   bg-white" style="bottom:0;left:0"  wx:if="{{safedetail.examine=='A' || safedetail.examine=='B'}}">
-<view class="flex-row flex-center h-100rpx padding-left-30 padding-right-30">
+<view class="position-fixed w-100   bg-white" style="bottom:0;left:0"  >
+<view class="flex-row flex-center h-100rpx padding-left-30 padding-right-30"  >
 <view class="flex-1"></view>
-<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  "  bindtap="chexiao" >
+<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  "  bindtap="chexiao" wx:if="{{safedetail.examine=='A' || safedetail.examine=='B'}}">
     撤销申请
 </view>
 
-
+<view class="h-72 line-height-72 radius-36 bd-4 padding-left-30 padding-right-30 txt-1 h6  "  bindtap="chognxin" wx:if="{{safedetail.examine=='E'}}" >
+    重新申请
+</view>
 
 
 

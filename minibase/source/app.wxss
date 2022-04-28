@@ -50,6 +50,9 @@ page{
 .h-320{
   height: 320rpx;
 }
+.h-730{
+  height: 730rpx;
+}
 .h-760{
   height: 760rpx;
 }

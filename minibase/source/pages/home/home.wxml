@@ -48,7 +48,7 @@
 
 <!-- 活动专区 -->
 
-<view class="txt-2 txt-bold f-32 padding-30">活动专区</view>
+<view class="txt-2 txt-bold f-32 padding-30" bindtap="navtoPage" data-page="ceshi">活动专区</view>
 
 <view class="padding-left-30 padding-right-30">
 
@@ -75,10 +75,10 @@
 
 <view class="flex-row padding-left-30 padding-right-30" style="overflow: scroll;">
 
-<view class="w-210   bd-show1  margin-bottom-10  margin-left-30  radius-8" style="flex:none"  wx:for="{{recommendlist}}" wx:key="{{item.id}}" bindtap="tuijain"  id="{{item.shop_id}}">
+<view class="w-210   bd-show1  margin-bottom-10  {{index!=0?'margin-left-30':'' }} radius-8" style="flex:none"  wx:for="{{recommendlist}}" wx:key="{{item.id}}" bindtap="tuijain"  id="{{item.shop_id}}">
     <image src="{{uploadpath}}shop/{{item.shop_cover}}"  class="margin-left-5  icon-105"></image>
     
-    <view class=" bg-white h-140  padding-top-20 padding-left-10 padding-right-10 ">
+    <view class=" bg-white   padding-top-20 padding-left-10 padding-right-10 ">
     <view class="f-22 txt-2  text-overflow txt-line-clamp-2  txt-bold overflow-hidden ">{{item.shop_summary}}</view>
     <view class="flex-row flex-center  margin-top-20">
     <view class="txt-3 f-32 ">¥{{item.pricelist.present}}</view>
@@ -94,7 +94,7 @@
 </view>
 
 <!--  热卖爆款-->
-<view class="flex-row flex-center padding-30">
+<view class="flex-row flex-center   padding-left-30 padding-right-30 padding-top-30">
     <view class="txt-2 txt-bold f-32 ">热卖爆款</view>
     <view class="flex-1"></view>
     <view class="flex-row flex-center"  bindtap="genduo">
@@ -108,10 +108,10 @@
 <view class="bg-white my-radius bd-show1  w-330 margin-bottom-30  radius-8" wx:for="{{hotmoneylist}}" wx:key="{{item.id}}" bindtap="tuijain"  id="{{item.shop_id}}">
     <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}shop/{{item.shop_cover}}'></image>
     <view class="padding-left-20 padding-right-20">
-    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow ">{{item.shop_summary}}</view>
+    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow overflow-hidden ">{{item.shop_summary}}</view>
     <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
     <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
-    <view class="margin-left-20 txt-1 txt-1 h6 ">¥{{item.pricelist.original}}</view>
+    <view class="margin-left-20 txt-1 txt-1 h6 " style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
     </view>
     </view>
 </view>

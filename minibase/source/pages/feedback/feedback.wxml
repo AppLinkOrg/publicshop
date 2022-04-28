@@ -7,8 +7,8 @@
     </view>
 
     <view class="margin-top-60 flex-row flex-center">
-        <view class="txt-2 txt-bold f-32 flex-1 ">联系方式</view>
-        <view class="txt-1  h6 ">0/100</view>
+        <view class="txt-2 txt-bold f-32 flex-1 ">问题和意见</view>
+        <view class="txt-1  h6 ">{{opinion.length}}/100</view>
         </view>
 
         <view class="margin-top-30 radius-10  bg-5 padding-30  h-600">

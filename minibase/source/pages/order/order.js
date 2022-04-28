@@ -19,7 +19,7 @@ class Content extends AppBase {
         list:[
             {id:'', name:'全部'},{id:'A', name:'待付款'},{id:'B', name:'待发货'},{id:'C', name:'待收货'},{id:'D', name:'已完成'}
         ],
-        select:0,orderlist:[]
+        select:0,orderlist:[],
     })
 
     if(this.Base.options.num !=undefined){
@@ -34,8 +34,12 @@ class Content extends AppBase {
     
 
 
+  this.orlist()
+
+
+
   
-this.orlist()
+
 
 
   }

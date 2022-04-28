@@ -20,7 +20,7 @@ class Content extends AppBase {
 
 
     this.Base.setMyData({
-        safedetail:{},type:'',businessinfo:{},company:'',logisticsorderno:''
+        safedetail:{},type:'',businessinfo:{},company:'',logisticsorderno:'',timer:null,str:''
     })
 
 
@@ -47,6 +47,7 @@ class Content extends AppBase {
 that.safexq()
 
   }
+  
   safexq(){
     var safeApi = new SafeApi()
     safeApi.safedetail({
@@ -127,6 +128,26 @@ safetijiao(){
 
 }
 
+chognxin(){
+    // 申请售后
+    var safedetail = this.Base.getMyData().safedetail
+    var type=this.Base.options.type
+
+    if (type=='A') {
+      var id = safedetail.leaseorder_id
+    }else{
+      var id = safedetail.shoporder_id
+    }
+
+    
+   
+    wx.navigateTo({
+      url: '/pages/applysale/applysale?id='+id+'&type='+type,
+    })
+}
+
+
+
  
 
  
@@ -136,6 +157,9 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+
+body.chognxin = content.chognxin;
+body.daojishi = content.daojishi;
 body.safetijiao = content.safetijiao;
 body.chexiao = content.chexiao;
 body.safexq = content.safexq;

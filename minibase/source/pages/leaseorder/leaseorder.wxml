@@ -45,7 +45,7 @@
         </view>
         <view class="flex-row flex-center margin-top-10">
             <view class="flex-1 h6 txt-2">配送方式</view>
-            <view class="h6 txt-2">普通快递 免邮</view>
+            <view class="h6 txt-2">{{instinfo.distribution}}</view>
             <image src="{{uploadpath}}resource/{{res.youjian}}" class="icon-12 margin-left-5"></image>
 
         </view>

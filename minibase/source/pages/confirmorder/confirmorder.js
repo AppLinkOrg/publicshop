@@ -21,14 +21,22 @@ class Content extends AppBase {
 
 
     this.Base.setMyData({
-        addresdetail:null,cartdetail:[],amount:0,remarks:'',type:'',strjson:null,freight:0
+        addresdetail:null,cartdetail:[],amount:0,remarks:'',type:'',strjson:null,freight:0,totleamount:0
     })
 
     var amount=0
     var freight=0
+    var totleamount=0
+    
     amount=amount.toFixed(2)
     freight=freight.toFixed(2)
-    this.Base.setMyData({amount,freight})
+
+    // zonamount=amount+freight
+    // var zonamount=0
+    // zonamount=zonamount.toFixed(2)
+    totleamount=totleamount.toFixed(2)
+
+    this.Base.setMyData({amount,freight,totleamount})
 
     if (this.Base.options.strjson!=undefined) {
       var strjson=this.Base.options.strjson
@@ -83,6 +91,7 @@ class Content extends AppBase {
       if (res.code==0) {
         var amount=0
         var freight=0
+        var totleamount=0
          
         for (let item of res.result) {
             amount=amount+item.cart_num*item.pricelist_present
@@ -95,7 +104,9 @@ class Content extends AppBase {
         console.log(freight,'freight');
         amount=amount.toFixed(2)
         freight=freight.toFixed(2)
-        this.Base.setMyData({cartdetail:res.result,amount,freight})
+        totleamount=amount*1+freight*1
+        totleamount=totleamount.toFixed(2)
+        this.Base.setMyData({cartdetail:res.result,amount,freight,totleamount})
         
       }else{
         that.Base.toast(res.return)
@@ -124,6 +135,7 @@ class Content extends AppBase {
     var that =this 
 
     var amount = this.Base.getMyData().amount
+    var totleamount = this.Base.getMyData().totleamount
     
 
     var addresname = addresdetail.name
@@ -169,7 +181,7 @@ class Content extends AppBase {
               if (e.errMsg == "requestPayment:ok") {
                 that.Base.toast("支付成功")
                 wx.navigateTo({
-                  url: '/pages/paysucsses/paysucsses?amount='+amount,
+                  url: '/pages/paysucsses/paysucsses?amount='+totleamount,
                 })
               }else{
                 that.Base.toast("支付失败");

@@ -133,7 +133,7 @@
     <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow overflow-hidden">{{item.shop_summary}}</view>
     <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
     <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
-    <view class="margin-left-20 txt-1 txt-1 h6 ">¥{{item.pricelist.original}}</view>
+    <view class="margin-left-20 txt-1 txt-1 h6 " style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
     </view>
     </view>
 </view>

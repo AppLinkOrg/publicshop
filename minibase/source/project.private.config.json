@@ -87,7 +87,7 @@
                 {
                     "name": "pages/ceshi/ceshi",
                     "pathName": "pages/ceshi/ceshi",
-                    "query": "",
+                    "query": "id=3",
                     "scene": null
                 },
                 {
@@ -99,7 +99,25 @@
                 {
                     "name": "pages/search/search",
                     "pathName": "pages/search/search",
-                    "query": "",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/orderdetail/orderdetail",
+                    "pathName": "pages/orderdetail/orderdetail",
+                    "query": "type=B&id=86",
+                    "scene": null
+                },
+                {
+                    "name": "pages/commoditydetail/commoditydetail",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "id=3",
+                    "scene": null
+                },
+                {
+                    "name": "pages/refunddetail/refunddetail",
+                    "pathName": "pages/refunddetail/refunddetail",
+                    "query": "type=A&id=20",
                     "scene": null
                 }
             ]

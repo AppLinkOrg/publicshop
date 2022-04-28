@@ -17,7 +17,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-        leasedetail:[],autoplay:false,jiageprice:null,str2
+        leasedetail:[],autoplay:false,jiageprice:null,str2:[]
     })
 
   }
@@ -44,7 +44,7 @@ class Content extends AppBase {
         
 
 
-        this.Base.setMyData({leasedetail:res,autoplay,jiageprice:res.jiamu})
+        this.Base.setMyData({leasedetail:res,autoplay})
 
         this.jiage()
     })
@@ -97,6 +97,7 @@ class Content extends AppBase {
         
         
       }else{
+        this.Base.setMyData({jiageprice:null,str2:[]})
         wx.showToast({
           title: res.return,
           icon:'none'
@@ -110,6 +111,13 @@ class Content extends AppBase {
   zulin(){
     var str2 = this.Base.getMyData().str2
     var jiageprice = this.Base.getMyData().jiageprice
+
+    console.log(jiageprice,'jiageprice');
+
+    if(jiageprice==null){
+      this.Base.toast('尚未配置这个选项')
+      return
+    }
    
 
   

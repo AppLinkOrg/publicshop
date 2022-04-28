@@ -1,3 +1,143 @@
-<canvas style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;background: red;" canvas-id="myCanvas" />
 
-<button bindtap="savePhoto">点击</button>
+
+<view class="position-fixed w-100 h-100 bg-7" style="top:0;left:0" wx:if="{{true}}" catchtouchmove='true'></view>
+<view class="position-fixed w-100  h-760 padding-top-30 radius-10  " style="bottom:0;left:0;z-index: 99;"  wx:if="{{true}}" catchtouchmove='true'>
+<view class="bg-white ">
+    <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100   position-absolute"  style="top:0;left:30rpx;z-index: 999;" wx:if="{{jiageprice.img!=''}}" ></image>
+        <image src="{{uploadpath}}shop/{{shopdetail.cover}}" class="icon-100  position-absolute" style="top:0;left:30rpx;z-index: 999;"  wx:else></image>
+
+
+    
+         
+
+         <view class="flex-row  margin-top-30 ">
+             <view class="w-200 h-160 margin-left-30"></view>
+             <view class="margin-left-20">
+                 <view>
+                     <text class="txt-bold txt-3 f-32">¥</text>
+                     <text class="f-43 txt-3 txt-bold">{{jiageprice.present}}</text>
+                 </view>
+                 <view class="margin-top-30 txt-1 h5 margin-left-15" style="text-decoration: line-through;">¥{{jiageprice.original}}</view>
+             </view>
+             <view class="flex-1"></view>
+             <image src="{{uploadpath}}resource/{{res.close}}" class="icon-20" bindtap="close" ></image>
+
+         </view>
+ 
+        
+             <view wx:for="{{shopdetail.specslist}}"  wx:key="{{item.id}}">
+                 <view class="f-26 txt-2 margin-top-30">{{item.name}}</view>
+             <view class="flex-row flex-wrap ">
+                 <view class="h-52b line-height-52 padding-left-20 padding-right-20 h6 bg  margin-top-20 radius-8 {{indexs==0?'':'margin-left-20'}} {{item.show==indexs?'bd-3 txt-3':' bd-7'}} "
+                 
+                  wx:for="{{item.sortlist}}" wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items"  bindtap="xzbind" data-index="{{index}}" data-indexs="{{indexs}}"
+                  >{{items.name}}</view>
+             </view>
+             </view>
+
+             
+           
+
+             <view class="flex-row flex-center margin-top-50">
+                 <view class="f-26 txt-2  ">数量</view>
+                 <view class="flex-1"></view>
+                 <image src="{{uploadpath}}resource/{{res.jian}}" class="icon-30 " bindtap="jian"></image>
+                 <view class="h-60 line-height-60 padding-left-30 padding-right-30 txt-2 h6 com-border ">{{num}}</view>
+                 <image src="{{uploadpath}}resource/{{res.jia}}" class="icon-30 " bindtap="jia"></image>
+
+             </view>
+
+             <button class="bg-2 w-690 h-72 f-26 txt-white radius-36 margin-top-60 margin-bottom-20"  bindtap="queding">确认</button>
+
+       
+  <view style="height: 100vh;"></view>
+
+</view>
+
+  
+        <!-- <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100  position-absolute "  style="top:0;left:30rpx" wx:if="{{jiageprice.img!=''}}" ></image>
+        <image src="{{uploadpath}}shop/{{shopdetail.cover}}" class="icon-100  position-absolute " style="top:0;left:30rpx"  wx:else></image> -->
+      
+
+
+</view>
+
+
+
+<view class=" position-fixed w-100  h-760 " style="bottom:0;left:0;z-index: 999;"  wx:if="{{false}}" catchtouchmove='true'>
+
+    <!-- <view class="  h-760  "> -->
+
+        <view class="position-relative icon-100 margin-left-30 " style="z-index: 99;background: red;">
+        <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100   "   wx:if="{{jiageprice.img!=''}}" ></image>
+        <image src="{{uploadpath}}shop/{{shopdetail.cover}}" class="icon-100  "  wx:else></image>
+
+        <!-- position-absolute  style="top:0;left:0rpx;z-index: 99;" -->
+    </view>
+
+
+
+   
+
+    <!-- <view style="background: red;" class="icon-100" ></view> -->
+
+   
+
+ 
+
+       <!-- <view style="margin-top:-160rpx"></view> -->
+        <view class=" bg-white padding-left-30 padding-right-30   com-radius   " style="height:{{760-40}}rpx">
+         
+
+            <view class="flex-row  margin-top-30 ">
+                <view class="w-200 h-160"></view>
+                <view class="margin-left-20">
+                    <view>
+                        <text class="txt-bold txt-3 f-32">¥</text>
+                        <text class="f-43 txt-3 txt-bold">{{jiageprice.present}}</text>
+                    </view>
+                    <view class="margin-top-30 txt-1 h5 margin-left-15" style="text-decoration: line-through;">¥{{jiageprice.original}}</view>
+                </view>
+                <view class="flex-1"></view>
+                <image src="{{uploadpath}}resource/{{res.close}}" class="icon-20" bindtap="close" ></image>
+
+            </view>
+            <!-- style="height:200rpx;" -->
+           
+                <view wx:for="{{shopdetail.specslist}}"  wx:key="{{item.id}}">
+                    <view class="f-26 txt-2 margin-top-30">{{item.name}}</view>
+                <view class="flex-row flex-wrap ">
+                    <view class="h-52b line-height-52 padding-left-20 padding-right-20 h6 bg  margin-top-20 radius-8 {{indexs==0?'':'margin-left-20'}} {{item.show==indexs?'bd-3 txt-3':' bd-7'}} "
+                    
+                     wx:for="{{item.sortlist}}" wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items"  bindtap="xzbind" data-index="{{index}}" data-indexs="{{indexs}}"
+                     >{{items.name}}</view>
+                </view>
+                </view>
+
+                
+                <!-- <view class="f-26 txt-2  margin-top-30">颜色</view>
+                <view class="flex-row flex-wrap ">
+                    <image src="{{uploadpath}}resource/{{res.close}}" class="icon-24 radius-50 margin-top-20 "></image>
+                </view> -->
+
+                <view class="flex-row flex-center margin-top-50">
+                    <view class="f-26 txt-2  ">数量</view>
+                    <view class="flex-1"></view>
+                    <image src="{{uploadpath}}resource/{{res.jian}}" class="icon-30 " bindtap="jian"></image>
+                    <view class="h-60 line-height-60 padding-left-30 padding-right-30 txt-2 h6 com-border ">{{num}}</view>
+                    <image src="{{uploadpath}}resource/{{res.jia}}" class="icon-30 " bindtap="jia"></image>
+
+                </view>
+
+                <button class="bg-2 w-690 h-72 f-26 txt-white radius-36 margin-top-60 margin-bottom-20"  bindtap="queding">确认</button>
+
+                </view>
+                
+                
+
+
+         
+  
+
+
+        </view>

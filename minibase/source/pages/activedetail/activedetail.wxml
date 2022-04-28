@@ -9,7 +9,7 @@
 
 <view class="flex position-absolute w-100">
 
-    <view class="margin-left-30 margin-right-30 bg-white radius-20 padding-30 bd-show">
+    <view class="margin-left-30 margin-right-30 bg-white radius-20 padding-30 bd-show w-100">
     <view class="text-center txt-bold f-32 ">{{activedetail.title}}</view>
 
 <view class="bd-1  padding-bottom-30 margin-top-30">

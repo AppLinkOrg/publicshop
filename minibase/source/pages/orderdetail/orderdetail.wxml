@@ -22,13 +22,13 @@
 
 
         <view class="f-36 txt-2 txt-bold margin-left-20">
-            {{leaseorderdetail.orderstatus=='A'?'卖家待付款':leaseorderdetail.orderstatus=='B'?'待发货':leaseorderdetail.orderstatus=='C'?'买家已发货':leaseorderdetail.orderstatus=='C'?'交易完成':'交易关闭'}}
+            {{leaseorderdetail.orderstatus=='A'?'买家待付款':leaseorderdetail.orderstatus=='B'?'待发货':leaseorderdetail.orderstatus=='C'?'卖家已发货':leaseorderdetail.orderstatus=='D'?'交易完成':'交易关闭'}}
         </view>
         <view class="flex-1"></view>
     </view>
 
     <view class="margin-top-20  h6 txt-2 text-center">
-        {{leaseorderdetail.orderstatus=='A'?'剩19小时12分自动取消':leaseorderdetail.orderstatus=='B'?'您的订单已提交，请耐心等待':leaseorderdetail.orderstatus=='C'?'还剩10天12时自动确认收货':''}}
+        {{leaseorderdetail.orderstatus=='A'?'剩'+str+'自动取消':leaseorderdetail.orderstatus=='B'?'您的订单已提交，请耐心等待':leaseorderdetail.orderstatus=='C'?'还剩10天12时自动确认收货':''}}
     </view>
 
     <view class="margin-top-60  bd-show1 flex-row flex-center h-140 margin-left-30 margin-right-30  bg-white margin-top-60 radius-20">
@@ -52,15 +52,18 @@
             <view class="margin-left-20 flex-1 h-100">
                 <view class="flex-row ">
                     <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{leaseorderdetail.leasedetail.name}}</view>
-                    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
-                    <view class="f-32 txt-bold txt-1  " style="flex:none">{{leaseorderdetail.price}}</view>
+                   <view>
+                    <text class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</text>
+                    <text class="f-32 txt-bold txt-1  " style="flex:none">{{leaseorderdetail.price}}</text>
+                    </view>
 
                 </view>
                 <view class="flex-row flex-center margin-top padding-top-10">
-                    <view wx:for="{{leaseorderdetail.sealsepricedetail.sortlist}}" wx:key="index">
-                        <text class="txt-1 h6  ">{{item.name}}</text>
-                        <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=index+1}}">丨</text>
+                    <view wx:for="{{leaseorderdetail.sealsepricedetail.sortlist}}" wx:key="indexs" wx:for-index="indexs" wx:for-item="items">
+                        <text class="txt-1 h6  ">{{items.name}}</text>
+                        <text class="txt-1 h6  " wx:if="{{leaseorderdetail.sealsepricedetail.sortlist.length!=indexs+1}}">丨</text>
                     </view>
+                    <view class="flex-1"></view>
                     <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
                     <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
 
@@ -76,7 +79,7 @@
 
                 <view class="margin-left-20 flex-1 h-160 flex-row flex-column ">
                     <view class="flex-row  w-100">
-                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.shop_name}}</view>
+                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.shop_summary}}</view>
                         <view>
                             <text class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</text>
                             <text class="f-32 txt-bold txt-1  " style="flex:none">{{item.present}}</text>
@@ -105,7 +108,7 @@
         </view>
         <view class="flex-row flex-center margin-top-10">
             <view class="flex-1 h6 txt-2">配送方式</view>
-            <view class="h6 txt-2">厂商配送</view>
+            <view class="h6 txt-2">{{instinfo.distribution}}</view>
             <image src="{{uploadpath}}resource/{{res.youjian}}" class="icon-12 margin-left-5"></image>
 
         </view>
@@ -165,12 +168,15 @@
             <view class="h6 txt-1 ">{{leaseorderdetail.pay_time}}</view>
         </view>
 
-        <view class="flex-row flex-center  margin-top-30 margin-bottom-30" wx:if="{{leaseorderdetail.orderstatus!='A' || leaseorderdetail.orderstatus!='B'}}">
+<view wx:if="{{leaseorderdetail.orderstatus!='A' || leaseorderdetail.orderstatus!='B'}}">
+    <view class="flex-row flex-center  margin-top-30 margin-bottom-30" wx:if="{{leaseorderdetail.fa_time!=''}}">
             <view class="flex-2 h6 txt-2 flex-1">发货时间</view>
             <view class="h6 txt-1 ">{{leaseorderdetail.fa_time}}</view>
         </view>
+</view>
+      
 
-        <view class="flex-row flex-center  margin-top-30 margin-bottom-30" wx:if="{{leaseorderdetail.orderstatus=='D'}}">
+        <view class="flex-row flex-center  margin-top-30 margin-bottom-30" wx:if="{{leaseorderdetail.orderstatus=='D'&&leaseorderdetail.cheng_time!=''}}">
             <view class="flex-2 h6 txt-2 flex-1">成交时间</view>
             <view class="h6 txt-1 ">{{leaseorderdetail.cheng_time}}</view>
         </view>
@@ -192,8 +198,11 @@
 
     <view class="h-100rpx"></view>
 
-</view>
+    <view class="h-100rpx"></view>
+<view class="h-100rpx"></view>
 
+
+</view>
 
 
 <!-- 添加收货地址 -->

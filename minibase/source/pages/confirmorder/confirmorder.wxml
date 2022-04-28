@@ -27,8 +27,9 @@
             <view class="margin-left-20  flex-1">
                 <view class="flex-row ">
                     <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.summary}}</view>
-                    <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
-                    <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.pricelist_present}}</view>
+                    <view>
+                        <text class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</text>
+                    <text class="f-32 txt-bold txt-1  " style="flex:none">{{item.pricelist_present}}</text></view>
 
                 </view>
                 <view class="flex-row flex-center margin-top padding-top-10">
@@ -47,7 +48,7 @@
         </view>
         <view class="flex-row flex-center margin-top-10">
             <view class="flex-1 h6 txt-2">配送方式</view>
-            <view class="h6 txt-2">普通快递 免邮</view>
+            <view class="h6 txt-2">{{instinfo.distribution}}</view>
             <image src="{{uploadpath}}resource/{{res.youjian}}" class="icon-12 margin-left-5"></image>
 
         </view>
@@ -77,12 +78,14 @@
         <view class="flex-row flex-center  margin-top-30  margin-bottom-10">
             <view class="flex-2 h6 txt-2 flex-1">实付金额</view>
             <view class="f-18 txt-3 txt-bold">¥</view>
-            <view class="h5 txt-3 txt-bold">{{amount*1+freight*1}}</view>
+            <view class="h5 txt-3 txt-bold">{{totleamount}}</view>
         </view>
 
     </view>
 
 
+<view class="h-100rpx"></view>
+<view class="h-100rpx"></view>
 </view>
 
 
@@ -93,7 +96,7 @@
         <view class="h5 txt-2 ">合计:</view>
 
         <view class="f-36 txt-bold txt-3">¥</view>
-        <view class="f-58 txt-bold txt-3 ">{{amount*1+cartdetail[0].freight*1}}</view>
+        <view class="f-58 txt-bold txt-3 ">{{totleamount}}</view>
 
         <view class="flex-1"></view>
         <view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 "  bindtap="tijiao">

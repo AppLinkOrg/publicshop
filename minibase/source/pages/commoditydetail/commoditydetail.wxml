@@ -50,7 +50,7 @@
 
     <view class="justify-between flex-row margin-top-30">
         <view class="margin-left-30 txt-2 h6">已售{{shopdetail.sold}}</view>
-        <view class="margin-right-30 txt-2 h6">包邮</view>
+        <view class="margin-right-30 txt-2 h6">{{shopdetail.freight*1==0?'包邮':shopdetail.freight+'运费'}}</view>
     </view>
 
     <view class="w-690 bd-1 margin-top-30 margin-left-30"></view>
@@ -71,9 +71,9 @@
         <image class=" icon-8 margin-right-30" src='{{uploadpath}}resource/{{res.youjian}}'></image>
     </view>
 
-    <view class="flex-row margin-left-30 margin-top-40">
+    <view class="flex-row flex-center margin-left-30 margin-top-40">
         <view class="ttx-4 h5">服务</view>
-        <view class="margin-left-20 txt-1 h6">假一赔四·极速退款·七天退还</view>
+        <view class="margin-left-20 txt-1 h6">{{shopdetail.server}}</view>
     </view>
 
     <view class="margin-left-30 margin-top-60 txt-2 f-30 txt-bold">产品详情</view>
@@ -121,23 +121,27 @@
     </view>
 </view>
 
+
+
+
+    <!-- </view> -->
+   
+
+
+
+<!-- </view> -->
+
+
+
 <view class="position-fixed w-100 h-100 bg-7" style="top:0;left:0" wx:if="{{buttom_flag}}" catchtouchmove='true'></view>
-<view class="h-760 position-fixed w-100   " style="bottom:0;left:0"  wx:if="{{buttom_flag}}" catchtouchmove='true'>
-   <scroll-view scroll-y="{{true}}" style="height:760rpx" >
-    <!-- <view class="  h-760  "> -->
-    <view class="position-relative icon-100 margin-left-30 ">
-        <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100  position-absolute " style="top:0;left:0rpx;z-index: 2;" wx:if="{{jiageprice.img!=''}}" ></image>
-        <image src="{{uploadpath}}shop/{{shopdetail.cover}}" class="icon-100 position-absolute " style="top:0;left:0rpx;z-index: 2;" wx:else></image>
+<view class=" position-fixed w-100  h-760 padding-top-30 " style="bottom:0;left:0;z-index: 999;"  wx:if="{{buttom_flag}}" >
+    <view class="bg-white com-radius padding-left-30 padding-right-30  " style="min-height: 760rpx;">
 
-
-
-    </view>
-       <view style="margin-top:-160rpx"></view>
-        <view class=" bg-white padding-left-30 padding-right-30   com-radius   " style="height:{{760-40}}rpx">
-         
-
-            <view class="flex-row  margin-top-30 ">
-                <view class="w-200 h-160"></view>
+        <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100    position-absolute"  style="top:0;left:30rpx;z-index: 999;" wx:if="{{jiageprice.img!=''}}" ></image>
+        <image src="{{uploadpath}}shop/{{shopdetail.cover}}" class="icon-100  position-absolute" style="top:0;left:30rpx;z-index: 999;" wx:else></image>
+    
+        <view class="flex-row  margin-top-30 ">
+                <view class="w-200 h-160 margin-left-30"></view>
                 <view class="margin-left-20">
                     <view>
                         <text class="txt-bold txt-3 f-32">¥</text>
@@ -150,8 +154,7 @@
 
             </view>
 
-       
-                <view wx:for="{{shopdetail.specslist}}"  wx:key="{{item.id}}">
+            <view wx:for="{{shopdetail.specslist}}"  wx:key="{{item.id}}">
                     <view class="f-26 txt-2 margin-top-30">{{item.name}}</view>
                 <view class="flex-row flex-wrap ">
                     <view class="h-52b line-height-52 padding-left-20 padding-right-20 h6 bg  margin-top-20 radius-8 {{indexs==0?'':'margin-left-20'}} {{item.show==indexs?'bd-3 txt-3':' bd-7'}} "
@@ -160,12 +163,6 @@
                      >{{items.name}}</view>
                 </view>
                 </view>
-
-                
-                <!-- <view class="f-26 txt-2  margin-top-30">颜色</view>
-                <view class="flex-row flex-wrap ">
-                    <image src="{{uploadpath}}resource/{{res.close}}" class="icon-24 radius-50 margin-top-20 "></image>
-                </view> -->
 
                 <view class="flex-row flex-center margin-top-50">
                     <view class="f-26 txt-2  ">数量</view>
@@ -178,23 +175,56 @@
 
                 <button class="bg-2 w-690 h-72 f-26 txt-white radius-36 margin-top-60 margin-bottom-20"  bindtap="queding">确认</button>
 
+               
+                <view class="h-100rpx"></view>
+    
+    </view>
+
+    <!-- <view class="  h-760  "> -->
+
+        <!-- <view class="position-relative icon-100 margin-left-30 " style="z-index: 99;background: red;"> -->
+        
+
+        <!-- position-absolute  style="top:0;left:0rpx;z-index: 99;" -->
+    <!-- </view> -->
+
+
+
+   
+
+    <!-- <view style="background: red;" class="icon-100" ></view> -->
+
+   
+
+ 
+
+       <!-- <view style="margin-top:-160rpx"></view> -->
+
+         
+
+            
+            <!-- style="height:200rpx;" -->
+           
+              
+
+                
+                <!-- <view class="f-26 txt-2  margin-top-30">颜色</view>
+                <view class="flex-row flex-wrap ">
+                    <image src="{{uploadpath}}resource/{{res.close}}" class="icon-24 radius-50 margin-top-20 "></image>
+                </view> -->
+
+                
+
+      
                 
                 
 
 
          
-
+  
 
 
         </view>
-
-
-    <!-- </view> -->
-   
-   </scroll-view>
-
-
-</view>
 
 
 <!-- <view class="position-fixed w-100 h-100  bg-7 " wx:if="{{buttom_flag}}">

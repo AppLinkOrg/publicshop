@@ -52,3 +52,7 @@ width: 100% !important;
     border-top: 1px solid #CDCDCD;
     border-bottom: 1px solid #CDCDCD;
   }
+  .scroll{
+    min-height: 260rpx;
+    max-height: 400rpx;
+  }
