@@ -21,7 +21,7 @@ class Content extends AppBase {
     })
 
     this.Base.setMyData({
-      addresdetail:null,leasedetail2:null,remarks:''
+      addresdetail:null,leasedetail2:null,remarks:'',totle:0
     })
     
   }
@@ -55,7 +55,10 @@ class Content extends AppBase {
       id:this.Base.options.id,
       sealseprice_id:this.Base.options.sealseprice_id
     },(res)=>{
-      this.Base.setMyData({leasedetail2:res})
+      var totle=0
+      totle=res.deposit*1+res.freight*1+res.jiamu.presentprice*1
+      totle=totle.toFixed(2)
+      this.Base.setMyData({leasedetail2:res,totle})
 
     })
 

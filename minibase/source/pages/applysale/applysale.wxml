@@ -15,13 +15,16 @@
                     <view class="h6 txt-2 text-overflow txt-line-clamp-2 w-100  txt-line-clamp-2 text-overflow ">{{leaseorderdetail.leasedetail.name}}</view>
                     <view class="flex-1"></view>
                     <view class="flex-row w-100 flex-center">
-                        <view wx:for="{{leaseorderdetail.sealsepricedetail.sortlist}}" wx:key="index">
-                            <text class="txt-1 h6  ">{{item.name}}</text>
-                            <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=index+1}}">丨</text>
+                    <view class="flex-row flex-1 flex-center flex-wrap">
+                        <view wx:for="{{leaseorderdetail.sealsepricedetail.sortlist}}" wx:key="indexs" style="flex:nonw" wx:for-index="indexs" wx:for-item="items">
+                            <text class="txt-1 h6  ">{{items.name}}</text>
+                            <text class="txt-1 h6  " wx:if="{{leaseorderdetail.sealsepricedetail.sortlist.length!=indexs+1}}">丨</text>
                         </view>
+                    </view>
+                        
 
                         <!-- <view class="h6 txt-1">丨粉色</view> -->
-                        <view class="flex-1"></view>
+                        <!-- <view class="flex-1"></view> -->
                         <view class="h6 txt-1">x1</view>
                     </view>
                 </view>
@@ -42,13 +45,16 @@
                     <view class="h6 txt-2 text-overflow txt-line-clamp-2 w-100  txt-line-clamp-2 text-overflow ">{{item.shop_summary}}</view>
                     <view class="flex-1"></view>
                     <view class="flex-row w-100 flex-center">
-                        <view wx:for="{{item.sortlist}}" wx:key="index" wx:for-index="indexs" wx:for-item="items" >
+                    <view class="flex-1 flex-row flex-center flex-wrap">
+                    <view wx:for="{{item.sortlist}}" wx:key="index" wx:for-index="indexs" wx:for-item="items" style="flex:none">
                             <text class="txt-1 h6  ">{{items.name}}</text>
                             <text class="txt-1 h6  " wx:if="{{item.sortlist.length!=indexs+1}}">丨</text>
                         </view>
+                    </view>
+                        
 
                         <!-- <view class="h6 txt-1">丨粉色</view> -->
-                        <view class="flex-1"></view>
+                        <!-- <view class="flex-1"></view> -->
                         <view class="h6 txt-1">x{{item.num}}</view>
                     </view>
                 </view>
@@ -122,7 +128,7 @@
 
 
 <!-- 添加收货地址 -->
-<view class="position-fixed w-100 " style="bottom:0;left:0" >
+<view class="position-fixed w-100 " style="bottom:0;left:0;z-index:99" >
     <view class="margin-left-30 margin-right-30 margin-bottom-20 h-80 line-height-80 txt-white h6 txt-bold text-center bg-2 radius-40" bindtap="tijiao">
         提交
     </view>

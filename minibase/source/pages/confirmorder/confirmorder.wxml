@@ -33,11 +33,16 @@
 
                 </view>
                 <view class="flex-row flex-center margin-top padding-top-10">
-                <view wx:for="{{item.storelist}}"  wx:key="indexs" data-index="indexs"  wx:for-index="indexs" wx:for-item="items">
+                <view class="flex-1 flex-row flex-center flex-1">
+                    <view wx:for="{{item.storelist}}"  wx:key="indexs" data-index="indexs"  wx:for-index="indexs" wx:for-item="items" style="flex:none">
                     <text class="txt-1 h6  ">{{items.name}}</text>
                     <text class="txt-1 h6  "  wx:if="{{item.storelist.length!=indexs+1}}">丨</text>
                 </view>
-                <view class="flex-1"></view>
+                </view>
+                
+
+               
+                <!-- <view class="flex-1"></view> -->
 
                 <!-- <view class="h6 txt-1" wx:if="{{type=='B'}}">x{{strjson.num}}</view> -->
                 <view class="h6 txt-1" >x{{item.cart_num}}</view>

@@ -25,11 +25,13 @@ class Content extends AppBase {
 
 
     this.Base.setMyData({
-      leaseorderdetail:{},type:'',str:'',timer:null,firse:0
+      leaseorderdetail:{},type:'',str:'',timer:null,firse:0,isFixedTop:false,navbarInitTop:80
     })
 
 
     this.Base.setMyData({type:this.Base.options.type})
+
+    
 
 
   }
@@ -215,7 +217,7 @@ this.Base.setMyData({timer})
                
                   }else{
                     wx.showToast({
-                      title: '操作失败',
+                      title: '操作失败,请联系客服',
                     }) 
                   }
                 })
@@ -532,6 +534,27 @@ shangchu(e){
   
   
   }
+  onPageScroll(e){
+    var that = this;
+    var scrollTop = parseInt(e.scrollTop); //滚动条距离顶部高度
+   
+    //判断'滚动条'滚动的距离 和 '元素在初始时'距顶部的距离进行判断
+    var isSatisfy  = scrollTop > that.Base.getMyData().navbarInitTop ? true : false;
+
+
+    console.log(scrollTop, that.Base.getMyData().navbarInitTop,'scrollTop')
+    //为了防止不停的setData, 这儿做了一个等式判断。 只有处于吸顶的临界值才会不相等
+    if (that.Base.getMyData().isFixedTop === isSatisfy) {
+     return false;
+    }
+   
+    that.Base.setMyData({
+     isFixedTop: isSatisfy
+    });
+    console.log(isSatisfy,'isSatisfy')
+  
+
+  }
 
 
 }
@@ -541,6 +564,7 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 
 
+body.onPageScroll = content.onPageScroll;
 body.onUnload = content.onUnload;
 body.onHide = content.onHide;
 body.daojishi = content.daojishi;

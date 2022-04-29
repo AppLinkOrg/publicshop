@@ -81,7 +81,7 @@
         <view class="flex-row flex-center  margin-top-30  margin-bottom-10">
             <view class="flex-2 h6 txt-2 flex-1">实付金额</view>
             <view class="f-18 txt-3 txt-bold">¥</view>
-            <view class="h5 txt-3 txt-bold">{{leasedetail2.deposit*1+leasedetail2.freight*1+leasedetail2.jiamu.presentprice*1}}</view>
+            <view class="h5 txt-3 txt-bold">{{totle}}</view>
         </view>
 
     </view>
@@ -96,7 +96,7 @@
         <view class="h5 txt-2 ">合计:</view>
 
         <view class="f-36 txt-bold txt-3">¥</view>
-        <view class="f-58 txt-bold txt-3 ">{{leasedetail2.deposit*1+leasedetail2.freight*1+leasedetail2.jiamu.presentprice*1}}</view>
+        <view class="f-58 txt-bold txt-3 ">{{totle}}</view>
 
         <view class="flex-1"></view>
         <view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 "  bindtap="tijiao">

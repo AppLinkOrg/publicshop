@@ -37,7 +37,7 @@
 
         <view class="margin-left-20  flex-1">
             <view class="flex-row ">
-                <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.leasedetail.name}}</view>
+                <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.lease_name}}</view>
                <view>
                 <text class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</text>
                 <text class="f-32 txt-bold txt-1  " style="flex:none">{{item.sealsepricedetail.presentprice}}</text>

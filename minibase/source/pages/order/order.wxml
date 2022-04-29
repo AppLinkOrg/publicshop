@@ -48,16 +48,22 @@
                 <view class="margin-left-20  flex-1">
                     <view class="flex-row ">
                         <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.leasedetail.name}}</view>
-                        <view class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</view>
-                        <view class="f-32 txt-bold txt-1  " style="flex:none">{{item.leaseorder.price}}</view>
+                        <view>
+                            <text class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</text>
+                        <text class="f-32 txt-bold txt-1  " style="flex:none">{{item.leaseorder.price}}</text>
+                        
+                        </view>
 
                     </view>
                     <view class="flex-row flex-center margin-top padding-top-10 w-100">
-                        <view wx:for="{{item.sealsepricedetail.sortlist}}" wx:key="index" wx:for-index="indexx" wx:for-item="itemx">
+                    <view class="flex-row flex-wrap flex-1">
+                        <view wx:for="{{item.sealsepricedetail.sortlist}}" wx:key="index" wx:for-index="indexx" wx:for-item="itemx" style="flex:none">
                             <text class="txt-1 h6  ">{{itemx.name}}</text>
                             <text class="txt-1 h6  " wx:if="{{item.sealsepricedetail.sortlist.length!=indexx+1}}">丨</text>
                         </view>
-                        <view class="flex-1"></view>
+                    </view>
+                        
+                        <!-- <view class="flex-1"></view> -->
                         <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
                         <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
 
@@ -80,11 +86,14 @@
 
                     </view>
                     <view class="flex-row flex-center margin-top padding-top-10 w-100">
-                        <view wx:for="{{items.sortlist}}" wx:key="indexx" wx:for-index="indexx" wx:for-item="itemx">
+                    <view class="flex-row flex-wrap flex-1 flex-center">
+                        <view wx:for="{{items.sortlist}}" wx:key="indexx" wx:for-index="indexx" wx:for-item="itemx" style="flex:none">
                             <text class="txt-1 h6  ">{{itemx.name}}</text>
                             <text class="txt-1 h6  " wx:if="{{items.sortlist.length!=indexx+1}}">丨</text>
                         </view>
-                        <view class="flex-1"></view>
+                    </view>
+                        
+                        <!-- <view class="flex-1"></view> -->
                         <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
                         <view class="txt-1 h6 margin-left-50" style="flex:none">x{{items.num}}</view>
 

@@ -71,12 +71,12 @@
         <image class=" icon-8 margin-right-30" src='{{uploadpath}}resource/{{res.youjian}}'></image>
     </view>
 
-    <view class="flex-row flex-center margin-left-30 margin-top-40">
-        <view class="ttx-4 h5">服务</view>
+    <view class="flex-row flex-center margin-left-30 margin-top-40 padding-bottom-30 bd-1 margin-right-30">
+        <view class="txt-4 h5">服务</view>
         <view class="margin-left-20 txt-1 h6">{{shopdetail.server}}</view>
     </view>
 
-    <view class="margin-left-30 margin-top-60 txt-2 f-30 txt-bold">产品详情</view>
+    <view class="margin-left-30 margin-top-30 txt-2 f-30 txt-bold">产品详情</view>
 
     <import src="../../wxParse/wxParse.wxml" />
     <view class='nostyle margin-top-20 w-100'>
@@ -157,10 +157,16 @@
             <view wx:for="{{shopdetail.specslist}}"  wx:key="{{item.id}}">
                     <view class="f-26 txt-2 margin-top-30">{{item.name}}</view>
                 <view class="flex-row flex-wrap ">
-                    <view class="h-52b line-height-52 padding-left-20 padding-right-20 h6 bg  margin-top-20 radius-8 {{indexs==0?'':'margin-left-20'}} {{item.show==indexs?'bd-3 txt-3':' bd-7'}} "
+                    <view class="h-52b  h6   margin-top-20  {{indexs==0?'':'margin-left-20'}} "
                     
                      wx:for="{{item.sortlist}}" wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items"  bindtap="xzbind" data-index="{{index}}" data-indexs="{{indexs}}"
-                     >{{items.name}}</view>
+                     >
+                     <view class="{{item.show==indexs?'bd-3 txt-3':'bd-7'}} h6 line-height-52 bg radius-8 padding-left-20 padding-right-20 " wx:if="{{items.open!='Y'}}" >{{items.name}}</view>
+                     <image src="{{uploadpath}}sort/{{items.img}} " class="icon-24 display-block border-raidus-50 {{item.show==indexs?'bd-3':'bd-7'}}" wx:else></image>
+
+                     
+
+                     </view>
                 </view>
                 </view>
 

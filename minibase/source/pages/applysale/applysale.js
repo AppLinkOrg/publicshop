@@ -129,6 +129,7 @@ this.Base.setMyData({servicelist:res,service_id})
     this.jiage()
   }
   tijiao(){
+    var that = this 
     var service_id=this.Base.getMyData().service_id
     var reason_id=this.Base.getMyData().reason_id
     var safeApi = new SafeApi()
@@ -165,6 +166,10 @@ this.Base.setMyData({servicelist:res,service_id})
 
       }
       var str2=str.toString()
+      if (str2=='') {
+        that.Base.toast('请选择商品')
+        return
+      }
 
       safeApi.safeadd2({
         str2,service_id,reason_id,imgliststr,explain,shoporder_id

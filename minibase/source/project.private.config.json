@@ -119,6 +119,12 @@
                     "pathName": "pages/refunddetail/refunddetail",
                     "query": "type=A&id=20",
                     "scene": null
+                },
+                {
+                    "name": "pages/activedetail/activedetail",
+                    "pathName": "pages/activedetail/activedetail",
+                    "query": "id=1",
+                    "scene": null
                 }
             ]
         }

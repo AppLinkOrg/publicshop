@@ -87,12 +87,15 @@
     
     </view>
     <view class="flex-row flex-center margin-top padding-top-10">
-        <view wx:for="{{safedetail.sealsepricedetail.sortlist}}" wx:key="indexs" wx:for-index="indexs" wx:for-item="items">
+    <view class="flex-1 flex-wrap flex-row ">
+  <view wx:for="{{safedetail.sealsepricedetail.sortlist}}" wx:key="indexs" wx:for-index="indexs" wx:for-item="items"  style="flex:none">
                             <text class="txt-1 h6  ">{{items.name}}</text>
                             <text class="txt-1 h6  " wx:if="{{safedetail.sealsepricedetail.sortlist.length!=indexs+1}}">丨</text>
                         </view>
+    </view>
+      
         <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
-        <view class="flex-1"></view>
+        <!-- <view class="flex-1"></view> -->
         <view class="txt-1 h6 margin-left-50" style="flex:none">x1</view>
         
         </view>
@@ -115,11 +118,14 @@
     
     </view>
     <view class="flex-row flex-center margin-top padding-top-10">
+    <view class="flex-1 flex-row  flex-wrap">
         <view wx:for="{{item.shopitem}}" wx:key="{{indexs}}"  wx:for-index="indexs" wx:for-item="items">
                             <text class="txt-1 h6  ">{{items.name}}</text>
                             <text class="txt-1 h6  " wx:if="{{item.shopitem.length!=indexs+1}}">丨</text>
                         </view>
-                        <view class="flex-1"></view>
+    </view>
+       
+                        <!-- <view class="flex-1"></view> -->
         <!-- <view class="txt-1 h6  flex-1">MINI丨粉色</view> -->
         <view class="txt-1 h6 margin-left-50" style="flex:none">x{{item.num}}</view>
         
@@ -161,6 +167,11 @@
 <view class="flex-row flex-center  margin-top-30  margin-bottom-10">
 <view class="flex-2 h6 txt-2 flex-1">申请原因</view>
 <view class="h5 txt-1 txt-bold">{{safedetail.reason_name}}</view>
+</view>
+
+<view class="flex-row flex-center  margin-top-30  margin-bottom-10">
+<view class="flex-2 h6 txt-2 flex-1">申请说明</view>
+<view class="h5 txt-1 txt-bold">{{safedetail.explain}}</view>
 </view>
 
 <view class="flex-row flex-center  margin-top-30  margin-bottom-10">
