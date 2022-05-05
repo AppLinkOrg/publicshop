@@ -29,6 +29,7 @@
         "pages/refund/refund",
         "pages/confirmorder/confirmorder",
         "pages/refunddetail/refunddetail",
+        "pages/terms/terms",
         "pages/classify/classify"
     ],
     "permission": {

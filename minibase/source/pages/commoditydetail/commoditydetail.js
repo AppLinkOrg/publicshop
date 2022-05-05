@@ -28,12 +28,17 @@ class Content extends AppBase {
       shopdetail:{},
       autoplay:false,
       num:1,jiageprice:{},
-      type:'',str2:[],guistr:''
+      type:'',str2:[],guistr:'',first:0
     })
 
   }
   onMyShow() {
     var that = this;
+    var first = this.Base.getMyData().first
+    if (first!=0) {
+      return
+      
+    }
 
     var shopApi =new ShopApi()
     shopApi.shopdetail({
@@ -54,7 +59,7 @@ class Content extends AppBase {
       }
 
 
-      this.Base.setMyData({shopdetail:res,autoplay})
+      this.Base.setMyData({shopdetail:res,autoplay,first:1})
 
       this.jiage()
     })

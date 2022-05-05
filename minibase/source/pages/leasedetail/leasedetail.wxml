@@ -68,7 +68,7 @@
 </view>
 
 
-<view class="h-56 line-height-56 text-center w-100 flex-row flex-center">
+<view class="h-56 line-height-56 text-center w-100 flex-row flex-center" bindtap="timer">
 <view class="flex-1"></view>
 <view class="txt-1 f-22 ">点击立即租赁即表示您同意接受蜃龙的</view>
 <view class="txt-3 f-22 ">《用户租赁条款》</view>

@@ -17,12 +17,18 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-        leasedetail:[],autoplay:false,jiageprice:null,str2:[]
+        leasedetail:[],autoplay:false,jiageprice:null,str2:[],first:0
     })
 
   }
   onMyShow() {
     var that = this;
+    
+    var first = this.Base.getMyData().first
+
+    if (first!=0) {
+      return
+    }
 
     var leaseApi =new LeaseApi()
     leaseApi.leasedetail({id:this.Base.options.id},(res)=>{
@@ -44,7 +50,7 @@ class Content extends AppBase {
         
 
 
-        this.Base.setMyData({leasedetail:res,autoplay})
+        this.Base.setMyData({leasedetail:res,autoplay,first:1})
 
         this.jiage()
     })
@@ -157,6 +163,11 @@ class Content extends AppBase {
 
 
   }
+  timer(){
+    wx.navigateTo({
+      url: '/pages/terms/terms?id=1',
+    })
+  }
 
   
 }
@@ -165,6 +176,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.timer = content.timer;
 body.onShareAppMessage = content.onShareAppMessage;
 body.zulin = content.zulin;
 body.jiage = content.jiage;
