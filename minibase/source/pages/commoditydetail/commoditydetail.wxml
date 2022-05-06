@@ -28,8 +28,8 @@
     <view class="margin-top-40 flex-row flex-center justify-between margin-left-30">
         <view class="flex-row flex-center">
             <view class=" flex-row flex-center">
-                <view class="txt-3 f-36">￥</view>
-                <view class="txt-3 f-58">{{shopdetail.pricelist.present}}</view>
+                <view class="txt-3 f-36 txt-bold">￥</view>
+                <view class="txt-3 f-58 txt-bold">{{shopdetail.pricelist.present}}</view>
             </view>
             <view class="txt-4 f-30 text-decoration margin-left-30 ">￥{{shopdetail.pricelist.original}}</view>
         </view>
@@ -89,14 +89,16 @@
     <view class="flex-row h-100rpx flex-center">
         <view class="margin-left-30  flex-row flex-column" bindtap="toggleDialog">
             <image class=" icon-18" src='{{uploadpath}}resource/{{res.lianxi}}'></image>
-            <view>客服</view>
+            <view class="h7 ">客服</view>
         </view>
-        <view class="margin-left-30 flex-row flex-column"  bindtap="gocart">
+        <view class="margin-left-50 flex-row flex-column"  bindtap="gocart">
             <image class=" icon-18" src='{{uploadpath}}resource/{{res.cart}}'></image>
-            <view>购物车</view>
+            <view class="h7 ">购物车</view>
         </view>
-        <button class="cart-btn" bindtap="toggleDialog_buttom"  data-type='A'>加入购物车</button>
+        <view class="flex-1"></view>
+        <button class="cart-btn margin-right-20" bindtap="toggleDialog_buttom"  data-type='A'>加入购物车</button>
         <button class="buy-btn"  bindtap="toggleDialog_buttom" data-type='B'>立即购买</button>
+        <view class="margin-left-30"></view>
     </view>
 
 </view>
@@ -134,41 +136,44 @@
 
 
 <view class="position-fixed w-100 h-100 bg-7" style="top:0;left:0" wx:if="{{buttom_flag}}" catchtouchmove='true'></view>
-<view class=" position-fixed w-100  h-760 padding-top-30 " style="bottom:0;left:0;z-index: 999;"  wx:if="{{buttom_flag}}" >
+<view class=" position-fixed w-100  h-800 padding-top " style="bottom:0;left:0;z-index: 999;"  wx:if="{{buttom_flag}}" >
     <view class="bg-white com-radius padding-left-30 padding-right-30  " style="min-height: 760rpx;">
 
         <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100    position-absolute"  style="top:0;left:30rpx;z-index: 999;" wx:if="{{jiageprice.img!=''}}" ></image>
         <image src="{{uploadpath}}shop/{{shopdetail.cover}}" class="icon-100  position-absolute" style="top:0;left:30rpx;z-index: 999;" wx:else></image>
     
         <view class="flex-row  margin-top-30 ">
-                <view class="w-200 h-160 margin-left-30"></view>
+                <view class="w-200 h-130"></view>
                 <view class="margin-left-20">
                     <view>
                         <text class="txt-bold txt-3 f-32">¥</text>
-                        <text class="f-43 txt-3 txt-bold">{{jiageprice.present}}</text>
+                        <text class="f-60 txt-3 txt-bold" style="font-family:Dinoffc-cond;">{{jiageprice.present}}</text>
                     </view>
-                    <view class="margin-top-30 txt-1 h5 margin-left-15" style="text-decoration: line-through;">¥{{jiageprice.original}}</view>
+                    <view class="margin-top-20 txt-1 h5 margin-left-15" style="text-decoration: line-through;">¥{{jiageprice.original}}</view>
                 </view>
                 <view class="flex-1"></view>
                 <image src="{{uploadpath}}resource/{{res.close}}" class="icon-20" bindtap="close" ></image>
 
             </view>
-
-            <view wx:for="{{shopdetail.specslist}}"  wx:key="{{item.id}}">
-                    <view class="f-26 txt-2 margin-top-30">{{item.name}}</view>
+            <scroll-view scroll-y style="height:340rpx">
+                <view wx:for="{{shopdetail.specslist}}"  wx:key="{{item.id}}">
+                    <view class="f-26 txt-2 margin-top-30" style="font-family:Dinoffc-cond;">{{item.name}}</view>
                 <view class="flex-row flex-wrap ">
                     <view class="h-52b  h6   margin-top-20  {{indexs==0?'':'margin-left-20'}} "
                     
                      wx:for="{{item.sortlist}}" wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items"  bindtap="xzbind" data-index="{{index}}" data-indexs="{{indexs}}"
                      >
                      <view class="{{item.show==indexs?'bd-3 txt-3':'bd-7'}} h6 line-height-52 bg radius-8 padding-left-20 padding-right-20 " wx:if="{{items.open!='Y'}}" >{{items.name}}</view>
-                     <image src="{{uploadpath}}sort/{{items.img}} " class="icon-24 display-block border-raidus-50 {{item.show==indexs?'bd-3':'bd-7'}}" wx:else></image>
+                     <image src="{{uploadpath}}sort/{{items.img}} " class="icon-24 display-block border-raidus-50 {{item.show==indexs?'bd-8':'bd-7'}}" wx:else></image>
 
                      
 
                      </view>
                 </view>
                 </view>
+            </scroll-view>
+
+       
 
                 <view class="flex-row flex-center margin-top-50">
                     <view class="f-26 txt-2  ">数量</view>
@@ -182,7 +187,7 @@
                 <button class="bg-2 w-690 h-72 f-26 txt-white radius-36 margin-top-60 margin-bottom-20"  bindtap="queding">确认</button>
 
                
-                <view class="h-100rpx"></view>
+         
     
     </view>
 

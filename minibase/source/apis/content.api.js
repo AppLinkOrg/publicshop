@@ -9,7 +9,7 @@ import { ApiConfig } from 'apiconfig';
 export class ContentApi{
 
 
-    get(json, callback, showLoading = true) {
+    contentlist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class ContentApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'content/get',
+            url: ApiConfig.GetApiUrl() + 'content/contentlist',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class ContentApi{
         })
     }
 
-    contentlist(json, callback, showLoading = true) {
+    get(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class ContentApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'content/contentlist',
+            url: ApiConfig.GetApiUrl() + 'content/get',
             data: json,
             method: 'POST',
             dataType: 'json',

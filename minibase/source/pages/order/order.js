@@ -347,10 +347,16 @@ faqiao(e){
 chakan(e){
   var id = e.currentTarget.id
   var type=e.currentTarget.dataset.type
-  this.Base.toast('暂未开放')
-return
+  var logisticsorderno=e.currentTarget.dataset.logisticsorderno
+  if (logisticsorderno=='' || logisticsorderno==undefined) {
+    this.Base.toast('商家发货物流单号暂未上传')
+    return
+  }
+
+  
+// return
   wx.navigateTo({
-    url: '/pages/logistics/logistics?type='+type+'&id='+id,
+    url: '/pages/logistics/logistics?no='+logisticsorderno,
   })
 
 }

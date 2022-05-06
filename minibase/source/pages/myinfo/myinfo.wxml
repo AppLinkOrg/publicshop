@@ -15,13 +15,18 @@
 <view class="flex-1"></view>
 <input placeholder="" class="txt-2 h5 margin-right-30  text-right"   disabled="disabled" model:value="{{memberinfo.nickName}}"  />
 </view>
+
+<picker model="selector" range="{{list}}" range-key="name" bindchange="xbbind" >
 <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">性别</view>
-<view class="flex-1"></view>
-<input placeholder="" class="txt-2 h5  text-right"  model:value="{{memberinfo.gender_name}}  "  disabled="disabled" />
-<image mode="widthFix "  class=" icon-12  margin-left-5"  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
-</view>
+<!-- <view class="flex-1"></view> -->
 
+    <input placeholder="" class="txt-2 h5  text-right flex-1"    disabled="disabled" model:value="{{gender}}" />
+<image mode="widthFix "  class=" icon-12  margin-left-5"  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
+
+
+</view>
+</picker>
 <!-- <view class="padding-30 flex-row flex-center bd-1">
 <view class="txt-2 h5 ">生日</view>
 <view class="flex-1"></view>

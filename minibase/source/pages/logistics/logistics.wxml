@@ -2,36 +2,38 @@
 <view>
     <view class="height-50 flex-row flex-center margin-left-30 margin-right-30">
         <view class="txt-2 h5 txt-bold w-170">物流状态</view>
-        <view class="txt-3 h5">运输中</view>
+        <view class="txt-3 h5">
+        {{wuliu.deliverystatus==0?'快递收件(揽件)':wuliu.deliverystatus==1?'在途中':wuliu.deliverystatus==2?'正在派件':wuliu.deliverystatus==3?'已签收':wuliu.deliverystatus==4?'派送失败':wuliu.deliverystatus==5?'疑难件':'退件签收'}}
+        </view>
     </view>
 
     <view class="height-50 flex-row flex-center margin-left-30 margin-right-30">
         <view class="txt-2 h5 txt-bold w-170">物流公司</view>
-        <view class="txt-2 h5">韵达快递</view>
+        <view class="txt-2 h5">{{wuliu.expName}}</view>
     </view>
 
     <view class="height-50 flex-row flex-center margin-left-30 margin-right-30">
         <view class="txt-2 h5 txt-bold w-170">物流单号</view>
-        <view class="txt-2 h5">123456789</view>
+        <view class="txt-2 h5">{{wuliu.number}}</view>
     </view>
 </view>
 
 <!-- 物流状态 -->
 <view class="padding-top-60 padding-left-60">
-    <view wx:if="{{dataList.length > 0}}">
-        <view class="flex-row" wx:for="{{dataList}}" wx:key="index">
+    <view wx:if="{{wuliu.list.length > 0}}">
+        <view class="flex-row" wx:for="{{wuliu.list}}" wx:key="index">
             <!-- 左边线条 -->
             <view class="position-relative w-48">
                 <view class="flex-row padding-left-30 h-100 column">
                     <view class="w-1 height-50 {{index == 0 ? '' : 'bd-4'}}"></view>
-                    <view class="w-1 flex-1 {{index + 1 == dataList.length ? '' : 'bd-4'}}"></view>
+                    <view class="w-1 flex-1 {{index + 1 == wuliu.list.length ? '' : 'bd-4'}}"></view>
                 </view>
                 <view class="dotBox bd-3" wx:if="{{index == 0}}"></view>
                 <view class="dotBox bd-4" wx:else="{{index > 0}}"></view>
             </view>
             <!-- 右边内容 -->
             <view class="flex-1 padding-top-30 padding-bottom-30 h5 margin-left-20 {{index == 0 ? '' : 'txt-2'}}">
-                <view>{{item.content}}</view>
+                <view>{{item.status}}</view>
                 <view class="margin-top-20 h6">{{item.time}}</view>
             </view>
         </view>

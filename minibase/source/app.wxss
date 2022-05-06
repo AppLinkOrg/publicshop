@@ -56,6 +56,9 @@ page{
 .h-760{
   height: 760rpx;
 }
+.h-800{
+  height: 800rpx;
+}
 .h-846{
   height: 846rpx;
 }
@@ -79,6 +82,9 @@ page{
 }
 .h-140{
   height: 140rpx;
+}
+.h-130{
+  height: 130rpx;
 }
 .h-160{
   height: 160rpx;
@@ -187,6 +193,9 @@ page{
 }
 .txt-line-clamp-2{
   -webkit-line-clamp: 2;
+}
+.txt-line-clamp-1{
+  -webkit-line-clamp: 1;
 }
 .text-overflow{
   display: -webkit-box;
@@ -382,12 +391,18 @@ view,navigator,input,text,textarea{
 .bd-7{
   border: 1px solid #fff ;
 }
+.bd-8{
+  border: 4rpx solid #DF001F ;
+}
 .bd-show{
   box-shadow: 0px 4rpx 55rpx 5rpx rgba(221, 221, 221, 0.28);
 }
 .bd-show1{
   /* box-shadow: 10px 10px 5px #888888; */
   box-shadow: 0px 8rpx 20rpx 0px rgba(192, 200, 211, 0.16);
+}
+.bd-show2{
+  box-shadow: 0px -17rpx 55rpx 5rpx rgba(221, 221, 221, 1.5);
 }
 .txt-primary{
   color:#2699EC;
@@ -465,6 +480,9 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 .f-18{
   font-size: 18rpx !important;
 }
+.f-23{
+  font-size: 23rpx !important;
+}
 .f-22{
   font-size: 22rpx !important;
 }
@@ -482,6 +500,12 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 }
 .f-43{
   font-size: 43rpx !important;
+}
+.f-44{
+  font-size: 44rpx !important;
+}
+.f-48{
+  font-size: 48rpx !important;
 }
 .f-58{
   font-size: 58rpx !important;
@@ -957,6 +981,9 @@ button[disabled][type=primary] {
 .line-height-36{
   line-height: 36rpx;
 }
+.line-height-40{
+  line-height: 40rpx;
+}
 .line-height-52{
   line-height: 52rpx;
 }
@@ -1058,9 +1085,9 @@ background-color: #fcebed;
   height: 72rpx;
   border-radius: 36rpx;
   font-size: 26rpx;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 .buy-btn{
   border: 1rpx solid #DF001F;

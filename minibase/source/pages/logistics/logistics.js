@@ -3,7 +3,7 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { AboutusApi } from "../../apis/aboutus.api.js";
-
+import { GoodsApi } from "../../apis/goods.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -26,13 +26,41 @@ class Content extends AppBase {
           content:'快件正在派送',
           time:'12-22 12:23'
         }
-      ]
+      ],
+      no:'',
+      wuliu:null,first:0
 
     })
+
+
+  
+
+    
 
   }
   onMyShow() {
     var that = this;
+
+    var first=this.Base.getMyData().first
+    if (first==0) {
+      var goodsApi = new GoodsApi()
+      goodsApi.wuliu({
+        no:this.Base.options.no
+      },(res)=>{
+        if (res.status=="0") {
+          this.Base.setMyData({wuliu:res.result})
+        }else{
+          that.Base.toast(res.msg)
+          this.Base.setMyData({wuliu:null})
+        }
+        this.Base.setMyData({first:1})
+        console.log(res,'reskkkk');
+  
+      })
+      
+    }
+
+   
 
     
 

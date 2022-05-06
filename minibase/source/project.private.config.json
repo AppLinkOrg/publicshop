@@ -125,6 +125,18 @@
                     "pathName": "pages/activedetail/activedetail",
                     "query": "id=1",
                     "scene": null
+                },
+                {
+                    "name": "pages/logistics/logistics",
+                    "pathName": "pages/logistics/logistics",
+                    "query": "no=YT8139442949935",
+                    "scene": null
+                },
+                {
+                    "name": "pages/myinfo/myinfo",
+                    "pathName": "pages/myinfo/myinfo",
+                    "query": "undefined=undefined",
+                    "scene": null
                 }
             ]
         }

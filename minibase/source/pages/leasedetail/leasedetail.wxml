@@ -22,7 +22,7 @@
     </view>
 
     <view class=" flex-row w-100" style="flex-wrap: wrap;">
-        <view class="margin-top-20 f-22 txt-4 padding-left-12 padding-right-12 h-40 line-height-36  bg-6 radius-8 margin-right-10 "  wx:for="{{leasedetail.biaolist}}"  wx:key="{{idnex}}">{{item}}</view>
+        <view class="margin-top-20 f-22 txt-4 padding-left-12 padding-right-12 h-40 line-height-40  bg-6 radius-8 margin-right-10 "  wx:for="{{leasedetail.biaolist}}"  wx:key="{{idnex}}">{{item}}</view>
     </view>
 
     <view class="txt-bold f-30 txt-2 margin-top-30 padding-bottom-30 bd-1">{{leasedetail.introduction}}</view>
@@ -31,7 +31,7 @@
     <view class="margin-top-30 f-30 txt-2 txt-bold">{{item.name}}</view>
 
     <view class=" flex-row w-100" style="flex-wrap: wrap;">
-        <view class="margin-top-20 margin-right-20 bd-5 h-80 line-height-80 padding-left-30 padding-right-30 radius-8  {{item.show==indexs?'bd-6':'bd-5'}} "  style="flex:none" wx:for="{{item.sortlist}}" wx:key="{{indexs}}"  wx:for-index="indexs" wx:for-item="items"  bindtap="select"  data-index="{{index}}" data-indexs="{{indexs}}" >{{items.name}}</view>
+        <view class="f-26 margin-top-5 margin-right-20 bd-5 h-80 line-height-80 padding-left-30 padding-right-30 radius-8  {{item.show==indexs?'bd-6':'bd-5'}} "  style="flex:none" wx:for="{{item.sortlist}}" wx:key="{{indexs}}"  wx:for-index="indexs" wx:for-item="items"  bindtap="select"  data-index="{{index}}" data-indexs="{{indexs}}" >{{items.name}}</view>
     </view>
 
    
@@ -52,7 +52,7 @@
 <view class="h-200"></view>
 
 <!-- 添加收货地址 -->
-<view class="position-fixed w-100  bg-white" style="bottom:0;left:0">
+<view class="position-fixed w-100  bg-white  bd-show2" style="bottom:0;left:0">
 <view class="h-100rpx flex-row flex-center padding-left-30 padding-right-30">
 <view class="h5 txt-2 ">合计:</view>
 

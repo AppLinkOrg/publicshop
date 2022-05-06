@@ -18,11 +18,12 @@
 	<view class="cu-bar fixed " style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px">
 
         	<view class=' flex-row flex-center w-100' style='top:{{StatusBar}}px;height: 100%;'>
-        <view class="flex-1"></view>
-
-            <view class="h-55 w-240 radius-30 bg-1 flex-row flex-center" bindtap="navtoPage" data-page="search">
-        <image class="icon-12 margin-left"   src='{{uploadpath}}resource/{{res.sousuo}}'></image>
-        <input  placeholder="搜索您需要的商品" class="h7 txt-white padding-left-10"  placeholder-class="txt-white" disabled="disabled"  />
+        <!-- <view class="flex-1"></view> -->
+        <view class="margin-left-30"></view>
+        <!-- w-240 -->
+            <view class="h-55  radius-30 bg-1 flex-row flex-center" bindtap="navtoPage" data-page="search" style="width:50vw">
+        <image class="icon-12 margin-left" mode="aspectFit"  src='{{uploadpath}}resource/{{res.sousuo}}'></image>
+        <input  placeholder="搜索您需要的商品" class="h6 txt-white padding-left-10"  placeholder-class="txt-white" disabled="disabled"  />
     </view>
     <!-- <view class="flex-1"></view> -->
         
@@ -67,8 +68,8 @@
     <view class="txt-2 txt-bold f-32 ">人气推荐</view>
     <view class="flex-1"></view>
     <view class="flex-row flex-center"  bindtap="genduo">
-        <view class="h6 txt-3 ">了解更多</view>
-    <image src="{{uploadpath}}resource/{{res.youjian2}}"  class="margin-left-5  icon-10"></image>
+        <view class="h6 txt-3 txt-bold ">了解更多</view>
+    <image src="{{uploadpath}}resource/{{res.youjian2}}"  class="margin-left-5  icon-12"></image>
     </view>
     
 </view>
@@ -98,8 +99,8 @@
     <view class="txt-2 txt-bold f-32 ">热卖爆款</view>
     <view class="flex-1"></view>
     <view class="flex-row flex-center"  bindtap="genduo">
-    <view class="h6 txt-3 ">了解更多</view>
-    <image src="{{uploadpath}}resource/{{res.youjian2}}"  class="margin-left-5  icon-10"></image>
+    <view class="h6 txt-3 txt-bold">了解更多</view>
+    <image src="{{uploadpath}}resource/{{res.youjian2}}"  class="margin-left-5  icon-12"></image>
 </view>
 </view>
 

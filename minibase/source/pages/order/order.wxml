@@ -171,7 +171,7 @@
                 </view>
 
                 <view class="h-56 line-height-56 bd-4 padding-left-30 padding-right-30 h6 txt-1 radius-28 margin-left-20 " catchtap="chakan" id="{{item.id}}"
-                wx:if="{{item.orderstatus=='C' || item.orderstatus=='D'}}"
+                wx:if="{{item.orderstatus=='C' || item.orderstatus=='D'}}" data-logisticsorderno="{{item.shoporder.logisticsorderno}}"
                 >
                 查看物流
                 </view>
