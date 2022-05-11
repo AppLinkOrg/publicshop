@@ -389,7 +389,7 @@ view,navigator,input,text,textarea{
   border: 1px solid #DF001F ;
 }
 .bd-7{
-  border: 1px solid #fff ;
+  border: 4rpx solid #fff ;
 }
 .bd-8{
   border: 4rpx solid #DF001F ;

@@ -555,7 +555,21 @@ shangchu(e){
   
 
   }
-
+  chakan(e){
+    var leaseorderdetail = this.Base.getMyData().leaseorderdetail
+    var logisticsorderno=leaseorderdetail.logisticsorderno
+    if (logisticsorderno=='' || logisticsorderno==undefined) {
+      this.Base.toast('商家发货物流单号暂未上传')
+      return
+    }
+  
+    
+  // return
+    wx.navigateTo({
+      url: '/pages/logistics/logistics?no='+logisticsorderno,
+    })
+  
+  }
 
 }
 var content = new Content();
@@ -564,6 +578,7 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 
 
+body.chakan = content.chakan;
 body.onPageScroll = content.onPageScroll;
 body.onUnload = content.onUnload;
 body.onHide = content.onHide;

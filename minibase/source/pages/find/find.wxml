@@ -57,7 +57,7 @@
 
 <!-- 活动 -->
 <view class="padding-30" wx:if="{{select==1}}">
-    <view wx:for="{{activelist}}" wx:key="{{index}}" class="margin-bottom-20" bindtap="xq" id="{{item.id}}">
+    <view wx:for="{{activelist}}" wx:key="{{index}}" class="margin-bottom-20 h-240 overflow-hidden" bindtap="xq" id="{{item.id}}">
         <image mode="widthFix" class=" w-100 h-240" src='{{uploadpath}}active/{{item.cover}}'></image>
     </view>
 </view>

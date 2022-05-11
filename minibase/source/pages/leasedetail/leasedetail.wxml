@@ -40,8 +40,10 @@
     </view> -->
     
     </view>
-
-    <view class="margin-top-30 f-30 txt-2 txt-bold">产品详情</view>
+    
+  
+<view class="bd-1 margin-top-30"></view>
+    <view class="margin-top-30 f-30 txt-2 txt-bold ">产品详情</view>
 
 <import src="../../wxParse/wxParse.wxml" />
 <view  class='nostyle margin-top-20'>

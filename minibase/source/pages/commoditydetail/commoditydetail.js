@@ -6,6 +6,7 @@ import { ActiveApi } from "../../apis/active.api.js";
 import { ShopApi } from "../../apis/shop.api.js";
 var WxParse = require('../../wxParse/wxParse');
 import { CartApi } from "../../apis/cart.api.js";
+import { CanshuApi } from "../../apis/canshu.api.js";
 
 
 
@@ -28,7 +29,7 @@ class Content extends AppBase {
       shopdetail:{},
       autoplay:false,
       num:1,jiageprice:{},
-      type:'',str2:[],guistr:'',first:0
+      type:'',str2:[],guistr:'',first:0,canshushow:false,canshulist:[],instinfoss:null,freightshow:false
     })
 
   }
@@ -63,6 +64,25 @@ class Content extends AppBase {
 
       this.jiage()
     })
+
+
+    // var instApi= new InstApi()
+    // instApi.info({}, (instinfoss) => {
+    //   if (instinfoss == null || instinfoss == false) {
+
+    //     return;
+    //   }
+
+      
+
+      
+
+
+    //   this.Base.setMyData({
+    //     instinfoss: instinfoss
+    //   });
+      
+    // });
 
 
 
@@ -134,6 +154,12 @@ return
   }
   close(){
     this.Base.setMyData({buttom_flag:false})
+  }
+  close2(){
+    this.Base.setMyData({canshushow:false})
+  }
+  close3(){
+    this.Base.setMyData({freightshow:false})
   }
   xzbind(e){
     var  index=  e.currentTarget.dataset['index'];
@@ -246,6 +272,44 @@ return
 
 
   }
+  canshu(e){
+    var index = e.currentTarget.id
+    var id = this.Base.options.id
+    var that = this
+
+    if (index==2) {
+      var instinfo = this.Base.getMyData().instinfo
+      console.log(instinfo,'instinfo');
+      if (instinfo.frient=='') {
+        that.Base.toast('尚未填写运费说明')
+        return
+      }
+      
+      instinfo.frient = that.Base.util.HtmlDecode(instinfo.frient);
+      console.log('啊啊啊啊');
+      WxParse.wxParse('content2', 'html', instinfo.frient, that, 10);
+      this.Base.setMyData({freightshow:true})
+
+      return
+    }
+
+    var canshuApi = new CanshuApi()
+    canshuApi.canshulist({
+      shop_id:id
+    },(res)=>{
+      if (res.length==0) {
+        that.Base.toast('商家未上传参数')
+        return
+      }else{
+        this.Base.setMyData({canshulist:res,canshushow:true})
+      }
+     
+
+    })
+
+
+
+  }
 
 
 }
@@ -254,6 +318,10 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+
+body.close3 = content.close3;
+body.close2 = content.close2;
+body.canshu = content.canshu;
 body.onShareAppMessage = content.onShareAppMessage;
 body.queding = content.queding;
 body.gocart = content.gocart;

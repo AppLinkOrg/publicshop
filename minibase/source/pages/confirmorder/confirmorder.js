@@ -138,6 +138,11 @@ class Content extends AppBase {
     var totleamount = this.Base.getMyData().totleamount
     
 
+    if(addresdetail==null){
+      that.Base.toast('请选择地址信息')
+      return
+    }
+
     var addresname = addresdetail.name
     var mobile=addresdetail.mobile
     var address=addresdetail.address

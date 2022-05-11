@@ -70,16 +70,33 @@
         
         <image class=" icon-8 margin-right-30" src='{{uploadpath}}resource/{{res.youjian}}'></image>
     </view>
+    <view class="flex-row flex-center margin-top-30 margin-left-30 " bindtap="canshu" >
+        <view class="txt-4 h5 flex-1">产品参数</view>
+        <!-- <input placeholder="查看产品参数" class="h6 txt-2 margin-left-20 flex-1"  disabled="disabled" /> -->
+        
+        <image class=" icon-8 margin-right-30" src='{{uploadpath}}resource/{{res.youjian}}'></image>
+    </view>
+    <view class="flex-row flex-center margin-top-30 margin-left-30 " bindtap="canshu" id="2" >
+        <view class="txt-4 h5 flex-1">运费说明</view>
+        <!-- <input placeholder="查看产品参数" class="h6 txt-2 margin-left-20 flex-1"  disabled="disabled" /> -->
+        
+        <image class=" icon-8 margin-right-30" src='{{uploadpath}}resource/{{res.youjian}}'></image>
+    </view>
 
     <view class="flex-row flex-center margin-left-30 margin-top-40 padding-bottom-30 bd-1 margin-right-30">
         <view class="txt-4 h5">服务</view>
         <view class="margin-left-20 txt-1 h6">{{shopdetail.server}}</view>
     </view>
 
+   
+
+    <!-- <import src="../../wxParse/wxParse.wxml" /> -->
+    
+
     <view class="margin-left-30 margin-top-30 txt-2 f-30 txt-bold">产品详情</view>
 
     <import src="../../wxParse/wxParse.wxml" />
-    <view class='nostyle margin-top-20 w-100'>
+    <view class='nostyle margin-top-20 w-100 margin-left-30 margin-right-30'>
         <template is="wxParse" data="{{wxParseData:content.nodes}}" />
     </view>
     <view class="h-200"></view>
@@ -164,7 +181,10 @@
                      wx:for="{{item.sortlist}}" wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items"  bindtap="xzbind" data-index="{{index}}" data-indexs="{{indexs}}"
                      >
                      <view class="{{item.show==indexs?'bd-3 txt-3':'bd-7'}} h6 line-height-52 bg radius-8 padding-left-20 padding-right-20 " wx:if="{{items.open!='Y'}}" >{{items.name}}</view>
-                     <image src="{{uploadpath}}sort/{{items.img}} " class="icon-24 display-block border-raidus-50 {{item.show==indexs?'bd-8':'bd-7'}}" wx:else></image>
+                     <!-- <image src="{{uploadpath}}sort/{{items.img}} " class="icon-24 display-block border-raidus-50 {{item.show==indexs?'bd-8':'bd-7'}}" wx:else></image> -->
+
+                     <view class="icon-24  border-raidus-50 {{item.show==indexs?'bd-8':'bd-7'}}" style="background:{{items.colornumber}}" wx:else ></view>
+ 
 
                      
 
@@ -236,6 +256,62 @@
 
 
         </view>
+
+
+<view class="position-fixed w-100 h-100 bg-7" style="top:0;left:0" wx:if="{{canshushow}}" catchtouchmove='true'></view>
+<view class=" position-fixed w-100  h-800 " style="bottom:0;left:0;z-index: 999;"  wx:if="{{canshushow}}" >
+    <view class="bg-white com-radius padding-left-30 padding-right-30  " style="min-height: 800rpx;">
+        <view class="flex-row  margin-top-30 ">
+        <view class="flex-1"></view>
+        <view class="txt-2 txt-bold h6">产品参数</view>
+        <view class="flex-1 flex-row">
+        <view class="flex-1"></view>
+        <image src="{{uploadpath}}resource/{{res.close}}" class="icon-20"  bindtap="close2"></image>
+        </view>
+
+        </view>
+        <scroll-view scroll-y style="height:700rpx;">
+        <view wx:for="{{canshulist}}" wx:key="{{item.id}}" class="h-80 flex-row flex-center">
+        <view class="flex-1">
+        <text class="txt-2 h6 txt-bold ">{{item.name}}</text>
+        </view>
+        <view class="margin-left-20" style="flex:none"></view>
+        <view class="flex-1">
+        <text class="txt-2 h6 ">{{item.summary}}</text></view>
+        </view>
+        
+        </scroll-view>
+
+    
+    </view>
+
+</view> 
+
+
+    <view class="position-fixed w-100 h-100 bg-7" style="top:0;left:0" wx:if="{{freightshow}}" catchtouchmove='true'></view>
+    <view class=" position-fixed w-100  h-800 " style="bottom:0;left:0;z-index: 999;"  wx:if="{{freightshow}}" >
+    <view class="bg-white com-radius padding-left-30 padding-right-30  " style="min-height: 800rpx;">
+        <view class="flex-row  margin-top-30 ">
+        <view class="flex-1"></view>
+        <view class="txt-2 txt-bold h6 ">运费说明</view>
+        <view class="flex-1 flex-row">
+        <view class="flex-1"></view>
+        <image src="{{uploadpath}}resource/{{res.close}}" class="icon-20"  bindtap="close3"></image>
+        </view>
+
+        </view>
+        <scroll-view scroll-y style="height:700rpx;">
+            <import src="../../wxParse/wxParse.wxml" />
+<view class='nostyle margin-top-20 w-100'>
+        <template is="wxParse" data="{{wxParseData:content2.nodes}}" />
+    </view>
+      
+        </scroll-view>
+
+    
+    </view>
+
+</view>
 
 
 <!-- <view class="position-fixed w-100 h-100  bg-7 " wx:if="{{buttom_flag}}">

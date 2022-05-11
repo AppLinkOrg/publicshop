@@ -44,7 +44,7 @@ class Content extends AppBase {
     var first=this.Base.getMyData().first
     if (first==0) {
       var goodsApi = new GoodsApi()
-      goodsApi.wuliu({
+      goodsApi.wuliu2({
         no:this.Base.options.no
       },(res)=>{
         if (res.status=="0") {

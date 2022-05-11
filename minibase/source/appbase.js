@@ -17,7 +17,8 @@ import {
 import {
   WechatApi
 } from "apis/wechat.api";
-
+// var WxParse = require('../../wxParse/wxParse');
+var WxParse=require('./wxParse/wxParse')
 
 
 export class AppBase {
@@ -261,7 +262,14 @@ export class AppBase {
 
         return;
       }
+
+      // instinfo.frient = that.Base.util.HtmlDecode(instinfo.frient);
+      // console.log('jianlaie');
+      // WxParse.wxParse('instinfo.frient', 'html', instinfo.frient, that, 10);
+
       AppBase.InstInfo = instinfo;
+
+
       this.Base.setMyData({
         instinfo: instinfo
       });

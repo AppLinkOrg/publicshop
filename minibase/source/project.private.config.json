@@ -45,7 +45,7 @@
                 {
                     "name": "pages/commoditydetail/commoditydetail",
                     "pathName": "pages/commoditydetail/commoditydetail",
-                    "query": "id=1",
+                    "query": "id=8",
                     "scene": null
                 },
                 {
@@ -111,7 +111,7 @@
                 {
                     "name": "pages/commoditydetail/commoditydetail",
                     "pathName": "pages/commoditydetail/commoditydetail",
-                    "query": "id=3",
+                    "query": "id=8",
                     "scene": null
                 },
                 {
@@ -129,13 +129,19 @@
                 {
                     "name": "pages/logistics/logistics",
                     "pathName": "pages/logistics/logistics",
-                    "query": "no=YT8139442949935",
+                    "query": "no=1008884181",
                     "scene": null
                 },
                 {
                     "name": "pages/myinfo/myinfo",
                     "pathName": "pages/myinfo/myinfo",
                     "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/activedetail/activedetail",
+                    "pathName": "pages/activedetail/activedetail",
+                    "query": "id=3",
                     "scene": null
                 }
             ]

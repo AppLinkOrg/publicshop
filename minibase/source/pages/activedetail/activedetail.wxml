@@ -9,7 +9,7 @@
 
 <view class="flex position-absolute w-100">
 
-    <view class="margin-left-30 margin-right-30 bg-white radius-20 padding-30 bd-show w-100">
+    <view class="margin-left-30 margin-bottom-10 margin-right-30 bg-white radius-20 padding-30 bd-show w-100">
     <view class="text-center txt-bold f-32 ">{{activedetail.title}}</view>
 
 <view class="bd-1  padding-bottom-30 margin-top-30">
@@ -25,4 +25,10 @@
 
 </view>
 
-<image mode="widthFix"  class=" w-100 "  src='{{uploadpath}}active/{{activedetail.imgs}}'></image> 
+
+<import src="../../wxParse/wxParse.wxml" />
+    <view class='nostyle margin-top-20 w-100 margin-left-30 margin-right-30'>
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+
+<!-- <image mode="widthFix"  class=" w-100 "  src='{{uploadpath}}active/{{activedetail.imgs}}'></image>  -->
