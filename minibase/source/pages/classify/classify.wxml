@@ -85,15 +85,15 @@
 
            <scroll-view  scroll-y="true" style="height:80vh" scroll-with-animation="true"  scroll-into-view="{{vieid}}" bindscroll="scrollpage" >
          
-          <view wx:for="{{shoplist}}"  wx:key="{{index}}" >
+          <view wx:for="{{shoplist}}"  wx:key="{{index}}"  class="margin-right-30">
             <view class="margin-top-40 h5 txt-bold "  id="list{{index}}">{{item.name}}</view>
-           <view class="margin-top-20 bg-white radius-8 flex-row  "  wx:for="{{item.shoplist}}"  wx:key="{{indexs}}"  wx:for-item="items" 
+           <view class="margin-top-20 bg-white radius-8 flex-row padding-10 flex-center"  wx:for="{{item.shoplist}}"  wx:key="{{indexs}}"  wx:for-item="items" 
             wx:for-index="indexs"  bindtap="xq" id="{{items.id}}">
     
-                   <image src="{{uploadpath}}shop/{{items.cover}}" class="icon-70 padding-10"></image>
+                   <image src="{{uploadpath}}shop/{{items.cover}}" class="icon-60 "  style="flex:none"></image>
   
                <view class="margin-left-10">
-                   <view class="txt-2 h6 margin-top-10  text-overflow txt-line-clamp-2">{{items.name}}</view>
+                   <view class="txt-2 h6 margin-top-10  text-overflow txt-line-clamp-1">{{items.name}}</view>
                    <view class="txt-3 f-32 margin-top-40 txt-bold">¥{{items.present}}</view>
                </view>
            </view>
