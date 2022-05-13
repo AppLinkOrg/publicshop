@@ -130,7 +130,7 @@
 <view class="bg-white my-radius bd-show1  w-330 margin-bottom-30  radius-8" wx:for="{{recommendlist}}" wx:key="{{item.id}}" bindtap="tuijain"  id="{{item.shop_id}}">
     <image mode="widthFix "  class="icon-265"  src='{{uploadpath}}shop/{{item.shop_cover}}'></image>
     <view class="padding-left-20 padding-right-20">
-    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow overflow-hidden">{{item.shop_summary}}</view>
+    <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow overflow-hidden h-70">{{item.shop_summary}}</view>
     <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
     <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
     <view class="margin-left-20 txt-1 txt-1 h6 " style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>

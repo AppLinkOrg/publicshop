@@ -143,6 +143,12 @@
                     "pathName": "pages/activedetail/activedetail",
                     "query": "id=3",
                     "scene": null
+                },
+                {
+                    "name": "pages/invoice/invoice",
+                    "pathName": "pages/invoice/invoice",
+                    "query": "type=B&id=62",
+                    "scene": null
                 }
             ]
         }

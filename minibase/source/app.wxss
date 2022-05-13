@@ -77,6 +77,9 @@ page{
 .h-60{
   height: 60rpx;
 }
+.h-70{
+  height: 70rpx;
+}
 .h-100rpx{
   height: 100rpx;
 }
@@ -103,6 +106,9 @@ page{
 }
 .h-280{
   height: 280rpx;
+}
+.h-300{
+  height: 300rpx;
 }
 .h-360{
   height: 360rpx;

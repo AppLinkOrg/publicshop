@@ -87,6 +87,15 @@ class Content extends AppBase {
     }
 
   }
+  shopbind(e){
+    var id = e.currentTarget.id
+    if (id>0) {
+      wx.navigateTo({
+        url: '/pages/commoditydetail/commoditydetail?id='+id,
+      })
+    }
+
+  }
 
 
 }
@@ -96,6 +105,7 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindchoose = content.bindchoose;
 
+body.shopbind = content.shopbind;
 body.xq = content.xq;
 body.changeWidth = content.changeWidth;
 Page(body)

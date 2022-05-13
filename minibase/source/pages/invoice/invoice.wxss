@@ -1,1 +1,4 @@
 /* pages/invoice/invoice.wxss */
+.in-border{
+    border-radius: 20rpx 20rpx 0px 0px;
+}

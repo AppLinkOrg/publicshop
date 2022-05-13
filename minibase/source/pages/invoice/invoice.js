@@ -19,19 +19,41 @@ class Content extends AppBase {
       title: '发票服务',
     })
     this.Base.setMyData({
-      name:'',duty:'',address:'',mobile:'',bank:'',bankaccount:''
+      name:'',duty:'',address:'',mobile:'',bank:'',bankaccount:'',invoicedetail2:null
     })
 
   }
   onMyShow() {
     var that = this;
 
-   
+   this.oindetail()
 
     
 
 
 
+  }
+  oindetail(){
+    var invoiceApi = new InvoiceApi()
+    invoiceApi.invoicedetail2({
+      type:this.Base.options.type,
+      id:this.Base.options.id
+    },(res)=>{
+      if (res!=null) {
+
+        this.Base.setMyData({
+          name:res.name,
+          duty:res.duty,
+          address:res.address,
+          mobile:res.mobile,
+          bank:res.bank,
+          bankaccount:res.bankaccount,
+          invoicedetail2:res
+        })
+      }
+      
+
+    })
   }
   shenqing(){
     var type = this.Base.options.type
@@ -84,6 +106,7 @@ class Content extends AppBase {
             icon:'none'
           })
           this.Base.setMyData({name:'',duty:'',address:'',mobile:'',bank:'',bankaccount:''})
+          this.oindetail()
         }else{
           wx.showToast({
             title: res.return,
@@ -104,6 +127,7 @@ class Content extends AppBase {
             icon:'none'
           })
           this.Base.setMyData({name:'',duty:'',address:'',mobile:'',bank:'',bankaccount:''})
+          this.oindetail()
         }else{
           wx.showToast({
             title: res.return,
@@ -134,4 +158,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 
 body.shenqing = content.shenqing;
+body.oindetail = content.oindetail;
+
 Page(body)
