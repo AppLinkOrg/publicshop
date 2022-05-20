@@ -56,3 +56,10 @@ width: 100% !important;
     min-height: 260rpx;
     max-height: 400rpx;
   }
+  /* .wxParse-p{
+    width: 100% !important;
+  }
+  .wxParse-p .wxParse-img{
+    display: block;
+    width: 100% !important;
+  } */

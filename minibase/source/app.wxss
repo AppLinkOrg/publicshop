@@ -397,8 +397,14 @@ view,navigator,input,text,textarea{
 .bd-7{
   border: 4rpx solid #fff ;
 }
+
+
+
 .bd-8{
   border: 4rpx solid #DF001F ;
+}
+.bd-9{
+  border: 4rpx solid #CDCDCD ;
 }
 .bd-show{
   box-shadow: 0px 4rpx 55rpx 5rpx rgba(221, 221, 221, 0.28);

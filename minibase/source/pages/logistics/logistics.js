@@ -47,16 +47,19 @@ class Content extends AppBase {
       goodsApi.wuliu2({
         no:this.Base.options.no
       },(res)=>{
-        if (res.status=="0") {
-          this.Base.setMyData({wuliu:res.result})
+        if (res.status=="200") {
+          // this.Base.setMyData({wuliu:res.result})
+          this.Base.setMyData({wuliu:res})
         }else{
           that.Base.toast(res.msg)
           this.Base.setMyData({wuliu:null})
         }
-        this.Base.setMyData({first:1})
+        
         console.log(res,'reskkkk');
   
       })
+
+      this.Base.setMyData({first:1})
       
     }
 

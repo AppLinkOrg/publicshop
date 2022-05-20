@@ -47,7 +47,10 @@
     <view class="margin-left-30 margin-right-30 margin-bottom-20 h-80 line-height-80 txt-white h5 txt-bold text-center bg-2 radius-40"  bindtap="shenqing" wx:if="{{invoicedetail2==null}}" >
         申请开票
     </view>
-    <view class="margin-left-30 margin-right-30 margin-bottom-20 h-80 line-height-80 txt-white h5 txt-bold text-center bg-2 radius-40"   wx:else>
+    <view wx:if="{{invoicedetail2!=null&&invoicedetail2.timestatus==0}}">
+        <view class="margin-left-30 margin-right-30 margin-bottom-20 h-80 line-height-80 txt-white h5 txt-bold text-center bg-2 radius-40"   wx:if="{{invoicedetail2.auditstatus=='A' || invoicedetail2.auditstatus=='C'}}"  bindtap="shenqing">
         保存
     </view>
+    </view>
+   
 </view>

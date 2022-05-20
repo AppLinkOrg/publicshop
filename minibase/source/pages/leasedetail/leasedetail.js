@@ -44,15 +44,20 @@ class Content extends AppBase {
 
 
         for(let item of res.specslist){
-          item.show=0;
+          item.show=-1;
+          for(let items of item.sortlist){
+            items.xzshow=true
+          }
+         
         }
 
-        
+        res.specslist[0].show=0
 
 
         this.Base.setMyData({leasedetail:res,autoplay,first:1})
 
-        this.jiage()
+        this.yanshi()
+        // this.jiage()
     })
 
 
@@ -62,19 +67,143 @@ class Content extends AppBase {
     var  index=  e.currentTarget.dataset['index'];
     var  indexs=  e.currentTarget.dataset['indexs'];
     var leasedetail=this.Base.getMyData().leasedetail
-    leasedetail.specslist[index].show=indexs
+
+    if (leasedetail.specslist[index].sortlist[indexs].xzshow==false) {
+      return
+    }
+
+    if (indexs==leasedetail.specslist[index].show) {
+      leasedetail.specslist[index].show=-1
+    }else{
+      leasedetail.specslist[index].show=indexs
+    }
+
+    
+
     this.Base.setMyData({leasedetail})
 
-    this.jiage()
+
+   
+
+
+
+    // 选项排查
+
+  this.yanshi()
+
+
+    // this.jiage()
   }
+  yanshi(){
+    var leasedetail=this.Base.getMyData().leasedetail
+    var that  = this
+     
+    var str=[]
+    for(let item of leasedetail.specslist){
+      
+      if(item.show!=-1){
+  var show=item.show
+
+  console.log(item,'itemggg');
+  
+  if (item['sortlist'][show]['xzshow']==false) {
+    return
+  }
+      var id = item['sortlist'][show]['id']
+
+     str.push(id)
+      }
+   
+    }
+
+    var str2=str.sort((a,b) => a - b)
+    console.log('进来了22',str2.length==0);
+    if (str2.length==0) {
+      console.log('进来了');
+      for(let item of leasedetail.specslist){
+        for(let items of item.sortlist){
+          items.xzshow=true
+        }
+       
+      }
+      this.Base.setMyData({leasedetail,jiageprice:null})
+      // this.jiage()
+
+      return
+    }
+
+
+    console.log(str2,'str2');
+
+
+
+   // return
+
+
+   var leaseApi = new LeaseApi()
+   leaseApi.paicha({
+     str:str2,
+     id:this.Base.options.id
+   },(res)=>{
+     var arr = res.result.split(",")
+
+     for(const [index,item]  of    leasedetail.specslist.entries()){
+
+       for (const [indexs,items] of item.sortlist.entries()) {
+         console.log(item,'leasedetail-items');
+         console.log(items,'leasedetail-items');
+
+
+         if (arr.indexOf(items.id)>=0) {
+           items.xzshow=true
+         }else{
+          if(item.show==indexs){
+            item.show=-1
+          }
+           items.xzshow=false
+         }
+        
+         
+         
+       }
+
+
+     }
+
+     console.log(leasedetail,'leasedetail555');
+this.Base.setMyData({leasedetail})
+
+this.jiage()
+
+     
+
+
+
+     console.log(res,'resres');
+
+   })
+
+  }
+ 
+
   jiage(){
      var leasedetail=this.Base.getMyData().leasedetail
+     
      var str=[]
      for(let item of leasedetail.specslist){
-       var show=item.show
-       var id = item['sortlist'][show]['id']
+       if(item.show!=-1){
 
-      str.push(id)
+       
+   var show=item.show
+
+   if (item['sortlist'][show]['id']>0) {
+    var id = item['sortlist'][show]['id']
+
+    str.push(id)
+   }
+      
+       }
+    
      }
 
      var str2=str.sort((a,b) => a - b)
@@ -85,6 +214,43 @@ class Content extends AppBase {
     // return
 
     var sealseApi = new SealseApi()
+
+
+//     var leaseApi = new LeaseApi()
+//     leaseApi.paicha({
+//       str:str2,
+//       id:this.Base.options.id
+//     },(res)=>{
+
+//       for(let item of    leasedetail.specslist){
+
+//         for (let items of item.sortlist) {
+//           console.log(item,'leasedetail-items');
+//           console.log(items,'leasedetail-items');
+
+
+//           if (res.result.indexOf>=0) {
+//             items.xzshow=true
+//           }else{
+//             items.xzshow=false
+//           }
+         
+          
+          
+//         }
+
+
+//       }
+// this.Base.setMyData({leasedetail})
+
+      
+
+
+
+//       console.log(res,'resres');
+
+//     })
+    // return
     
     sealseApi.sealseprice({
       lease_id:this.Base.options.id,
@@ -176,6 +342,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.yanshi = content.yanshi;
 body.timer = content.timer;
 body.onShareAppMessage = content.onShareAppMessage;
 body.zulin = content.zulin;

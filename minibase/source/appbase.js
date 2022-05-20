@@ -328,7 +328,7 @@ export class AppBase {
                   that.checkPermission();
                 });
                 // that.checkPermission();
-                //that.Base.getAddress();
+    
               });
             },
             fail: userloginres => {
@@ -365,7 +365,7 @@ export class AppBase {
 
 
               });
-              //that.getAddress();
+    
             }
           });
 
@@ -413,14 +413,7 @@ export class AppBase {
       });
     });
 
-    this.Base.getAddress((res)=>{
-      console.log("resssssss",res);
-      this.addresscallback(res);
-      //this.Base.setMyData({cityname:res.address_component.city})
-      this.Base.setMyData({cityname:AppBase.CITYNAME})
-    },(failres)=>{
-      console.log("failres", failres);
-    });
+ 
 
 
     
@@ -551,70 +544,7 @@ export class AppBase {
       phoneNumber: tel
     })
   }
-  getAddress(callback, failcallback, lat, lng) {
-    var that = this;
-    if (AppBase.QQMAP == null) {
-      var QQMapWX = require('libs/qqmap/qqmap-wx-jssdk.js');
-      AppBase.QQMAP = new QQMapWX({
-        key: AppBase.QQMAPKEY
-      });
-    }
-    console.log("getmyaddress");
-    if (lat == undefined && lng == undefined) {
-      wx.getLocation({
-        success: function(res) {
-          lat = res.latitude;
-          lng = res.longitude;
-          AppBase.QQMAP.reverseGeocoder({
-            location: {
-              latitude: lat,
-              longitude: lng
-            },
-            success: function(res) {
-              //that.setMyData({ addressinfo:res.result });
-              callback(res.result);
-            },
-            fail: function(res) {
-              console.log("fail get location");
-              callback(res.result);
-              console.log(res);
-            },
-            complete: function(res) {
-              console.log("complete");
-              console.log(res);
-            }
-          });
-        },
-        fail: function(res) {
-          console.log("fail open location");
-          console.log(res);
-          if (failcallback != undefined) {
-            failcallback();
-          }
-        }
-      });
-    } else {
-      AppBase.QQMAP.reverseGeocoder({
-        location: {
-          latitude: lat,
-          longitude: lng
-        },
-        success: function(res) {
-          console.log("success");
-          console.log(res);
-          callback(res.result);
-        },
-        fail: function(res) {
-          console.log("fail");
-          console.log(res);
-        },
-        complete: function(res) {
-          console.log("complete");
-          console.log(res);
-        }
-      });
-    }
-  }
+
   openMap(e) {
     if (AppBase.QQMAP == null) {
       var QQMapWX = require('libs/qqmap/qqmap-wx-jssdk.js');

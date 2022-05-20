@@ -41,7 +41,7 @@ export class InvoiceApi{
         })
     }
 
-    invoicelist(json, callback, showLoading = true) {
+    invoicedetail2(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class InvoiceApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'invoice/invoicelist',
+            url: ApiConfig.GetApiUrl() + 'invoice/invoicedetail2',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -73,7 +73,7 @@ export class InvoiceApi{
         })
     }
 
-    invoicedetail2(json, callback, showLoading = true) {
+    invoicelist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +82,7 @@ export class InvoiceApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'invoice/invoicedetail2',
+            url: ApiConfig.GetApiUrl() + 'invoice/invoicelist',
             data: json,
             method: 'POST',
             dataType: 'json',

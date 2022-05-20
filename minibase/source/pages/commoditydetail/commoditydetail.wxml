@@ -96,7 +96,8 @@
     <view class="margin-left-30 margin-top-30 txt-2 f-30 txt-bold">产品详情</view>
 
     <import src="../../wxParse/wxParse.wxml" />
-    <view class='nostyle margin-top-20 w-100 margin-left-30 margin-right-30'>
+    <!-- margin-left-30 margin-right-30 -->
+    <view class='nostyle margin-top-20 w-100 padding-left-30 padding-right-30'>
         <template is="wxParse" data="{{wxParseData:content.nodes}}" />
     </view>
     <view class="h-200"></view>
@@ -156,7 +157,7 @@
 <view class=" position-fixed w-100  h-800 padding-top " style="bottom:0;left:0;z-index: 999;"  wx:if="{{buttom_flag}}" >
     <view class="bg-white com-radius padding-left-30 padding-right-30  " style="min-height: 760rpx;">
 
-        <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100    position-absolute"  style="top:0;left:30rpx;z-index: 999;" wx:if="{{jiageprice.img!=''}}" ></image>
+        <image src="{{uploadpath}}pricelist/{{jiageprice.img}}" class="icon-100    position-absolute"  style="top:0;left:30rpx;z-index: 999;" wx:if="{{jiageprice.img!=''&&jiageprice!=null}}" ></image>
         <image src="{{uploadpath}}shop/{{shopdetail.cover}}" class="icon-100  position-absolute" style="top:0;left:30rpx;z-index: 999;" wx:else></image>
     
         <view class="flex-row  margin-top-30 ">
@@ -179,11 +180,14 @@
                     <view class="h-52b  h6   margin-top-20  {{indexs==0?'':'margin-left-20'}} "
                     
                      wx:for="{{item.sortlist}}" wx:key="{{items.id}}" wx:for-index="indexs" wx:for-item="items"  bindtap="xzbind" data-index="{{index}}" data-indexs="{{indexs}}"
+
+
+                     style="opacity:{{items.xzshow?'1':'0.5'}}"
                      >
-                     <view class="{{item.show==indexs?'bd-3 txt-3':'bd-7'}} h6 line-height-52 bg radius-8 padding-left-20 padding-right-20 " wx:if="{{items.open!='Y'}}" >{{items.name}}</view>
+                     <view class="{{item.show==indexs?'bd-3 txt-3 ':'bd-7'}} h6 line-height-52 bg radius-8 padding-left-20 padding-right-20 " wx:if="{{items.open!='Y'}}" >{{items.name}}</view>
                      <!-- <image src="{{uploadpath}}sort/{{items.img}} " class="icon-24 display-block border-raidus-50 {{item.show==indexs?'bd-8':'bd-7'}}" wx:else></image> -->
 
-                     <view class="icon-24  border-raidus-50 {{item.show==indexs?'bd-8':'bd-7'}}" style="background:{{items.colornumber}}" wx:else ></view>
+                     <view class="icon-24  border-raidus-50   {{item.show==indexs?'bd-8':'bd-9'}}" style="background:{{items.colornumber}}" wx:else ></view>
  
 
                      

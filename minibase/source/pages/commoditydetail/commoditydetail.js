@@ -56,13 +56,18 @@ class Content extends AppBase {
 
 
       for(let item of res.specslist){
-        item.show=0
+        item.show=-1
+        for(let items of item.sortlist){
+          items.xzshow=true
+        }
       }
-
+      res.specslist[0].show=0
 
       this.Base.setMyData({shopdetail:res,autoplay,first:1})
 
-      this.jiage()
+      
+this.yanshi()
+      // this.jiage()
     })
 
 
@@ -87,14 +92,116 @@ class Content extends AppBase {
 
 
   }
+  yanshi(){
+    var shopdetail = this.Base.getMyData().shopdetail
+    var str=[];
+    var that = this
+
+    var shopApi =new ShopApi()
+
+    for(let item of shopdetail.specslist){
+      var show=item.show
+     
+console.log(item.sortlist[show],'itemggg');
+if (item.show==-1) {
+  
+}else{
+ if (item.sortlist[show].xzshow==true) {
+           var id = item['sortlist'][show]['id']
+      str.push(id)
+        }
+}
+       
+        
+   
+     
+
+    }
+    var str2=str.sort((a,b) => a - b)
+
+    console.log('str2',str2);
+
+    if (str2.length==0) {
+      for(let item of shopdetail.specslist){
+        for(let items of item.sortlist){
+          items.xzshow=true
+        }
+      }
+      this.Base.setMyData({shopdetail})
+      this.jiage()
+      return
+    }
+
+    console.log('进来了','str2');
+
+    shopApi.paicha({
+      str:str2,
+     id:this.Base.options.id
+    },(res)=>{
+      var arr = res.result.split(",")
+
+
+
+      for(const [index,item]  of    shopdetail.specslist.entries()){
+        console.log('进来了22',item.show,index);
+        for (const [indexs,items]   of item.sortlist.entries()) {
+          console.log(item,'leasedetail-items');
+          console.log(items,'leasedetail-items');
+ 
+ 
+          if (arr.indexOf(items.id)>=0) {
+            items.xzshow=true
+          }else{
+console.log('进来了2',item.show,indexs);
+
+            if(item.show==indexs){
+              item.show=-1
+            }
+          
+            
+            items.xzshow=false
+          }
+         
+          
+          
+        }
+ 
+ 
+      }
+ 
+      console.log(shopdetail,'leasedetail555');
+ this.Base.setMyData({shopdetail,jiageprice:null})
+
+ that.jiage()
+
+
+    })
+
+
+
+
+
+
+
+  }
   jiage(){
     var shopdetail = this.Base.getMyData().shopdetail
     var str=[];
 
     for(let item of shopdetail.specslist){
+
       var show=item.show
-      var id = item['sortlist'][show]['id']
-      str.push(id)
+      if (item.show==-1) {
+  
+      }else{
+       if (item.sortlist[show].xzshow==true) {
+                 var id = item['sortlist'][show]['id']
+            str.push(id)
+              }
+      }
+
+      // var id = item['sortlist'][show]['id']
+      // str.push(id)
 
     }
     var str2=str.sort((a,b) => a - b)
@@ -166,10 +273,18 @@ return
     var  indexs=  e.currentTarget.dataset['indexs'];
     var shopdetail=this.Base.getMyData().shopdetail
 
-    shopdetail.specslist[index].show=indexs
+    if (shopdetail.specslist[index].show==indexs) {
+      shopdetail.specslist[index].show=-1
+    }else{
+      shopdetail.specslist[index].show=indexs
+    }
+
+    
     this.Base.setMyData({shopdetail})
 
-    this.jiage()
+    this.yanshi()
+
+    // this.jiage()
 
 
   }
@@ -189,6 +304,12 @@ return
 
     if(type=='A'){
       //加入购物车
+
+      if(jiageprice==null){
+that.Base.toast('请选择规格')
+return
+      }
+
       var cartApi = new CartApi()
       cartApi.cartadd({
         shop_id:this.Base.options.id,
@@ -229,8 +350,11 @@ return
   
       for(let item of shopdetail.specslist){
         var show=item.show
-        var name = item['sortlist'][show]['name']
+        if(item.show>=0){
+ var name = item['sortlist'][show]['name']
         guistrarr.push(name)
+        }
+       
       }
       guistr=guistrarr.toString()
       this.Base.setMyData({guistr,buttom_flag:false})
@@ -319,6 +443,7 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 
 
+body.yanshi = content.yanshi;
 body.close3 = content.close3;
 body.close2 = content.close2;
 body.canshu = content.canshu;

@@ -149,6 +149,24 @@
                     "pathName": "pages/invoice/invoice",
                     "query": "type=B&id=62",
                     "scene": null
+                },
+                {
+                    "name": "pages/leasedetail/leasedetail",
+                    "pathName": "pages/leasedetail/leasedetail",
+                    "query": "id=5",
+                    "scene": null
+                },
+                {
+                    "name": "pages/commoditydetail/commoditydetail",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "id=11",
+                    "scene": null
+                },
+                {
+                    "name": "pages/invoice/invoice",
+                    "pathName": "pages/invoice/invoice",
+                    "query": "type=A&id=65",
+                    "scene": null
                 }
             ]
         }
