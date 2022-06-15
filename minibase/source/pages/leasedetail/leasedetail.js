@@ -69,14 +69,28 @@ class Content extends AppBase {
     var leasedetail=this.Base.getMyData().leasedetail
 
     if (leasedetail.specslist[index].sortlist[indexs].xzshow==false) {
-      return
+console.log(leasedetail.specslist.length,'length');
+      for (let inde = 0; inde < leasedetail.specslist.length; inde++) {
+        if (index==inde) {
+          leasedetail.specslist[index].show=indexs
+          leasedetail.specslist[index].sortlist[indexs].xzshow=true
+        
+        }else{
+          leasedetail.specslist[inde].show=-1
+          console.log(inde,'inde');
+        }
+        console.log(inde,'inde3');
+      }
+      // return
+    }else{
+      if (indexs==leasedetail.specslist[index].show) {
+        leasedetail.specslist[index].show=-1
+      }else{
+        leasedetail.specslist[index].show=indexs
+      }
     }
 
-    if (indexs==leasedetail.specslist[index].show) {
-      leasedetail.specslist[index].show=-1
-    }else{
-      leasedetail.specslist[index].show=indexs
-    }
+    
 
     
 

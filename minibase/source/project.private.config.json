@@ -167,6 +167,12 @@
                     "pathName": "pages/invoice/invoice",
                     "query": "type=A&id=65",
                     "scene": null
+                },
+                {
+                    "name": "pages/leasedetail/leasedetail",
+                    "pathName": "pages/leasedetail/leasedetail",
+                    "query": "id=5",
+                    "scene": null
                 }
             ]
         }

@@ -36,9 +36,9 @@
     <!-- <view class="txt-3 f-32 txt-bold">¥{{item.jiamu.presentprice}}</view> -->
     <view>
     <text class="f-32 txt-3 txt-bold">¥</text>
-    <text class="txt-3 f-44 txt-bold ">{{item.jiamu.presentprice}}</text>
+    <text class="txt-3 f-44 txt-bold ">{{item.jiamu.presentprice2}}</text>
     </view>
-    <view class="txt-1 padding-left-20  h6 "  style="text-decoration: line-through;">¥{{item.jiamu.original}}</view>
+    <view class="txt-1 padding-left-20  h6 "  style="text-decoration: line-through;">¥{{item.jiamu.original2}}</view>
     </view>
     </view>
 

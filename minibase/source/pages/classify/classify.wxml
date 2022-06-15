@@ -72,9 +72,9 @@
        <view class="margin-left-30 flex-1">
         <view  style="height:{{CustomBar}}px;"></view>
         <swiper  indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF" 	indicator-active-color="#DF001F" autoplay="{{autoplay}}" class="h-160 w-100">
-        <block wx:for="{{shoplunbolist}}"  wx:key="{{item.id}}"   >
+        <block wx:for="{{shoplunbolist}}"  wx:key="{{index}}"   >
         <swiper-item>
-            <image src="{{uploadpath}}shoplunbo/{{item.cover}}"  mode="aspectFill" class="h-160 w-480 margin-top-20 radius-8" bindtap="shopbind" id="{{item.id}}"></image>
+            <image src="{{uploadpath}}shoplunbo/{{item.cover}}"  mode="aspectFill" class="h-160 w-480 margin-top-20 radius-8" bindtap="shopbind" id="{{item.shop_id}}"></image>
         </swiper-item>
         </block>
         </swiper>

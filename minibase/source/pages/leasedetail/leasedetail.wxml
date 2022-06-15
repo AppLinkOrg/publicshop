@@ -11,9 +11,9 @@
 <view class="padding-30">
     <view class="flex-row flex-center ">
         <text class="f-36 txt-3 txt-bold ">¥</text>
-        <text class="f-58 txt-bold txt-3 ">{{leasedetail.jiamu.presentprice}}</text>
+        <text class="f-58 txt-bold txt-3 ">{{leasedetail.jiamu.presentprice2}}</text>
 
-        <text class="margin-left-30  txt-1 f-30 " style="text-decoration: line-through;">¥{{leasedetail.jiamu.original}}</text>
+        <text class="margin-left-30  txt-1 f-30 " style="text-decoration: line-through;">¥{{leasedetail.jiamu.original2}}</text>
         <view class="flex-1"></view>
         <button open-type="share" class="clear-button">
         <image class="icon-20 " src='{{uploadpath}}resource/{{res.fenxiao}}'></image>
