@@ -492,8 +492,12 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 .f-18{
   font-size: 18rpx !important;
 }
+
 .f-23{
   font-size: 23rpx !important;
+}
+.f-24{
+  font-size: 24rpx !important;
 }
 .f-22{
   font-size: 22rpx !important;

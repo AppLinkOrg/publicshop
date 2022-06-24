@@ -22,10 +22,17 @@ class Content extends AppBase {
       shopclasslist:[],vieid:'list0'
     })
 
-
+  //自定义的tabbar
+     if (typeof this.getTabBar === 'function' &&
+     this.getTabBar()) {
+     this.getTabBar().setData({
+       selected: 1
+     })
+   }
   }
   onMyShow() {
     var that = this;
+   
 
     var shopclassApi = new ShopclassApi()
     shopclassApi.shopclasslist({},(res)=>{

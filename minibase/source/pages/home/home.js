@@ -17,9 +17,20 @@ class Content extends AppBase {
     this.Base.setMyData({
       indexbanner:[],autoplay:false,autoplay2:false,activelunbolist:[],recommendlist:[],hotmoneylist:[]
     })
+
+ //自定义的tabbar
+     if (typeof this.getTabBar === 'function' &&
+     this.getTabBar()) {
+     this.getTabBar().setData({
+       selected: 0
+     })
+   }
+
   }
   onMyShow() {
     var that = this;
+    
+
 
     var instApi = new InstApi()
     instApi.indexbanner({},(res)=>{

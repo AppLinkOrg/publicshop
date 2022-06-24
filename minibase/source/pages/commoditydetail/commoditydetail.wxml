@@ -43,7 +43,12 @@
     </view>
 
     <view class="margin-top-30 margin-left-30 flex-row">
-        <view class="txt-1 f-22 biaoqian-bg {{index==0?'':'margin-left-10'}} " wx:for="{{shopdetail.labelist}}" wx:key="{{index}}">{{item}}</view>
+        <!-- biaoqian-bg  -->
+
+        <view class="txt-3 f-22 radius-8 {{index==0?'':'margin-left-10'}} " wx:for="{{shopdetail.labelist}}" wx:key="{{index}}"  style="border: 1rpx solid #DF001F ;padding: 0rpx 15rpx;height: 40rpx; line-height: 40rpx;">{{item}}</view>
+
+        <!-- <view class="margin-top-20 h7 txt-3 padding-left-12 padding-right-12 h-36 line-height-36   radius-8 margin-right-10 "  wx:for="{{shopdetail.labelist}}" wx:key="{{indexs}}" wx:for-index="indexs" wx:for-item="items" style="border: 1rpx solid #DF001F ;" >{{items}}</view> -->
+
     </view>
 
     <view class="margin-left-30 margin-top-30 txt-2 f-30 txt-bold">{{shopdetail.summary}}</view>

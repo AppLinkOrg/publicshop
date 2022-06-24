@@ -170,10 +170,20 @@ class Content extends AppBase {
     return
     }
 
+
+
     var type=this.Base.getMyData().type
     var shoporderApi = new ShoporderApi()
     var wechatApi =new WechatApi()
-    if (type=='B') {
+
+
+    wx.requestSubscribeMessage({
+      tmplIds: ['cStk3a0u5u96IowBp8TiDgtB-BM4RM5fYIhxpidkGJg','o1dUjUhDIjs5H1BHJq6SS06qGl9aJ67jAuE254Wx-zw','jISshAZW8H54M-XBHO6JxN2qCee7mQNoa0G6jUTO-u8'],
+      success (suc) {
+       
+      },
+      complete(suc){
+         if (type=='B') {
       shoporderApi.shoporderadd2({
         addresname,mobile,address,detailed,remarks,str
       },(res)=>{
@@ -249,6 +259,13 @@ class Content extends AppBase {
       }
 
     })
+      }
+    })
+
+
+
+
+   
 
 
 

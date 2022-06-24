@@ -18,9 +18,17 @@ class Content extends AppBase {
     this.Base.setMyData({
         leaselunbolist:[],autoplay:false,leaseclasslist:[],xzshow:0,leaselist:[]
     })
+       //自定义的tabbar
+     if (typeof this.getTabBar === 'function' &&
+     this.getTabBar()) {
+     this.getTabBar().setData({
+       selected: 2
+     })
+   }
   }
   onMyShow() {
     var that = this;
+  
 
 
     // 轮播

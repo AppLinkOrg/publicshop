@@ -59,11 +59,14 @@
 <view class="txt-2 h5 txt-bold padding-left-30 ">我的订单</view>
 <view class="flex-1"></view>
 <view class="flex-row flex-center"  bindtap="navtoPage"  data-page="order">
-    <view class="h7 txt-1 ">全部订单</view>
+    <view class="f-24 txt-1 ">全部订单</view>
 <image mode="widthFix "  class=" icon-8  margin-left-5"  src='{{uploadpath}}resource/{{res.youjian}}'></image> 
 <view class="padding-left-15"></view>
 </view>
 </view>
+
+
+<!-- <view bindtap="shouquan">我是一个测试</view> -->
 
 <view class="flex-row flex-center margin-top-36">
 <view class="flex-1  " bindtap="orderxq" id="1">
@@ -89,7 +92,7 @@
 
 <!--更多服务  -->
 <view class="padding-left-30 padding-right-30  margin-top-20">
-<view class="margin-top-20 radius-20 bg-white h-230">
+<view class="margin-top-20 radius-20 bg-white ">
 <view class="flex-row flex-center padding-top-30">
 <view class="txt-2 h5 txt-bold padding-left-30 ">更多服务</view>
 
@@ -118,12 +121,42 @@
 </view> -->
 </view>
 
+
+<view class="flex-row flex-center margin-top-36 margin-bottom-20">
+    <button open-type="contact" class="clear-button flex-1">
+    
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a1}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">在线客服</view>
+
+    </button>
+ 
+<view class="flex-1  "  bindtap="navtoPage" data-page="feedback">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a1}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">反馈</view>
+</view>
+<view class="flex-1"></view>
+<view class="flex-1"></view>
+</view>
+
+
+
 </view>
 </view>
 
 
 <!--  -->
-<image mode="widthFix "  class="w-100  h-23 margin-top margin-bottom-30"  src='{{uploadpath}}resource/{{res.	tubiao}}'></image>
+<!-- <image mode="aspectFit"  class="w-100   margin-top margin-bottom-30"  src='{{uploadpath}}resource/{{res.tubiao}}'></image> -->
+<view class="flex-row flex-center margin-top margin-bottom-30">
+<view class="margin-left-30"></view>
+<view style="background: #DDDDDD; height: 0.5rpx;" class="flex-1"></view>
+<view class="radius-50" style="height: 10rpx;width: 10rpx;background: #666666;"></view>
+<view class="margin-left-30"></view>
+<view class="txt-2 h6 "> 猜你喜欢 </view>
+<view class="margin-left-30"></view>
+<view class="radius-50" style="height: 10rpx;width: 10rpx;background: #666666;"></view>
+<view style="background: #DDDDDD; height: 0.5rpx;" class="flex-1"></view>
+<view class="margin-left-30"></view>
+</view>
 
 <!--  -->
 <view class="flex-row padding-left-30 padding-right-30  margin-top-30 " style="flex-wrap:wrap;justify-content:space-between">
@@ -135,6 +168,8 @@
     <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
     <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
     <view class="margin-left-20 txt-1 txt-1 h6 " style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
+    <view class="flex-1"></view>
+    <view class="txt-2 h6 ">已售{{item.shop_sold}}</view>
     </view>
     </view>
 </view>
@@ -190,7 +225,7 @@
     <view class="margin-left-30 margin-right-30 h-80 line-height-80 txt-white bg-2 radius-40 h5 text-center margin-top-70"  bindtap="savePhoto">分享</view>
 </view>
 </view>
-
+<view class="h-200"></view>
 
 <!-- <view hidden="{{true}}"> -->
     <canvas style="width:{{canvasWidth}}px; height:{{canvasHeight}}px;position:fixed;left:999px" canvas-id="myCanvas" />

@@ -97,11 +97,19 @@ class Content extends AppBase {
       return
     }
 
-    var leaseorderApi = new LeaseorderApi()
+    wx.requestSubscribeMessage({
+      tmplIds: ['cStk3a0u5u96IowBp8TiDgtB-BM4RM5fYIhxpidkGJg','o1dUjUhDIjs5H1BHJq6SS06qGl9aJ67jAuE254Wx-zw','jISshAZW8H54M-XBHO6JxN2qCee7mQNoa0G6jUTO-u8'],
+      success (suc) {
+        // that.Base.setMyData({yaoqing:true})
+      },
+      complete(res){
+        // that.Base.setMyData({yaoqing:true})
+
+        var leaseorderApi = new LeaseorderApi()
     leaseorderApi.leaseorderadd({
-      lease_id:this.Base.options.id,
+      lease_id:that.Base.options.id,
       addres_id:addresdetail.id,
-      sealseprice_id:this.Base.options.sealseprice_id,
+      sealseprice_id:that.Base.options.sealseprice_id,
       remarks
     },(res)=>{
       if (res.code==0) {
@@ -146,6 +154,10 @@ that.Base.toast("支付失败");
 
 
     })
+      }
+    })
+
+    
 
 
 

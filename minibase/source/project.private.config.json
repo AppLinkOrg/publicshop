@@ -1,175 +1,196 @@
 {
-  "setting": {
-    "compileHotReLoad": true
-  },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/invoice/invoice",
-          "pathName": "pages/invoice/invoice",
-          "query": "type=A&id=9",
-          "scene": null
+    "setting": {
+        "compileHotReLoad": true
+    },
+    "projectname": "%E4%BC%97%E6%98%BE%E5%95%86%E5%9F%8E",
+    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/order/order",
-          "pathName": "pages/order/order",
-          "query": "undefined=undefined",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "pages/refund/refund",
-          "pathName": "pages/refund/refund",
-          "query": "type=A&id=9",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "pages/refunddetail/refunddetail",
-          "pathName": "pages/refunddetail/refunddetail",
-          "query": "type=A&id=1",
-          "scene": null
-        },
-        {
-          "name": "pages/classify/classify",
-          "pathName": "pages/classify/classify",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/commoditydetail/commoditydetail",
-          "pathName": "pages/commoditydetail/commoditydetail",
-          "query": "id=8",
-          "scene": null
-        },
-        {
-          "name": "pages/cart/cart",
-          "pathName": "pages/cart/cart",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/confirmorder/confirmorder",
-          "pathName": "pages/confirmorder/confirmorder",
-          "query": "strjson={\"num\":1,\"shop_id\":\"1\",\"type\":\"B\",\"chooseid\":\"2,4\",\"pricelist_id\":\"2\"}",
-          "scene": null
-        },
-        {
-          "name": "pages/orderdetail/orderdetail",
-          "pathName": "pages/orderdetail/orderdetail",
-          "query": "type=B&id=6",
-          "scene": null
-        },
-        {
-          "name": "pages/applysale/applysale",
-          "pathName": "pages/applysale/applysale",
-          "query": "id=1&type=B",
-          "scene": null
-        },
-        {
-          "name": "pages/refunddetail/refunddetail",
-          "pathName": "pages/refunddetail/refunddetail",
-          "query": "type=B&id=3",
-          "scene": null
-        },
-        {
-          "name": "pages/mycenter/mycenter",
-          "pathName": "pages/mycenter/mycenter",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/ceshi/ceshi",
-          "pathName": "pages/ceshi/ceshi",
-          "query": "id=3",
-          "scene": null
-        },
-        {
-          "name": "pages/mycenter/mycenter",
-          "pathName": "pages/mycenter/mycenter",
-          "query": "memberid=2",
-          "scene": null
-        },
-        {
-          "name": "pages/search/search",
-          "pathName": "pages/search/search",
-          "query": "id=1",
-          "scene": null
-        },
-        {
-          "name": "pages/orderdetail/orderdetail",
-          "pathName": "pages/orderdetail/orderdetail",
-          "query": "type=B&id=86",
-          "scene": null
-        },
-        {
-          "name": "pages/commoditydetail/commoditydetail",
-          "pathName": "pages/commoditydetail/commoditydetail",
-          "query": "id=8",
-          "scene": null
-        },
-        {
-          "name": "pages/refunddetail/refunddetail",
-          "pathName": "pages/refunddetail/refunddetail",
-          "query": "type=A&id=20",
-          "scene": null
-        },
-        {
-          "name": "pages/activedetail/activedetail",
-          "pathName": "pages/activedetail/activedetail",
-          "query": "id=1",
-          "scene": null
-        },
-        {
-          "name": "pages/logistics/logistics",
-          "pathName": "pages/logistics/logistics",
-          "query": "no=1008884181",
-          "scene": null
-        },
-        {
-          "name": "pages/myinfo/myinfo",
-          "pathName": "pages/myinfo/myinfo",
-          "query": "undefined=undefined",
-          "scene": null
-        },
-        {
-          "name": "pages/activedetail/activedetail",
-          "pathName": "pages/activedetail/activedetail",
-          "query": "id=3",
-          "scene": null
-        },
-        {
-          "name": "pages/invoice/invoice",
-          "pathName": "pages/invoice/invoice",
-          "query": "type=B&id=62",
-          "scene": null
-        },
-        {
-          "name": "pages/leasedetail/leasedetail",
-          "pathName": "pages/leasedetail/leasedetail",
-          "query": "id=5",
-          "scene": null
-        },
-        {
-          "name": "pages/commoditydetail/commoditydetail",
-          "pathName": "pages/commoditydetail/commoditydetail",
-          "query": "id=11",
-          "scene": null
-        },
-        {
-          "name": "pages/invoice/invoice",
-          "pathName": "pages/invoice/invoice",
-          "query": "type=A&id=65",
-          "scene": null
-        },
-        {
-          "name": "pages/leasedetail/leasedetail",
-          "pathName": "pages/leasedetail/leasedetail",
-          "query": "id=5",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/invoice/invoice",
+                    "pathName": "pages/invoice/invoice",
+                    "query": "type=A&id=9",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order/order",
+                    "pathName": "pages/order/order",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/refund/refund",
+                    "pathName": "pages/refund/refund",
+                    "query": "type=A&id=9",
+                    "scene": null
+                },
+                {
+                    "name": "pages/refunddetail/refunddetail",
+                    "pathName": "pages/refunddetail/refunddetail",
+                    "query": "type=A&id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/classify/classify",
+                    "pathName": "pages/classify/classify",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/commoditydetail/commoditydetail",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "id=8",
+                    "scene": null
+                },
+                {
+                    "name": "pages/cart/cart",
+                    "pathName": "pages/cart/cart",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/confirmorder/confirmorder",
+                    "pathName": "pages/confirmorder/confirmorder",
+                    "query": "strjson={\"num\":1,\"shop_id\":\"1\",\"type\":\"B\",\"chooseid\":\"2,4\",\"pricelist_id\":\"2\"}",
+                    "scene": null
+                },
+                {
+                    "name": "pages/orderdetail/orderdetail",
+                    "pathName": "pages/orderdetail/orderdetail",
+                    "query": "type=B&id=6",
+                    "scene": null
+                },
+                {
+                    "name": "pages/applysale/applysale",
+                    "pathName": "pages/applysale/applysale",
+                    "query": "id=1&type=B",
+                    "scene": null
+                },
+                {
+                    "name": "pages/refunddetail/refunddetail",
+                    "pathName": "pages/refunddetail/refunddetail",
+                    "query": "type=B&id=3",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mycenter/mycenter",
+                    "pathName": "pages/mycenter/mycenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/ceshi/ceshi",
+                    "pathName": "pages/ceshi/ceshi",
+                    "query": "id=3",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mycenter/mycenter",
+                    "pathName": "pages/mycenter/mycenter",
+                    "query": "memberid=2",
+                    "scene": null
+                },
+                {
+                    "name": "pages/search/search",
+                    "pathName": "pages/search/search",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/orderdetail/orderdetail",
+                    "pathName": "pages/orderdetail/orderdetail",
+                    "query": "type=B&id=86",
+                    "scene": null
+                },
+                {
+                    "name": "pages/commoditydetail/commoditydetail",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "id=8",
+                    "scene": null
+                },
+                {
+                    "name": "pages/refunddetail/refunddetail",
+                    "pathName": "pages/refunddetail/refunddetail",
+                    "query": "type=A&id=20",
+                    "scene": null
+                },
+                {
+                    "name": "pages/activedetail/activedetail",
+                    "pathName": "pages/activedetail/activedetail",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/logistics/logistics",
+                    "pathName": "pages/logistics/logistics",
+                    "query": "no=1008884181",
+                    "scene": null
+                },
+                {
+                    "name": "pages/myinfo/myinfo",
+                    "pathName": "pages/myinfo/myinfo",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/activedetail/activedetail",
+                    "pathName": "pages/activedetail/activedetail",
+                    "query": "id=3",
+                    "scene": null
+                },
+                {
+                    "name": "pages/invoice/invoice",
+                    "pathName": "pages/invoice/invoice",
+                    "query": "type=B&id=62",
+                    "scene": null
+                },
+                {
+                    "name": "pages/leasedetail/leasedetail",
+                    "pathName": "pages/leasedetail/leasedetail",
+                    "query": "id=5",
+                    "scene": null
+                },
+                {
+                    "name": "pages/commoditydetail/commoditydetail",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "id=11",
+                    "scene": null
+                },
+                {
+                    "name": "pages/invoice/invoice",
+                    "pathName": "pages/invoice/invoice",
+                    "query": "type=A&id=65",
+                    "scene": null
+                },
+                {
+                    "name": "pages/leasedetail/leasedetail",
+                    "pathName": "pages/leasedetail/leasedetail",
+                    "query": "id=5",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mycenter/mycenter",
+                    "pathName": "pages/mycenter/mycenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/lease/lease",
+                    "pathName": "pages/lease/lease",
+                    "query": "",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  },
-  "projectname": "%E4%BC%97%E6%98%BE%E5%95%86%E5%9F%8E",
-  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

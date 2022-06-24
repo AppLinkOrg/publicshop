@@ -21,9 +21,18 @@ class Content extends AppBase {
         myposterlist:[],autoplay:false,recommendlist:[],shoreshow:false
     })
 
+     //自定义的tabbar
+     if (typeof this.getTabBar === 'function' &&
+     this.getTabBar()) {
+     this.getTabBar().setData({
+       selected: 4
+     })
+   }
+
   }
   onMyShow() {
     var that = this;
+    
 
     var myposterApi = new MyposterApi()
     myposterApi.myposterlist({},(res)=>{
@@ -193,12 +202,27 @@ class Content extends AppBase {
   shorebind(){
     this.Base.setMyData({shoreshow:true})
   }
+
+  shouquan(){
+    var that = this
+    wx.requestSubscribeMessage({
+      tmplIds: ['cStk3a0u5u96IowBp8TiDgtB-BM4RM5fYIhxpidkGJg','o1dUjUhDIjs5H1BHJq6SS06qGl9aJ67jAuE254Wx-zw','jISshAZW8H54M-XBHO6JxN2qCee7mQNoa0G6jUTO-u8'],
+      success (suc) {
+        // that.Base.setMyData({yaoqing:true})
+      },
+      complete(res){
+        // that.Base.setMyData({yaoqing:true})
+      }
+    })
+  }
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 
+body.shouquan = content.shouquan;
 body.shorebind = content.shorebind;
 body.xiazai = content.xiazai;
 body.savePhoto = content.savePhoto;

@@ -22,7 +22,9 @@
     </view>
 
     <view class=" flex-row w-100" style="flex-wrap: wrap;">
-        <view class="margin-top-20 f-22 txt-4 padding-left-12 padding-right-12 h-40 line-height-40  bg-6 radius-8 margin-right-10 "  wx:for="{{leasedetail.biaolist}}"  wx:key="{{idnex}}">{{item}}</view>
+        <!-- bg-6  -->
+        <view class="margin-top-20 f-22 txt-3 padding-left-12 padding-right-12 h-40 line-height-40  radius-8 margin-right-10 "  style="border: 1rpx solid #DF001F ;"  wx:for="{{leasedetail.biaolist}}"  wx:key="{{idnex}}">{{item}}</view>
+        <!-- <view class="txt-3 f-22 radius-8 {{index==0?'':'margin-left-10'}} " wx:for="{{shopdetail.labelist}}" wx:key="{{index}}"  style="border: 1rpx solid #DF001F ;padding: 0rpx 15rpx;height: 40rpx; line-height: 40rpx;">{{item}}</view> -->
     </view>
 
     <view class="txt-bold f-30 txt-2 margin-top-30 padding-bottom-30 bd-1">{{leasedetail.introduction}}</view>

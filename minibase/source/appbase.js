@@ -127,6 +127,7 @@ export class AppBase {
       closePage: base.closePage,
       gotoPage: base.gotoPage,
       navtoPage: base.navtoPage,
+      navtoPage2: base.navtoPage2,
       openContent: base.openContent,
       getPhoneNo: base.getPhoneNo,
       getUserInfo: base.getUserInfo,
@@ -308,9 +309,16 @@ export class AppBase {
                 AppBase.UserInfo.openid = data.openid;
                 AppBase.UserInfo.session_key = data.session_key;
 
+                console.log(that.Base.options,'options');
                          // 添加上级分销数据
-    var memberid=this.Base.options.memberid;
+                         if (that.Base.options !=undefined ) {
+                            if (that.Base.options.memberid != undefined) {
+                             var memberid=that.Base.options.memberid;
     AppBase.UserInfo.memberid=memberid
+                         }
+                         }
+                        
+  
 
     
                 console.log(AppBase.UserInfo);
@@ -916,6 +924,20 @@ export class AppBase {
       url: url,
     })
   }
+  navtoPage2(e) {
+    console.log(e);
+    var dataset = e.currentTarget.dataset;
+    var page = dataset.page;
+    var parameter = dataset.param;
+    if (parameter != "") {
+      parameter = "?" + parameter;
+    }
+    var url = "../" + page + "/" + page + parameter;
+    console.log(url);
+    wx.switchTab({
+      url: url,
+    })
+  }
   switchTab(e) {
     console.log(e);
     var page = e.currentTarget.id;
@@ -1094,6 +1116,7 @@ export class AppBase {
     wx.getUserProfile({
       desc: '用于完善会员资料',
       success: userres => {
+        console.log("loginres4", userres);
         var openid = AppBase.UserInfo.openid;
         var session_key = AppBase.UserInfo.session_key;
         AppBase.UserInfo = userres.userInfo;

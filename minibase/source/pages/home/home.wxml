@@ -15,13 +15,13 @@
 </view> -->
 
 <view class='cu-custom fixed'  >
-	<view class="cu-bar fixed " style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px">
+	<view class="cu-bar fixed " style="height:{{CustomBar-4}}px;padding-top:{{StatusBar}}px">
 
         	<view class=' flex-row flex-center w-100' style='top:{{StatusBar}}px;height: 100%;'>
         <!-- <view class="flex-1"></view> -->
         <view class="margin-left-30"></view>
         <!-- w-240 -->
-            <view class="h-55  radius-30 bg-1 flex-row flex-center" bindtap="navtoPage" data-page="search" style="width:50vw">
+            <view class="  radius-30 bg-1 flex-row flex-center" bindtap="navtoPage" data-page="search" style="width:50vw;height: 100%;">
         <image class="icon-12 margin-left" mode="aspectFit"  src='{{uploadpath}}resource/{{res.sousuo}}'></image>
         <input  placeholder="搜索您需要的商品" class="h6 txt-white padding-left-10"  placeholder-class="txt-white" disabled="disabled"  />
     </view>
@@ -48,15 +48,24 @@
 
 
 <!-- 活动专区 -->
-
-<view class="txt-2 txt-bold f-32 padding-30" bindtap="navtoPage" data-page="ceshi">活动专区</view>
+<view class="flex-row flex-center padding-30"   >
+    <view class="txt-2 txt-bold f-32 ">租赁专区</view>
+    <!-- <view class="flex-1"></view>
+    <view class="flex-row flex-center"  bindtap="navtoPage" data-page="find">
+        <view class="h6 txt-3 txt-bold ">了解更多</view>
+    <image src="{{uploadpath}}resource/{{res.youjian2}}"  class="margin-left-5  icon-12"></image>
+    </view> -->
+    
+</view>
+<!-- <view class="txt-2 txt-bold f-32 padding-30" >活动专区</view> -->
 
 <view class="padding-left-30 padding-right-30">
 
 <swiper  class="h-280"  indicator-dots="{{autoplay2}}" indicator-color=" #FFFFFF" 	indicator-active-color="#DF001F" autoplay="{{autoplay2}}">
 <block  wx:for="{{activelunbolist}}" wx:key="{{item.id}}"   >
 <swiper-item>
-    <image   class=" w-100 h-280" src='{{uploadpath}}active/{{item.active_cover}}'  bindtap="navtoPage"  data-page="activedetail"  data-param="{{'id='+item.active_id}}"></image> 
+    <!-- <image   class=" w-100 h-280" src='{{uploadpath}}active/{{item.active_cover}}'  bindtap="navtoPage"  data-page="activedetail"  data-param="{{'id='+item.active_id}}"></image>  -->
+    <image   class=" w-100 h-280" src='{{uploadpath}}activelunbo/{{item.img}}'  bindtap="navtoPage"  data-page="leasedetail"  data-param="{{'id='+item.lease_id}}"></image> 
 </swiper-item>
 </block>
 
@@ -85,6 +94,7 @@
     <view class="flex-row flex-center  margin-top-20 margin-bottom-20">
     <view class="txt-3 f-32 txt-bold ">¥{{item.pricelist.present}}</view>
     <view class="txt-1 padding-left-20  f-18 "  style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
+    
     </view>
     </view>
 </view>
@@ -112,9 +122,14 @@
     <view class="padding-left-20 padding-right-20">
         <!-- h-70 -->
     <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow overflow-hidden  ">{{item.shop_summary}}</view>
+    <view class=" flex-row w-100"  style="flex-wrap: wrap;">
+        <view class="margin-top-20 h7 txt-3 padding-left-12 padding-right-12 h-36 line-height-36   radius-8 margin-right-10 "  wx:for="{{item.shop_labelarr}}" wx:key="{{indexs}}" wx:for-index="indexs" wx:for-item="items" style="border: 1rpx solid #DF001F ;" wx:if="{{indexs<2}}" >{{items}}</view>
+        </view>
     <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
     <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
     <view class="margin-left-20 txt-1 txt-1 h6 " style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
+    <view class="flex-1"></view>
+    <view class="txt-2 h6 ">已售{{item.shop_sold}}</view>
     </view>
     </view>
 </view>

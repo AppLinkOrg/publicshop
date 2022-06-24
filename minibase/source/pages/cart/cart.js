@@ -23,12 +23,17 @@ import { OrderApi } from "../../apis/order.api.js";
       var amount=amount.toFixed(2)
       this.Base.setMyData({amount})
 
-
+ //自定义的tabbar
+ if (typeof this.getTabBar === 'function' &&
+ this.getTabBar()) {
+ this.getTabBar().setData({
+   selected: 3
+ })
+}
     }
    
     onMyShow() { 
       var that = this;  
-
 
       this.carlist()
 

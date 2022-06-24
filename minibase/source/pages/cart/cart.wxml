@@ -1,6 +1,7 @@
+<view wx:if="{{cartlist.length>0}}">
 <!--pages/cart/cart.wxml-->
 <view class="flex-row justify-between">
-    <view class="h4 txt-2 margin-left-30 margin-top-20  txt-bold">购物车</view>
+    <view class="h5 txt-2 margin-left-30 margin-top-20  txt-bold">购物车</view>
     <view class="h5 txt-2 margin-right-30 margin-top-30" bindtap="edit">{{show?"完成":"编辑"}}</view>
 </view>
 <view class="w-690 bd-1 margin-top-30 margin-left-30"></view>
@@ -50,7 +51,7 @@
 
 
 
- <view class="fixation w-100 bg-white">
+ <view class="fixation w-100 bg-white" style="bottom:200rpx ;">
     <view class="flex-row flex-center margin-left-30 margin-right-30  h-100rpx ">
     <view class="flex-row flex-center"  bindtap="quanbind">
         <image src="{{uploadpath}}resource/{{res.xz}}"  class="icon-18 " wx:if="{{quanshow}}" style="flex:none" ></image>
@@ -64,8 +65,10 @@
  <view class="flex-1"></view>
         <view class="tab txt-2 " style="flex:none">合计：</view>
         <view>
-            <text class="f-36 txt-3 txt-bold">￥</text>
-        <text class="txt-3 f-48 txt-bold">{{amount}}</text>
+            <!-- f-36 -->
+            <text class="tab  txt-3 txt-bold">￥</text>
+            <!-- f-48 -->
+        <text class="txt-3 tab txt-bold">{{amount}}</text>
         </view>
 <!--      
             <view class="f-36 txt-3 txt-bold">￥</view>
@@ -73,9 +76,20 @@
         
     </view>
     <view class="flex-1" wx:else></view>
-    <view class="w-210 bg-2 txt-white height-70  line-height-70 text-center radius-36 margin-left-40" bindtap="gosc">
+    <view class="w-210 bg-2 txt-white height-70  line-height-70 text-center radius-36 margin-left-40  tab " bindtap="gosc">
     {{show?"删除":"去结算"}} 
     </view>
 </view>
+
+</view>
+</view>
+
+
+<view wx:else>
+    <view class="flex-row justify-between">
+    <view class="h5 txt-2 margin-left-30 margin-top-20  txt-bold">购物车</view>
+</view>
+<view style="margin-top:300rpx"></view>
+<image src='{{uploadpath}}resource/{{res.kongche}}' class="display-block margin-auto" mode='widthFix' style="width: 400rpx;"></image>
 
 </view>

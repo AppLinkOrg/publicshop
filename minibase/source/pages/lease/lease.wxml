@@ -29,7 +29,7 @@
     <view class="flex-row  flex-column h-100">
     <view class="txt-2 h5 txt-bold w-100  txt-line-clamp-2 text-overflow">{{item.name}}</view>
     <view class=" flex-row w-100"  style="flex-wrap: wrap;">
-        <view class="margin-top-20 h7 txt-4 padding-left-12 padding-right-12 h-36 line-height-36  bg-3 radius-8 margin-right-10 " wx:for="{{item.labelist}}" wx:key="{{indexs}}" wx:for-index="indexs" wx:for-item="items" >{{items}}</view>
+        <view class="margin-top-20 h7 txt-3 padding-left-12 padding-right-12 h-36 line-height-36   radius-8 margin-right-10 "  wx:for="{{item.labelist}}" wx:key="{{indexs}}" wx:for-index="indexs" wx:for-item="items" style="border: 1rpx solid #DF001F ;" >{{items}}</view>
         </view>
         <view class="flex-1"></view>
         <view class="flex-row flex-center w-100">
