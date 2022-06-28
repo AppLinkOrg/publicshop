@@ -31,21 +31,51 @@ Component({
     }]
   },
   attached() {},
+  // ready() {
+  //   // 缓存tabber栏的高度
+  //   const query = wx.createSelectorQuery().in(this);
+  //   query.select('.tab-bar').boundingClientRect((rect) => {
+  //     console.log(rect.height)
+  //     wx.setStorageSync('tabbarHeight', rect.height)
+  //   }).exec()
+  // },
+
   methods: {
+   
     switchTab(e) {
+      const query = wx.createSelectorQuery().in(this);
       const data = e.currentTarget.dataset
       const url = data.path
-      wx.switchTab({
-        url,
-        success: (res) => {
-          let page = getCurrentPages().pop();
-          if (page == undefined || page == null) return;
-          page.onLoad()
-        }
-      })
-      this.setData({
-        selected: data.index
-      })
+
+      var that = this 
+
+
+    query.select('.tab-bar').boundingClientRect((rect) => {
+      console.log(rect.height)
+      wx.setStorageSync('tabbarHeight',rect.height)
+     
+
+    }).exec()
+
+          // return
+
+          wx.switchTab({
+            url,
+            success: (res) => {
+              let page = getCurrentPages().pop();
+    
+              console.log(page == undefined , page == null ,'page44444');
+              if (page == undefined || page == null) return;
+    
+              // page.onLoad({})
+    
+            }
+          })
+          // that.setData({
+          //   selected: data.index
+          // })
+     
+      
     }
   }
 })

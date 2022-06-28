@@ -189,6 +189,12 @@
                     "pathName": "pages/lease/lease",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/commoditydetail/commoditydetail",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "id=15",
+                    "scene": null
                 }
             ]
         }

@@ -165,6 +165,9 @@
     <view class="padding-left-20 padding-right-20">
         <!-- h-70 -->
     <view class="h5 txt-2 txt-bold txt-line-clamp-2  text-overflow overflow-hidden">{{item.shop_summary}}</view>
+    <view class=" flex-row w-100"  style="flex-wrap: wrap;">
+        <view class="margin-top-20 h7 txt-3 padding-left-12 padding-right-12 h-36 line-height-36   radius-8 margin-right-10 "  wx:for="{{item.shop_labelarr}}" wx:key="{{indexs}}" wx:for-index="indexs" wx:for-item="items" style="border: 1rpx solid #DF001F ;" wx:if="{{indexs<2}}" >{{items}}</view>
+        </view>
     <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
     <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
     <view class="margin-left-20 txt-1 txt-1 h6 " style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>

@@ -15,6 +15,8 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
+
+    console.log(options,'optionsoptions');
     super.onLoad(options);
     this.Base.setMyData({
       
@@ -29,6 +31,7 @@ class Content extends AppBase {
        selected: 1
      })
    }
+   
   }
   onMyShow() {
     var that = this;
@@ -61,8 +64,8 @@ class Content extends AppBase {
       this.Base.setMyData({shoplunbolist:res,autoplay})
     })
 
-
-
+   
+   
 
   }
   bindchoose(e){

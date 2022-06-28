@@ -21,15 +21,24 @@ class Content extends AppBase {
  //自定义的tabbar
      if (typeof this.getTabBar === 'function' &&
      this.getTabBar()) {
+       
      this.getTabBar().setData({
        selected: 0
      })
    }
 
+
+   
+
   }
   onMyShow() {
     var that = this;
-    
+    // const query = wx.createSelectorQuery();
+    //   query.select(".yas").boundingClientRect((rect) => {
+    //         console.log(rect,'rect');
+    //       }).exec();
+
+    //       return
 
 
     var instApi = new InstApi()
@@ -80,9 +89,12 @@ class Content extends AppBase {
   }
 
   genduo(){
-    wx.navigateTo({
+    wx.switchTab({
       url: '/pages/classify/classify',
     })
+    // wx.navigateTo({
+    //   url: '/pages/classify/classify',
+    // })
   }
   tuijain(e){
     var id = e.currentTarget.id

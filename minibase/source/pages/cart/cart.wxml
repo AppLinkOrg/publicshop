@@ -51,7 +51,7 @@
 
 
 
- <view class="fixation w-100 bg-white" style="bottom:200rpx ;">
+ <view class="fixation w-100 bg-white" style="bottom:{{tabbarHeight}}rpx ;">
     <view class="flex-row flex-center margin-left-30 margin-right-30  h-100rpx ">
     <view class="flex-row flex-center"  bindtap="quanbind">
         <image src="{{uploadpath}}resource/{{res.xz}}"  class="icon-18 " wx:if="{{quanshow}}" style="flex:none" ></image>

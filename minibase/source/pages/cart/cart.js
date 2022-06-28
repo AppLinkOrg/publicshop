@@ -14,10 +14,11 @@ import { OrderApi } from "../../apis/order.api.js";
       this.Base.Page = this;
       //options.id=5;
       //options.id = 149;
+      console.log(options,'options');
       super.onLoad(options);
       this.Base.setMyData({
         val:0,
-        show:false,cartlist:[],amount:0.00,quanshow:false
+        show:false,cartlist:[],amount:0.00,quanshow:false,tabbarHeight:0
       })
       var amount =0;
       var amount=amount.toFixed(2)
@@ -30,6 +31,13 @@ import { OrderApi } from "../../apis/order.api.js";
    selected: 3
  })
 }
+
+
+var tabbarHeight=wx.getStorageSync('tabbarHeight')
+console.log(tabbarHeight,'tabbarHeight');
+var tabbarHeight2=tabbarHeight*2;
+this.Base.setMyData({tabbarHeight:tabbarHeight2})
+  
     }
    
     onMyShow() { 

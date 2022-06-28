@@ -82,8 +82,8 @@
            <!-- <view>
                <image src="../../images/aaa.png" class="h-160 w-480 margin-top-20 radius-8"></image>
            </view> -->
-
-           <scroll-view  scroll-y="true" style="height:80vh" scroll-with-animation="true"  scroll-into-view="{{vieid}}" bindscroll="scrollpage" >
+           <!-- bindscroll="scrollpage" -->
+           <scroll-view  scroll-y="true" style="height:80vh" scroll-with-animation="true"  scroll-into-view="{{vieid}}"  >
          
           <view wx:for="{{shoplist}}"  wx:key="{{index}}"  class="margin-right-30">
             <view class="margin-top-40 h5 txt-bold "  id="list{{index}}">{{item.name}}</view>
@@ -93,11 +93,14 @@
                    <image src="{{uploadpath}}shop/{{items.cover}}" class="icon-60 "  style="flex:none"></image>
   
                <view class="margin-left-10">
-                   <view class="txt-2 h6 margin-top-10  text-overflow txt-line-clamp-1">{{items.name}}</view>
+                   <view class="txt-2 h6 margin-top-10  text-overflow txt-line-clamp-1  overflow-hidden">{{items.name}}</view>
                    <view class="txt-3 f-32 margin-top-40 txt-bold">¥{{items.present}}</view>
                </view>
            </view>
            </view>
+
+
+           <view  style="height: 250rpx;"></view>
       
 
         </scroll-view>

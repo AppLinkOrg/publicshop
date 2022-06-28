@@ -94,6 +94,7 @@ this.yanshi()
   }
   yanshi(){
     var shopdetail = this.Base.getMyData().shopdetail
+
     var str=[];
     var that = this
 
@@ -106,10 +107,10 @@ console.log(item.sortlist[show],'itemggg');
 if (item.show==-1) {
   
 }else{
- if (item.sortlist[show].xzshow==true) {
+//  if (item.sortlist[show].xzshow==true) {
            var id = item['sortlist'][show]['id']
       str.push(id)
-        }
+        // }
 }
        
         
@@ -119,7 +120,8 @@ if (item.show==-1) {
     }
     var str2=str.sort((a,b) => a - b)
 
-    console.log('str2',str2);
+    console.log('str26666',str2,str2.length);
+    console.log('shopdetail',shopdetail);
 
     if (str2.length==0) {
       for(let item of shopdetail.specslist){

@@ -55,13 +55,14 @@
                 "pagePath": "pages/home/home",
                 "iconPath": "images/icons/sc2.png",
                 "selectedIconPath": "images/icons/sc.png"
-            },
-            {
+            }
+            ,{
                 "text": "分类",
                 "pagePath": "pages/classify/classify",
                 "iconPath": "images/icons/fx.png",
                 "selectedIconPath": "images/icons/fx2.png"
-            },{
+            }
+            ,{
                 "text": "租赁",
                 "pagePath": "pages/lease/lease",
                 "iconPath": "images/icons/zl.png",
