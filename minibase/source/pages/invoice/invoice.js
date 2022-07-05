@@ -55,21 +55,22 @@ class Content extends AppBase {
       type:this.Base.options.type,
       id:this.Base.options.id
     },(res)=>{
-      if (res!=null) {
+      if (res.code==0) {
+         if (res.result!=null) {
 
         this.Base.setMyData({
-          name:res.name,
-          duty:res.duty,
-          address:res.address,
-          mobile:res.mobile,
-          bank:res.bank,
-          bankaccount:res.bankaccount,
-          invoicedetail2:res
+          name:res.result.name,
+          duty:res.result.duty,
+          address:res.result.address,
+          mobile:res.result.mobile,
+          bank:res.result.bank,
+          bankaccount:res.result.bankaccount,
+          invoicedetail2:res.result
         })
 
         // 定时器
-        var submit_time = res.submit_time   //提交时间
-        var up_time=res.up_time  //结束时间
+        var submit_time = res.result.submit_time   //提交时间
+        var up_time=res.result.up_time  //结束时间
 
 
         var sub_time2=new Date(submit_time.replace(/-/g, '/')).getTime()
@@ -80,7 +81,7 @@ class Content extends AppBase {
 
 
 
-        if(first==0 && res.timestatus==0){
+        if(first==0 && res.result.timestatus==0){
           timer=setInterval(function () {
             var str = ApiUtil.Timedata(differ_time)
        differ_time=differ_time*1-1000
@@ -104,6 +105,21 @@ class Content extends AppBase {
 
 
       }
+      }else{
+        if (res.result!=null) {
+
+          this.Base.setMyData({
+            name:res.result.name,
+            duty:res.result.duty,
+            address:res.result.address,
+            mobile:res.result.mobile,
+            bank:res.result.bank,
+            bankaccount:res.result.bankaccount,
+          })
+        }
+
+      }
+     
 
 
       

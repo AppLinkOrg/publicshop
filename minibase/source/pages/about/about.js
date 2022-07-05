@@ -3,6 +3,7 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { AboutusApi } from "../../apis/aboutus.api.js";
+var WxParse = require('../../wxParse/wxParse');
 
 
 class Content extends AppBase {
@@ -26,6 +27,10 @@ class Content extends AppBase {
 
     var aboutusApi = new AboutusApi()
     aboutusApi.aboutusdetail({id:1},(res)=>{
+      res.content = that.Base.util.HtmlDecode(res.content);
+      console.log( res.content,' res.content');
+      WxParse.wxParse('content', 'html', res.content, that, 10);
+
         this.Base.setMyData({
             aboutusdetail:res
         })

@@ -416,6 +416,12 @@ export class AppBase {
     var that = this;
 
     memberapi.info({}, (info) => {
+      var mobile=info.mobile
+      var mobile1=mobile.substring(0,4)
+      var mobile2=mobile.substring(10,11)
+      var mobile3=mobile1+'******'+mobile2
+      info.mobile=mobile3
+      console.log(mobile3,'mobile3');
       this.Base.setMyData({
         memberinfo: info
       });

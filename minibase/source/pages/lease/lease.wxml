@@ -1,8 +1,8 @@
-<view class='cu-custom'>
+<!-- <view class='cu-custom'>
     <view class="cu-bar fixed " style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px; ">
         <view class='content' style='top:{{StatusBar}}px;color:#fff ;'>租赁</view>
     </view>
-</view>
+</view> -->
 
 <swiper  class="h-450"  indicator-dots="{{autoplay}}" indicator-color=" #FFFFFF" 	indicator-active-color="#DF001F" autoplay="{{autoplay}}">
     <block wx:for="{{leaselunbolist}}"  wx:key="index">
@@ -14,9 +14,9 @@
 
 <view style="margin-top:-30rpx"></view>
 
-<view  class="flex-row flex-center h-80 padding-left-30 padding-right-30 bg-white lease-radius-20  position-relative overflow-scroll"  style="justify-content: space-between;">
+<view  class="flex-row flex-center h-80 padding-left-40 padding-right-40 bg-white lease-radius-20  position-relative overflow-scroll"  style="justify-content: space-between;">
 
-<view wx:for="{{leaseclasslist}}" wx:key="{{index}}" class=" h5  w-100rpx  txt-bold  {{xzshow==index?'txt-3':'txt-1' }}"  style="flex:none"  bindtap="xz"  data-index="{{index}}">
+<view wx:for="{{leaseclasslist}}" wx:key="{{index}}" class=" h5  w-100rpx  txt-bold  {{xzshow==index?'txt-3':'txt-1' }}  text-center"  style="flex:none"  bindtap="xz"  data-index="{{index}}">
 {{item.name}}
 </view>
 

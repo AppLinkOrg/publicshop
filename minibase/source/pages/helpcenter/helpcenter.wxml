@@ -42,10 +42,13 @@
 <view class="padding-top padding-bottom  bd-1 "  wx:for="{{problemlist}}"  wx:key="{{item.id}}">
 <view class="flex-row ">
 <view class="flex-1">
-	<view class="h5 txt-2  ">{{item.name}}?</view>
+	<view class="h5 txt-2  txt-bold">{{item.name}}?</view>
 	<view class="margin-top-30  ">
 	
-	<text class="txt-1 h6"  wx:if="{{item.show}}" >{{item.answer}} </text></view>
+	<!-- <text class="txt-1 h6"  >{{item.answer}} </text> -->
+	</view>
+	
+	
 	</view>
 
 <image mode="widthFix "  class=" icon-12 margin-left-10 "  wx:if="{{!item.show}}"  style="flex:none"  src='{{uploadpath}}resource/{{res.xiajian}}'   bindtap="zhankai" 
@@ -54,6 +57,14 @@
  data-index="{{index}}"></image> 
 
 </view>
+
+<view  wx:if="{{item.show && item.content!=''}}">
+		<import src="../../wxParse/wxParse.wxml" />
+    <!-- margin-left-30 margin-right-30 -->
+    <view class='nostyle margin-top-20 w-100 padding-left-30 padding-right-30'>
+        <template is="wxParse" data="{{wxParseData:WxParseListArr[index]}}" />
+    </view>
+	</view>
 
 </view>
 

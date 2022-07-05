@@ -195,6 +195,36 @@
                     "pathName": "pages/commoditydetail/commoditydetail",
                     "query": "id=15",
                     "scene": null
+                },
+                {
+                    "name": "pages/commoditydetail/commoditydetail",
+                    "pathName": "pages/commoditydetail/commoditydetail",
+                    "query": "id=13",
+                    "scene": null
+                },
+                {
+                    "name": "pages/leasedetail/leasedetail",
+                    "pathName": "pages/leasedetail/leasedetail",
+                    "query": "id=5",
+                    "scene": null
+                },
+                {
+                    "name": "pages/paysucsses/paysucsses",
+                    "pathName": "pages/paysucsses/paysucsses",
+                    "query": "id=20",
+                    "scene": null
+                },
+                {
+                    "name": "pages/helpcenter/helpcenter",
+                    "pathName": "pages/helpcenter/helpcenter",
+                    "query": "undefined=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/fapiao/fapiao",
+                    "pathName": "pages/fapiao/fapiao",
+                    "query": "undefined=undefined",
+                    "scene": null
                 }
             ]
         }

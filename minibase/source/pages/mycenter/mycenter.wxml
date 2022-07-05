@@ -21,7 +21,7 @@
     <view class="margin-left-20">
         <view class="f-32 txt-bold txt-2"  wx:if="{{memberinfo.warrant_value=='Y'}}">{{memberinfo.nickName}}</view>
     <view class="f-32 txt-bold txt-2"  wx:else>用户昵称</view>
-    <view class="h6 txt-1" >{{memberinfo.warrant_value=='Y'? memberinfo.mobile:'登陆享受更精彩服务'}}</view>
+    <view class="h6 txt-1  margin-top-20" >{{memberinfo.warrant_value=='Y'? memberinfo.mobile:'登陆享受更精彩服务'}}</view>
     </view>
     <view class="flex-1"></view>
 
@@ -125,16 +125,19 @@
 <view class="flex-row flex-center margin-top-36 margin-bottom-20">
     <button open-type="contact" class="clear-button flex-1">
     
-    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a1}}'></image>
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.kefu}}'></image>
      <view class="txt-2 h6 padding-top-15 text-center ">在线客服</view>
 
     </button>
  
 <view class="flex-1  "  bindtap="navtoPage" data-page="feedback">
-    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.a1}}'></image>
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.fankui}}'></image>
      <view class="txt-2 h6 padding-top-15 text-center ">反馈</view>
 </view>
-<view class="flex-1"></view>
+<view class="flex-1  "  bindtap="navtoPage" data-page="fapiao">
+    <image mode="widthFix "  class="icon-26 margin-auto display-block"  src='{{uploadpath}}resource/{{res.fapiao}}'></image>
+     <view class="txt-2 h6 padding-top-15 text-center ">发票</view>
+</view>
 <view class="flex-1"></view>
 </view>
 
@@ -170,7 +173,7 @@
         </view>
     <view class="flex-row flex-center  margin-top-30 margin-bottom-30">
     <view class="txt-3 f-36 txt-bold">¥{{item.pricelist.present}}</view>
-    <view class="margin-left-20 txt-1 txt-1 h6 " style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
+    <view class="margin-left-10 txt-1 txt-1 h6 " style="text-decoration: line-through;">¥{{item.pricelist.original}}</view>
     <view class="flex-1"></view>
     <view class="txt-2 h6 ">已售{{item.shop_sold}}</view>
     </view>

@@ -4,6 +4,7 @@ import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { ProblemApi } from "../../apis/problem.api.js";
 
+var WxParse = require('../../wxParse/wxParse');
 
 
 class Content extends AppBase {
@@ -38,6 +39,30 @@ class Content extends AppBase {
     problemApi.problemlist({},(res)=>{
       for(let item of res){
         item.show=false
+      }
+
+      for (let index = 0; index < res.length; index++) {
+        console.log(res[index].content,'content');
+        if (res[index].content=='') {
+          
+        }else{
+          res[index].content = that.Base.util.HtmlDecode(res[index].content);
+        }
+        
+        WxParse.wxParse('content' + index, 'html', res[index].content, that);
+        //delete newData[i].content;
+        if (index === res.length - 1) {
+            WxParse.wxParseTemArray("WxParseListArr",'content', res.length, that)
+    
+        }
+        
+      }
+
+      for (let item of res) {
+       
+        item.content = that.Base.util.HtmlDecode(item.content);
+        console.log( item.content,' item.content');
+        WxParse.wxParse('content', 'html', item.content, that, 10);
       }
       this.Base.setMyData({
         problemlist:res

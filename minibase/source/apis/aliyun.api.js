@@ -1,15 +1,15 @@
 /*******使用方法，下面两句复制到page的js文件的头部
 
 import { ApiConfig } from '../../apis/apiconfig';
-import { InstApi } from '../../apis/order.api';
+import { InstApi } from '../../apis/aliyun.api';
 
-var orderApi=new OrderApi();
+var aliyunApi=new AliyunApi();
 *******/
 import { ApiConfig } from 'apiconfig';
-export class OrderApi{
+export class AliyunApi{
 
 
-    orderlist(json, callback, showLoading = true) {
+    meassage(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class OrderApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/orderlist',
+            url: ApiConfig.GetApiUrl() + 'aliyun/meassage',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class OrderApi{
         })
     }
 
-    update(json, callback, showLoading = true) {
+    sendverifycode(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,39 +50,7 @@ export class OrderApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/update',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    orderlist2(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/orderlist2',
+            url: ApiConfig.GetApiUrl() + 'aliyun/sendverifycode',
             data: json,
             method: 'POST',
             dataType: 'json',

@@ -4,7 +4,12 @@
 <image src="{{uploadpath}}aboutus/{{aboutusdetail.cover}}" class="icon-100  display-block margin-auto"></image>
 <view class="txt-2 f-32 txt-bold margin-top-30 text-center">{{aboutusdetail.name}}</view>
 <view class="margin-top-60 margin-left-60 margin-right-60  ">
-<text class="h6 txt-2 ">{{aboutusdetail.summary}}</text>
+    <import src="../../wxParse/wxParse.wxml" />
+    <!-- margin-left-30 margin-right-30 -->
+    <view class='nostyle margin-top-20 w-100 padding-left-30 padding-right-30'>
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+<!-- <text class="h6 txt-2 ">{{aboutusdetail.summary}}</text> -->
 </view>
 
 <view class="margin-top-80"></view>
@@ -12,11 +17,11 @@
 </view>
 
 
-<view class="margin-top-10 bg-white flex-row flex-center  h-100rpx padding-left-30 padding-right-30 ">
+<!-- <view class="margin-top-10 bg-white flex-row flex-center  h-100rpx padding-left-30 padding-right-30 ">
 <view class="h5 txt-2">微信公众号</view>
 <view class="flex-1"></view>
 <view class="txt-2 h5 ">{{aboutusdetail.account}}</view>
-</view>
+</view> -->
 
 
 </view>

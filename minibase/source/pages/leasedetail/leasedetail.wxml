@@ -33,7 +33,7 @@
     <view class="margin-top-30 f-30 txt-2 txt-bold">{{item.name}}</view>
 
     <view class=" flex-row w-100" style="flex-wrap: wrap;">
-        <view class="f-26 margin-top-5 margin-right-20 bd-5 h-80 line-height-80 padding-left-30 padding-right-30 radius-8  {{item.show==indexs?'bd-6':'bd-5'}} "  style="flex:none;opacity:{{items.xzshow?'1':'0.5'}}" wx:for="{{item.sortlist}}" wx:key="{{indexs}}"  wx:for-index="indexs" wx:for-item="items"  bindtap="select"  data-index="{{index}}" data-indexs="{{indexs}}" >{{items.name}}</view>
+        <view class="f-26 margin-top-5 margin-right-20 bd-5   padding-left-30 padding-right-30 radius-8  {{item.show==indexs?'bd-6':'bd-5'}} "  style="flex:none;opacity:{{items.xzshow?'1':'0.5'}};height: 60rpx;line-height: 60rpx;" wx:for="{{item.sortlist}}" wx:key="{{indexs}}"  wx:for-index="indexs" wx:for-item="items"  bindtap="select"  data-index="{{index}}" data-indexs="{{indexs}}" >{{items.name}}</view>
     </view>
 
    
@@ -57,14 +57,14 @@
 
 <!-- 添加收货地址 -->
 <view class="position-fixed w-100  bg-white  bd-show2" style="bottom:0;left:0">
-<view class="h-100rpx flex-row flex-center padding-left-30 padding-right-30">
+<view class="h-100rpx flex-row flex-center padding-left-30 padding-right-30  ">
 <view class="h5 txt-2 ">合计:</view>
 
     <view class="f-36 txt-bold txt-3" >¥</view>
-<view class="f-58 txt-bold txt-3 " >{{jiageprice.presentprice*1+leasedetail.deposit*1}}</view>
+<view class="f-36 txt-bold txt-3 " >{{jiageprice.presentprice*1+leasedetail.deposit*1}}</view>
 
 <view class="flex-1"></view>
-<view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20 "  bindtap="zulin">
+<view class="h-72 line-height-72 radius-36 bg-2 padding-left-30 padding-right-30 txt-white h6 margin-left-20  "  bindtap="zulin">
     立即租赁
 </view>
 
@@ -72,13 +72,15 @@
 </view>
 
 
-<view class="h-56 line-height-56 text-center w-100 flex-row flex-center" bindtap="timer">
+<view class="h-56 line-height-56 text-center w-100 flex-row flex-center margin-bottom-30" bindtap="timer">
 <view class="flex-1"></view>
 <view class="txt-1 f-22 ">点击立即租赁即表示您同意接受蜃龙的</view>
 <view class="txt-3 f-22 ">《用户租赁条款》</view>
 <view class="flex-1"></view>
 </view>
   
+
+<view style="height: 30rpx;"></view>
 </view>
 
 

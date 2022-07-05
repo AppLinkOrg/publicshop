@@ -15,7 +15,11 @@ export class ApiUtil {
 
 
     s = s.replace(new RegExp("</p>", "gm"), "</p><br />");
-    s = s.replace(new RegExp("\"/upload/", "gm"), "\"" + "https://shenlongcms.zxtriple.com/upload/");
+
+    // s = s.replace(new RegExp("\"/upload/", "gm"), "\"" + "https://shenlongcms.zxtriple.com/upload/");
+
+
+    s = s.replace(new RegExp("\"/alucard263096/publicshop/upload/", "gm"), "\"" + "https://cmsdev.app-link.org/Users/alucard263096/publicshop/upload/");
 
 
     return s;

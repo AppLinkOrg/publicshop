@@ -52,6 +52,7 @@ class Content extends AppBase {
         autoplay=false
       }
       res.content = that.Base.util.HtmlDecode(res.content);
+      console.log( res.content,' res.content');
       WxParse.wxParse('content', 'html', res.content, that, 10);
 
 

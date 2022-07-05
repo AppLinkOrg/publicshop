@@ -11,7 +11,7 @@
     <view class="flex-row  flex-center h-100rpx  bg-white">
 
         <view wx:for="{{list}}" wx:key="{{index}}" class=" position-relative h-100rpx  flex-1" bindtap="xz" id="{{index}}">
-            <view class=" h5 line-height-100 {{select==index?'txt-3':'txt-1'}} text-center">
+            <view class=" h5 line-height-100 {{select==index?'txt-3':'txt-1'}} text-center  txt-bold">
                 {{item.name}}
             </view>
             <view class="position-absolute w-100" style="bottom: 0; left:0" wx:if="{{select==index}}">
@@ -47,7 +47,7 @@
 
                 <view class="margin-left-20  flex-1">
                     <view class="flex-row ">
-                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 ">{{item.leasedetail.name}}</view>
+                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1  txt-bold">{{item.leasedetail.name}}</view>
                         <view>
                             <text class="h6 txt-2 txt-bold txt-1 margin-left-50" style="flex:none">¥</text>
                         <text class="f-32 txt-bold txt-1  " style="flex:none">{{item.leaseorder.price}}</text>
@@ -78,7 +78,7 @@
 
                 <view class="margin-left-20  flex-1">
                     <view class="flex-row ">
-                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 overflow-hidden">{{items.shop_summary}}</view>
+                        <view class="text-overflow  txt-line-clamp-2 txt-2 h6 flex-1 overflow-hidden  txt-bold">{{items.shop_summary}}</view>
                         <view style="flex:none">
                             <text class="h6 txt-2 txt-bold txt-1 margin-left-50" >¥</text>
                         <text class="f-32 txt-bold txt-1  " >{{items.present}}</text>

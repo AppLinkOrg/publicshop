@@ -254,9 +254,9 @@ page{
   border-color: #2699EC;
 } 
 view,navigator,input,text,textarea{
-  font-size: 32rpx;
-  font-weight: 350;
-  color: #5a5a5a;
+  /* font-size: 32rpx; */
+  /* font-weight: 350;
+  color: #5a5a5a; */
 }
 .flex-row{
   display: flex;
@@ -688,6 +688,9 @@ button[disabled][type=primary] {
 .padding-right-30{
   padding-right: 30rpx;
 }
+.padding-right-40{
+  padding-right: 40rpx;
+}
 .margin-auto{
   margin: auto;
 }
@@ -766,6 +769,7 @@ button[disabled][type=primary] {
 .height-150{
   height: 150rpx;
 }
+
 .margin-top-10{
   margin-top:20rpx;
 }
@@ -1073,6 +1077,9 @@ button[disabled][type=primary] {
 height: 4rpx !important;
 border-radius: 2rpx !important;
 }
+.wx-swiper-dots-horizontal{
+  margin-bottom: 40rpx;
+}
 view,
 scroll-view,
 swiper,
@@ -1097,10 +1104,11 @@ background-color: #fcebed;
 .cart-btn{
   border: 1rpx solid #DF001F;
   color: #DF001F;
-  width: 240rpx;
+  width: 200rpx;
   height: 72rpx;
   border-radius: 36rpx;
   font-size: 26rpx;
+  line-height: 72rpx;
   /* display: flex;
   align-items: center;
   justify-content: center; */
@@ -1109,8 +1117,9 @@ background-color: #fcebed;
   border: 1rpx solid #DF001F;
   background: #DF001F;
   color: #fff;
-  width: 240rpx;
+  width: 200rpx;
   height: 72rpx;
+  line-height: 72rpx;
   border-radius: 36rpx;
   font-size: 26rpx;
   display: flex;

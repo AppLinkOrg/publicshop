@@ -64,12 +64,19 @@
     <view class="flex-row flex-center " wx:if="{{show==false}}">
  <view class="flex-1"></view>
         <view class="tab txt-2 " style="flex:none">合计：</view>
-        <view>
-            <!-- f-36 -->
+          <!-- f-36 -->
+           <!-- f-48 -->
+        <!-- <view>
+          
             <text class="tab  txt-3 txt-bold">￥</text>
-            <!-- f-48 -->
+           
         <text class="txt-3 tab txt-bold">{{amount}}</text>
-        </view>
+        </view> -->
+
+        <view class="flex-row  flex-center">
+            <view class="f-36 txt-bold txt-3">¥</view>
+        <view class="f-36 txt-bold txt-3 ">{{amount}}</view>
+            </view>
 <!--      
             <view class="f-36 txt-3 txt-bold">￥</view>
         <view class="txt-3 f-48 txt-bold">{{amount}}</view> -->
