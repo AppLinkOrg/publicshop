@@ -1,24 +1,24 @@
 export class ApiConfig {
 
-  // static GetApiUrl() {
-  //   return "https://shenlongcms.zxtriple.com/api/";
-  // }
-  // static GetUploadPath() {
-  //   return "https://zxchenlong.oss-accelerate.aliyuncs.com/";
-  // }
-  // static GetFileUploadAPI() {
-  //   return "https://shenlongcms.zxtriple.com/fileupload";
-  // }
-
   static GetApiUrl() {
-    return "https://cmsdev.app-link.org/alucard263096/publicshop/api/";
+    return "https://shenlongcms.zxtriple.com/api/";
   }
   static GetUploadPath() {
-    return "https://alioss.app-link.org/alucard263096/publicshop/";
+    return "https://zxchenlong.oss-accelerate.aliyuncs.com/";
   }
   static GetFileUploadAPI() {
-    return "https://cmsdev.app-link.org/alucard263096/publicshop/fileupload";
+    return "https://shenlongcms.zxtriple.com/fileupload";
   }
+
+  // static GetApiUrl() {
+  //   return "https://cmsdev.app-link.org/alucard263096/publicshop/api/";
+  // }
+  // static GetUploadPath() {
+  //   return "https://alioss.app-link.org/alucard263096/publicshop/";
+  // }
+  // static GetFileUploadAPI() {
+  //   return "https://cmsdev.app-link.org/alucard263096/publicshop/fileupload";
+  // }
 
   static GetHeader() {
     var headers = {
