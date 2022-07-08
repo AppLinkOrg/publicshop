@@ -104,6 +104,14 @@ class Content extends AppBase {
    
   }
 
+  tiaozhuan(e){
+    console.log(e);
+    var url = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url
+    })
+   
+  }
 
 }
 var content = new Content();
@@ -111,6 +119,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 
+body.tiaozhuan = content.tiaozhuan;
 body.tuijain = content.tuijain;
 body.genduo = content.genduo;
 
