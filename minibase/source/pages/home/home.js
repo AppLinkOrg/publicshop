@@ -107,8 +107,9 @@ class Content extends AppBase {
   tiaozhuan(e){
     console.log(e);
     var url = e.currentTarget.dataset.url;
+    console.log(url)
     wx.navigateTo({
-      url
+      url: url
     })
    
   }
